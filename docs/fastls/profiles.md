@@ -36,4 +36,4 @@ Apply(&options, spec)、Options.Profile、自定义 JA3/JA4R 都不要求独立�
 
 ---
 
-来源：[FastTLS/fastls · imitate/README.md](https://github.com/FastTLS/fastls/blob/v2/imitate/README.md)。核对日期：2026-10-26；文档来源提交 `418a423e127f`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls · imitate/README.md](https://github.com/FastTLS/fastls/blob/fc600f7cc01df1a9ca1784fc15e95eb388f8425c/imitate/README.md)。核对日期：2026-10-27；文档来源提交 `fc600f7cc01d`。高级能力以实际安装版本为准。

@@ -1,5 +1,7 @@
 # imitate
 
+[English documentation](https://fasttls.github.io/en/ecosystem/imitate)
+
 FastTLS 官方独立指纹生成库。模块为 `github.com/FastTLS/imitate`，只依赖 Go 标准库和 `github.com/FastTLS/fastls/profile` 小规范模块；不发送请求，不导入 Fastls 根包、fhttp、uTLS 或 quic-go。
 
 ## 安装
@@ -68,7 +70,7 @@ go test ./...
 
 ## 详细文档与问题反馈
 
-- [使用文档](https://fasttls.github.io/concepts/)：安装、功能、参数与排错。
+- [使用文档](https://fasttls.github.io/ecosystem/imitate)：安装、功能、参数与排错。
 - [版本与发布说明](https://github.com/FastTLS/imitate/releases)：正式版本、开发版本和产物边界。
 - [问题反馈](https://github.com/FastTLS/imitate/issues)：请提供版本、系统架构、脱敏后的最小示例与错误；不要提交凭据、Cookie、私钥或个人数据。
 
@@ -83,4 +85,4 @@ go test ./...
 
 ---
 
-来源：[FastTLS/imitate · README.md](https://github.com/FastTLS/imitate/blob/v2/README.md)。核对日期：2026-10-26；文档来源提交 `51f22dd0ab05`。高级能力以实际安装版本为准。
+来源：[FastTLS/imitate · README.md](https://github.com/FastTLS/imitate/blob/fd10ea4393408e904ae2866ecbfe3efaaaa6ad8e/README.md)。核对日期：2026-10-27；文档来源提交 `fd10ea439340`。高级能力以实际安装版本为准。

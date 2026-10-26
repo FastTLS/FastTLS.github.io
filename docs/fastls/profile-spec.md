@@ -25,4 +25,4 @@
 
 ---
 
-来源：[FastTLS/fastls · profile/README.md](https://github.com/FastTLS/fastls/blob/v2/profile/README.md)。核对日期：2026-10-26；文档来源提交 `418a423e127f`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls · profile/README.md](https://github.com/FastTLS/fastls/blob/fc600f7cc01df1a9ca1784fc15e95eb388f8425c/profile/README.md)。核对日期：2026-10-27；文档来源提交 `fc600f7cc01d`。高级能力以实际安装版本为准。

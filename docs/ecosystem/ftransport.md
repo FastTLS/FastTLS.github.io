@@ -1,5 +1,7 @@
 # ftransport
 
+[English documentation](https://fasttls.github.io/en/ecosystem/ftransport)
+
 面向 Go 标准 `net/http` 的 HTTP/1.1、HTTP/2 客户端传输库，用于配置头部顺序和 H2 连接参数。需要浏览器身份及 TLS ClientHello 配置时，使用上层 [Fastls](https://github.com/FastTLS/fastls)。
 
 ## 安装
@@ -70,4 +72,4 @@ func run() error {
 
 ---
 
-来源：[FastTLS/ftransport · README.md](https://github.com/FastTLS/ftransport/blob/main/README.md)。核对日期：2026-10-26；文档来源提交 `048ec2853bab`。高级能力以实际安装版本为准。
+来源：[FastTLS/ftransport · README.md](https://github.com/FastTLS/ftransport/blob/80bacf356d8f0b7ed17d398e7f43a15b89e674fc/README.md)。核对日期：2026-10-27；文档来源提交 `80bacf356d8f`。高级能力以实际安装版本为准。

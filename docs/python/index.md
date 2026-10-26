@@ -24,7 +24,7 @@ python -m pip install --only-binary=:all: fastls==0.1.4
 python -c "from importlib.metadata import version; print(version('fastls'))"
 ```
 
-GitHub 直装、升级卸载及排错见[完整安装指南](/python/install)。
+GitHub 直装、升级卸载及排错见[完整安装指南](https://github.com/FastTLS/fastls-ffi/blob/main/INSTALL.md)。
 
 ## 直接发起请求
 
@@ -135,7 +135,7 @@ with Session() as session:
 
 始终使用上下文管理器，确保提前退出也释放资源。同一响应只允许一个读取者；块边界不对应行、消息或 HTTP 帧。已逐块消费的数据不会自动保留为完整 `.content`，不要混用读取方式。
 
-默认自动流式解压 gzip、deflate、br、zstd，解码正文上限为 256 MiB，包含流式读取。可按需设置 `max_decoded_bytes`；`decode_content=False` 返回原始正文。原始头在 `.wire_headers`，解码后的头在 `.headers`。完整规则见[流式与超时](/reference/timeouts)。
+默认自动流式解压 gzip、deflate、br、zstd，解码正文上限为 256 MiB，包含流式读取。可按需设置 `max_decoded_bytes`；`decode_content=False` 返回原始正文。原始头在 `.wire_headers`，解码后的头在 `.headers`。完整规则见[流式与超时](https://github.com/FastTLS/fastls-ffi/blob/main/STREAMING_TIMEOUTS.md)。
 
 ## asyncio
 
@@ -197,7 +197,7 @@ async def main():
 asyncio.run(main())
 ```
 
-全双工仅支持所选指纹传输的 HTTP/2，不自动跟随重定向。响应 EOF 会结束交换并取消未完成上传；上传 EOF 后仍可读响应。`await response.wait_upload()` 只表示生产者结束且本地上传 EOF 已被接受，等待时仍需并发消费响应。同步手动交互使用 `Session.duplex()` 的 `send()`、`finish_upload()` 与 `.response`；同步 `stream(..., duplex=True)` 不支持。详见[上传](/reference/upload)和[全双工](/reference/duplex)。
+全双工仅支持所选指纹传输的 HTTP/2，不自动跟随重定向。响应 EOF 会结束交换并取消未完成上传；上传 EOF 后仍可读响应。`await response.wait_upload()` 只表示生产者结束且本地上传 EOF 已被接受，等待时仍需并发消费响应。同步手动交互使用 `Session.duplex()` 的 `send()`、`finish_upload()` 与 `.response`；同步 `stream(..., duplex=True)` 不支持。详见[上传](https://github.com/FastTLS/fastls-ffi/blob/main/STREAMING_UPLOAD.md)和[全双工](https://github.com/FastTLS/fastls-ffi/blob/main/DUPLEX.md)。
 
 ## SSE
 
@@ -213,7 +213,7 @@ with Session() as session:
                 break
 ```
 
-异步使用 `async with session.sse(...)` 和 `async for event in events`。支持 `event.json()`、`events.last_event_id`、`events.retry` 和请求参数 `last_event_id`。`retry` 单位为毫秒；SDK 不自动重连或重放，`[DONE]` 由应用决定如何处理。`max_event_bytes` 默认 1 MiB，约束单行及累计事件数据。详见 [SSE](/reference/sse)。
+异步使用 `async with session.sse(...)` 和 `async for event in events`。支持 `event.json()`、`events.last_event_id`、`events.retry` 和请求参数 `last_event_id`。`retry` 单位为毫秒；SDK 不自动重连或重放，`[DONE]` 由应用决定如何处理。`max_event_bytes` 默认 1 MiB，约束单行及累计事件数据。详见 [SSE](https://github.com/FastTLS/fastls-ffi/blob/main/SSE.md)。
 
 ## WebSocket
 
@@ -230,7 +230,7 @@ with Session(profile="chrome/156/windows") as session:
 
 支持 `subprotocols`、`headers`、`params`、代理和 Session Cookie；`cookie_mode="manual"` 禁用本次自动 Cookie 读写。`max_message_bytes` 默认 1 MiB，最大 16 MiB，消息会完整缓存，不能代替无限长度文件流。同一连接允许一个读取者与一个发送者并行，不支持重叠读取或重叠发送。
 
-常规 RFC6455 Upgrade 使用 HTTP/1.1，TLS 配方为适配 WebSocket 调整 ALPN，不等同于完整浏览器握手。不支持 WebSocket 压缩、HTTP/2/3 扩展 CONNECT 或自动重连。握手、读写和关闭使用独立秒制参数 `handshake_timeout`、`read_timeout`、`write_timeout`、`close_timeout`，不以 HTTP 总超时限制连接寿命。详见 [WebSocket](/reference/websocket)。
+常规 RFC6455 Upgrade 使用 HTTP/1.1，TLS 配方为适配 WebSocket 调整 ALPN，不等同于完整浏览器握手。不支持 WebSocket 压缩、HTTP/2/3 扩展 CONNECT 或自动重连。握手、读写和关闭使用独立秒制参数 `handshake_timeout`、`read_timeout`、`write_timeout`、`close_timeout`，不以 HTTP 总超时限制连接寿命。详见 [WebSocket](https://github.com/FastTLS/fastls-ffi/blob/main/WEBSOCKET.md)。
 
 ## 配置、错误与资源管理
 
@@ -238,7 +238,7 @@ with Session(profile="chrome/156/windows") as session:
 - **错误**：`FastlsTimeoutError.phase` 标识超时阶段；`FastlsDecodeError` 表示解码失败；`FastlsHTTPError` 由 `raise_for_status()` 抛出并保留 `.response`。它们均继承 `FastlsError`；参数校验及 JSON 解析也可能抛出标准 Python 异常。
 - **Cookie / 连接池**：Session 默认自动管理 Cookie，使用 `session.cookies.get_dict(url)`、`set(name, value, url=...)`、`delete(name, url=...)`、`clear()`；`cookies=False` 禁用自动管理。不同 Session 的 Cookie 与连接池隔离，`close_idle_connections()` 释放空闲连接。
 - **TLS**：默认校验证书与主机名，没有 `verify=False`。`ca_file` 指定目标根证书，文件中的根替代系统根；只影响本 Session，不修改系统信任。
-- **代理**：会话或单次请求传 `proxy="http://127.0.0.1:8080"`；支持 HTTP/HTTPS CONNECT、SOCKS5、SOCKS5h。单次 `proxy=None` 显式直连，不读取环境代理。`proxy_ca_file` 只设置 HTTPS 代理根证书，与目标 `ca_file` 分离。详见[代理](/reference/proxy)。
+- **代理**：会话或单次请求传 `proxy="http://127.0.0.1:8080"`；支持 HTTP/HTTPS CONNECT、SOCKS5、SOCKS5h。单次 `proxy=None` 显式直连，不读取环境代理。`proxy_ca_file` 只设置 HTTPS 代理根证书，与目标 `ca_file` 分离。详见[代理](https://github.com/FastTLS/fastls-ffi/blob/main/PROXY.md)。
 - **关闭**：Session、响应、SSE 和 WebSocket 都应使用对应同步/异步上下文；提前退出也要关闭。`response.cancel()` 取消请求，Session 关闭取消所属活动请求。
 
 这里的 URL 为示例占位，上传、SSE、WebSocket 和全双工需要目标服务提供对应协议。SDK 不承诺完整兼容 requests/httpx，也不开放完整自定义 TLS Spec。
@@ -261,4 +261,4 @@ SDK-only sdist 不包含动态库，也不会在安装或导入时下载、编�
 
 ---
 
-来源：[FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/main/python/README.md)。核对日期：2026-10-27；文档来源提交 `676c1040117a`。对应 Python 0.1.4（已发布）/ Node 0.10.1（已验证，尚待 npm 上传）。
+来源：[FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/19c6c57bee4f5663757eda241081d469f62af456/python/README.md)。核对日期：2026-10-27；文档来源提交 `19c6c57bee4f`。Python 0.1.4 已发布；Node 0.10.1 已验证，尚待 npm 账号验证后上传。

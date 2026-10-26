@@ -1,5 +1,7 @@
 # Fastls MITM 代理
 
+[English documentation](https://fasttls.github.io/en/ecosystem/fastls-mitm)
+
 为经过授权的 HTTPS 调试与网络兼容性测试提供 HTTP 代理。代理解密客户端流量，再使用选定的 TLS/HTTP 配置连接目标；它能读取经过它的明文，必须作为敏感基础设施管理。
 
 [完整代理说明](https://github.com/FastTLS/fastls-mitm/blob/main/MITM_PROXY.md) · [委托模式](https://github.com/FastTLS/fastls-mitm/blob/main/DELEGATE_EXAMPLE.md) · [发布包](https://github.com/FastTLS/fastls-mitm/releases)
@@ -75,4 +77,4 @@ FastTLS 自有代码采用 [Apache-2.0](https://github.com/FastTLS/fastls-mitm/b
 
 ---
 
-来源：[FastTLS/fastls-mitm · README.md](https://github.com/FastTLS/fastls-mitm/blob/main/README.md)。核对日期：2026-10-26；文档来源提交 `67eefa705676`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls-mitm · README.md](https://github.com/FastTLS/fastls-mitm/blob/4074759048bd4375cf5d047538d892ff9d3154b9/README.md)。核对日期：2026-10-27；文档来源提交 `4074759048bd`。高级能力以实际安装版本为准。

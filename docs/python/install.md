@@ -157,4 +157,4 @@ PyPI 官方说明：[通过 Trusted Publisher 创建项目](https://docs.pypi.or
 
 ---
 
-来源：[FastTLS/fastls-ffi · INSTALL.md](https://github.com/FastTLS/fastls-ffi/blob/main/INSTALL.md)。核对日期：2026-10-27；文档来源提交 `676c1040117a`。对应 Python 0.1.4（已发布）/ Node 0.10.1（已验证，尚待 npm 上传）。
+来源：[FastTLS/fastls-ffi · INSTALL.md](https://github.com/FastTLS/fastls-ffi/blob/19c6c57bee4f5663757eda241081d469f62af456/INSTALL.md)。核对日期：2026-10-27；文档来源提交 `19c6c57bee4f`。Python 0.1.4 已发布；Node 0.10.1 已验证，尚待 npm 账号验证后上传。

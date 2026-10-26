@@ -1,4 +1,4 @@
-# WebSocket：C 与 Python 开发版接口
+# WebSocket：Python、Node.js 与 C 接口
 
 实现常规 RFC6455 `ws://` / `wss://` 客户端，Python 同步、异步与 C 共用原生消息句柄。不是 SSE 或 HTTP/2 双工的别名。
 
@@ -81,4 +81,4 @@ Node Promise 接口与 HTTP 共用 JavaScript Cookie 罐，支持 cookieMode:man
 
 ---
 
-来源：[FastTLS/fastls-ffi · WEBSOCKET.md](https://github.com/FastTLS/fastls-ffi/blob/main/WEBSOCKET.md)。核对日期：2026-10-27；文档来源提交 `676c1040117a`。对应 Python 0.1.4（已发布）/ Node 0.10.1（已验证，尚待 npm 上传）。
+来源：[FastTLS/fastls-ffi · WEBSOCKET.md](https://github.com/FastTLS/fastls-ffi/blob/19c6c57bee4f5663757eda241081d469f62af456/WEBSOCKET.md)。核对日期：2026-10-27；文档来源提交 `19c6c57bee4f`。Python 0.1.4 已发布；Node 0.10.1 已验证，尚待 npm 账号验证后上传。
