@@ -29,6 +29,8 @@ features:
     link: /node/
 ---
 
-当前版本：Go 核心 **v0.1.1** · Python **0.1.4** · Node.js **0.10.1-dev.0（开发版）**。
+当前版本：Go 核心 **v0.1.1** · Python **0.1.3** · Node.js **0.10.1-dev.0（开发版）**。
 
 [查看平台与功能限制](/concepts/support) · [版本说明与升级](/releases/)
+
+待发布：Python **0.1.4** / Node **0.10.1**，正在准备 SDK 会话管理与常用接口迁移；尚未正式发布，详见[版本说明](releases/index.md)。

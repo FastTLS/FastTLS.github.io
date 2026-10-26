@@ -1,4 +1,4 @@
-# Python 请求参数与正文编码
+# Python 请求参数契约
 
 同步 `Session` 和异步 `AsyncSession` 的 `request/get/post/stream` 支持相同参数，继续使用 `profile="chrome/156/windows"`。编码由 Python 标准库完成，无新增运行依赖。
 
@@ -46,9 +46,9 @@ with Session(profile="chrome/156/windows") as session:
 
 ## Node.js
 
-Node 0.8提供对应的params/json/form/files、流式multipart、encoding和raiseForStatus()，统一使用Promise接口。保留原始body并通过form显式编码表单；文件由调用方拥有的read(maxBytes, signal)读取器提供，不自动close。详细类型、字符集与MIME差异见[node/README.md](/node/)，16项行为映射及验收范围见[node/PARITY.md](https://github.com/FastTLS/fastls-ffi/blob/main/node/PARITY.md)。WebSocket单独推进。
+Node 0.8提供对应的params/json/form/files、流式multipart、encoding和raiseForStatus()，统一使用Promise接口。保留原始body并通过form显式编码表单；文件由调用方拥有的read(maxBytes, signal)读取器提供，不自动close。详细类型、字符集与MIME差异见[node/README.md](/node/index)，16项行为映射及验收范围见[node/PARITY.md](https://github.com/FastTLS/fastls-ffi/blob/main/node/PARITY.md)。WebSocket单独推进。
 
 
 ---
 
-来源：[FastTLS/fastls-ffi · REQUEST_OPTIONS.md](https://github.com/FastTLS/fastls-ffi/blob/main/REQUEST_OPTIONS.md)。核对日期：2026-10-26；文档来源提交 `b28e13b82b9c`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls-ffi · REQUEST_OPTIONS.md](https://github.com/FastTLS/fastls-ffi/blob/main/REQUEST_OPTIONS.md)。核对日期：2026-10-26；文档来源提交 `58b81c8e82e9`。新增 Python 0.1.4 / Node 0.10.1 能力尚待正式发布。

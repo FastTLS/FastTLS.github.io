@@ -5,7 +5,7 @@
     "file": "python/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "python/install.md",
@@ -13,7 +13,7 @@
     "file": "INSTALL.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "node/index.md",
@@ -21,7 +21,7 @@
     "file": "node/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "fastls/profiles.md",
@@ -45,7 +45,7 @@
     "file": "REQUEST_OPTIONS.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "reference/cookies.md",
@@ -53,7 +53,7 @@
     "file": "COOKIES_HEADERS.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "reference/pooling.md",
@@ -61,7 +61,7 @@
     "file": "POOLING.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "reference/timeouts.md",
@@ -69,7 +69,7 @@
     "file": "STREAMING_TIMEOUTS.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "reference/upload.md",
@@ -77,7 +77,7 @@
     "file": "STREAMING_UPLOAD.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "reference/duplex.md",
@@ -85,7 +85,7 @@
     "file": "DUPLEX.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "reference/sse.md",
@@ -93,7 +93,7 @@
     "file": "SSE.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "reference/proxy.md",
@@ -101,7 +101,7 @@
     "file": "PROXY.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "reference/websocket.md",
@@ -109,7 +109,7 @@
     "file": "WEBSOCKET.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "reference/abi.md",
@@ -117,7 +117,7 @@
     "file": "ABI.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-26",
-    "documented_commit": "b28e13b82b9c731e6360f26aafb474b80cd6dd20"
+    "documented_commit": "58b81c8e82e977f51bd672dafd6519bf67e06169"
   },
   {
     "page": "ecosystem/fastls-fetch.md",

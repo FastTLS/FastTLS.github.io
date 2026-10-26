@@ -51,4 +51,4 @@ tests/test_upload.py共16项真实动态库验收，包含H1/H2的64MiB同步上
 
 ---
 
-来源：[FastTLS/fastls-ffi · STREAMING_UPLOAD.md](https://github.com/FastTLS/fastls-ffi/blob/main/STREAMING_UPLOAD.md)。核对日期：2026-10-26；文档来源提交 `b28e13b82b9c`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls-ffi · STREAMING_UPLOAD.md](https://github.com/FastTLS/fastls-ffi/blob/main/STREAMING_UPLOAD.md)。核对日期：2026-10-26；文档来源提交 `58b81c8e82e9`。新增 Python 0.1.4 / Node 0.10.1 能力尚待正式发布。
