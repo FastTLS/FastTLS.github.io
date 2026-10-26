@@ -1,4 +1,4 @@
-# Python 请求参数契约
+# Python 请求参数与正文编码
 
 同步 `Session` 和异步 `AsyncSession` 的 `request/get/post/stream` 支持相同参数，继续使用 `profile="chrome/156/windows"`。编码由 Python 标准库完成，无新增运行依赖。
 
@@ -51,4 +51,4 @@ Node 0.8提供对应的params/json/form/files、流式multipart、encoding和rai
 
 ---
 
-来源：[FastTLS/fastls-ffi · REQUEST_OPTIONS.md](https://github.com/FastTLS/fastls-ffi/blob/main/REQUEST_OPTIONS.md)。核对日期：2026-10-26；文档来源提交 `34b43b137e1b`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls-ffi · REQUEST_OPTIONS.md](https://github.com/FastTLS/fastls-ffi/blob/main/REQUEST_OPTIONS.md)。核对日期：2026-10-26；文档来源提交 `b28e13b82b9c`。高级能力以实际安装版本为准。

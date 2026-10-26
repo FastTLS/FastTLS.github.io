@@ -1,11 +1,17 @@
 # 版本、安装渠道与升级
 
-核对日期：2026-10-26。这里列出入门基线，不会自动跟随包管理器 dist-tag。
+核对日期：2026-10-26。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
 
 - Go Fastls：v0.1.1；github.com/FastTLS/fastls。生成器 imitate 为 v0.1.0，profile 和 ftransport 由模块依赖解析。
-- Python：PyPI 的 fastls==0.1.3，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
+- Python：PyPI 的 fastls==0.1.4，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
 - Node：npm 的 @fastls/fastls@0.10.1-dev.0；latest 与 next 当前均指向该开发版本，不等于稳定版。
 - Fetch、RPC、MITM：GitHub Releases 的独立服务产物，与 Python/Node 包不是同一个安装入口。
+
+## Python 0.1.4 新增
+
+支持 `fastls.request()`、`get()`、`post()`、`put()`、`patch()`、`delete()`、`head()` 和 `options()` 直接发起同步请求，每次调用自动关闭临时会话，返回已缓存的 Response。需要复用 Cookie、连接或流式读取时继续使用 Session / AsyncSession。
+
+便捷方法提供完整的 IDE 关键字参数提示，Response 与 Headers 补齐常用类型注解；wheel 和 sdist 包含类型提示文件，支持 Python 3.10+，无新增运行依赖。详见 [一次性请求](../python/index.md#直接发起请求) 和 [发布说明](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.1.4)。
 
 ## 升级步骤
 
@@ -15,4 +21,4 @@ Go v2 是源码分支/实现代际名称，不是要求在模块路径添加 /v2
 
 ## 来源
 
-[Fastls Releases](https://github.com/FastTLS/fastls/releases) · [SDK Releases](https://github.com/FastTLS/fastls-ffi/releases) · [Python 0.1.3](https://pypi.org/project/fastls/0.1.3/) · [npm](https://www.npmjs.com/package/@fastls/fastls)
+[Fastls Releases](https://github.com/FastTLS/fastls/releases) · [SDK Releases](https://github.com/FastTLS/fastls-ffi/releases) · [Python 0.1.4](https://pypi.org/project/fastls/0.1.4/) · [npm](https://www.npmjs.com/package/@fastls/fastls)

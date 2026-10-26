@@ -2,12 +2,15 @@
 layout: home
 hero:
   name: FastTLS
-  text: 为 Go、Python 和 Node.js 提供可配置的网络请求
-  tagline: 从安装、第一条请求到流式传输、代理与协议边界。
+  text: 精细控制 TLS 指纹与 HTTP 请求行为
+  tagline: Go 原生核心，Python 与 Node.js SDK。支持浏览器配置、代理、会话复用与流式传输。
   actions:
     - theme: brand
       text: 开始使用
       link: /guide/
+    - theme: alt
+      text: Go
+      link: /fastls/
     - theme: alt
       text: Python
       link: /python/
@@ -16,14 +19,16 @@ hero:
       link: /node/
 features:
   - title: Fastls · Go
-    details: 浏览器配置、JA3/JA4R、完整 Spec，以及可复用的 HTTP 会话。
+    details: 通过浏览器配置、JA3/JA4R 或完整 Spec 控制 TLS/HTTP 参数，按需设置请求头顺序。
     link: /fastls/
   - title: Python SDK
-    details: 同步与 asyncio、流式传输、SSE、WebSocket。平台 wheel 内置动态库。
+    details: 用同步或 asyncio 接口发送请求，支持会话复用、流式传输、SSE 和 WebSocket。
     link: /python/
   - title: Node.js SDK
-    details: Promise、TypeScript、ESM 与 CommonJS。原生平台包自动选择。
+    details: 用 Promise API 集成 Fastls，提供 TypeScript 类型，支持 ESM/CommonJS、SSE 和 WebSocket。
     link: /node/
 ---
 
-当前入门基线：Go 核心 v0.1.1、Python 0.1.3、Node 0.10.1-dev.0（开发版本）。高级说明同步自源码，各页标明来源；历史标签的能力以对应发行说明为准。
+当前版本：Go 核心 **v0.1.1** · Python **0.1.4** · Node.js **0.10.1-dev.0（开发版）**。
+
+[查看平台与功能限制](/concepts/support) · [版本说明与升级](/releases/)

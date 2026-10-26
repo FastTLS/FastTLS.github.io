@@ -1,6 +1,6 @@
-# 周边工具与仓库
+# 配套工具与项目
 
-普通用户优先选择 Go、Python、Node 三种直接客户端。只有需要独立服务或采集工具时，再选择以下组件。
+在应用里发送请求，优先使用 Go、Python 或 Node.js 客户端。需要部署独立请求服务、调试代理流量或观察线上协议参数时，再选择以下工具。
 
 - [Fetch](fastls-fetch.md)：POST /fetch 的 HTTP JSON 服务，适合简单跨语言调用。
 - [RPC](fastls-rpc.md)：JSON-RPC 与 gRPC 服务，支持标准客户端工具链。

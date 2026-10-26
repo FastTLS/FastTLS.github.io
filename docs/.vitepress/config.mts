@@ -2,14 +2,14 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   "lang": "zh-CN",
   "title": "FastTLS",
-  "description": "Fastls Go、Python 和 Node.js SDK 官方使用文档",
+  "description": "FastTLS 官方文档：配置 TLS 指纹、HTTP 参数与请求头顺序，使用 Go、Python 或 Node.js 发送请求。",
   "base": "/",
   "cleanUrls": true,
   "lastUpdated": true,
   "themeConfig": {
     "nav": [
       {
-        "text": "指南",
+        "text": "开始使用",
         "link": "/guide/"
       },
       {
@@ -31,7 +31,7 @@ export default defineConfig({
     ],
     "sidebar": [
       {
-        "text": "开始",
+        "text": "开始使用",
         "items": [
           {
             "text": "选择工具",
@@ -95,7 +95,7 @@ export default defineConfig({
         ]
       },
       {
-        "text": "功能详解",
+        "text": "Python / Node 功能详解",
         "collapsed": false,
         "items": [
           {
@@ -133,22 +133,18 @@ export default defineConfig({
           {
             "text": "WebSocket",
             "link": "/reference/websocket"
-          },
-          {
-            "text": "C ABI",
-            "link": "/reference/abi"
           }
         ]
       },
       {
-        "text": "帮助与周边",
+        "text": "工具与帮助",
         "items": [
           {
-            "text": "场景示例",
+            "text": "按场景查用法",
             "link": "/examples/"
           },
           {
-            "text": "周边工具",
+            "text": "配套工具",
             "link": "/ecosystem/"
           },
           {
@@ -156,8 +152,18 @@ export default defineConfig({
             "link": "/help/"
           },
           {
-            "text": "协议与免责声明",
+            "text": "许可证与免责声明",
             "link": "/legal"
+          }
+        ]
+      },
+      {
+        "text": "维护与扩展",
+        "collapsed": true,
+        "items": [
+          {
+            "text": "C ABI 接口",
+            "link": "/reference/abi"
           },
           {
             "text": "维护本站",
@@ -167,7 +173,26 @@ export default defineConfig({
       }
     ],
     "search": {
-      "provider": "local"
+      "provider": "local",
+      "options": {
+        "translations": {
+          "button": {
+            "buttonText": "搜索文档",
+            "buttonAriaLabel": "搜索文档"
+          },
+          "modal": {
+            "displayDetails": "显示详细结果",
+            "resetButtonTitle": "清空搜索",
+            "backButtonTitle": "返回",
+            "noResultsText": "没有找到相关内容",
+            "footer": {
+              "selectText": "选择",
+              "navigateText": "切换",
+              "closeText": "关闭"
+            }
+          }
+        }
+      }
     },
     "outline": {
       "label": "本页目录",

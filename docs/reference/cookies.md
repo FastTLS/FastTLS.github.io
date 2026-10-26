@@ -50,4 +50,4 @@ tests/test_cookies.py包含13项真实动态库测试，覆盖H1/H2多值头、�
 
 ---
 
-来源：[FastTLS/fastls-ffi · COOKIES_HEADERS.md](https://github.com/FastTLS/fastls-ffi/blob/main/COOKIES_HEADERS.md)。核对日期：2026-10-26；文档来源提交 `34b43b137e1b`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls-ffi · COOKIES_HEADERS.md](https://github.com/FastTLS/fastls-ffi/blob/main/COOKIES_HEADERS.md)。核对日期：2026-10-26；文档来源提交 `b28e13b82b9c`。高级能力以实际安装版本为准。

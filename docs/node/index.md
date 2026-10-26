@@ -1,15 +1,12 @@
 # Fastls Node.js SDK
 
-Node.js 22+ 的 Fastls C ABI v1 绑定，提供 Promise API、TypeScript 声明、ESM 和 CommonJS 入口。当前开发包版本为 `0.10.1-dev.0`，npm 预发布渠道使用 `next`。
+在 Node.js 中选择浏览器网络配置并发送 HTTP 请求，通过 Promise API 管理会话、Cookie 和流式响应。支持 TypeScript、ESM 和 CommonJS，需要 Node.js 22+。
 
-支持 HTTP/1.1、HTTP/2、流式上传下载、双工、SSE、WebSocket、会话 Cookie 和 HTTP/HTTPS/SOCKS 代理。网络请求由 Go 执行，通过 Koffi 在当前 Node 进程中调用；使用者无需 Python 或 RPC 服务。
+支持 HTTP/1.1、HTTP/2、流式上传下载、双工、SSE、WebSocket 和 HTTP/HTTPS/SOCKS 代理。平台安装包包含原生库，普通使用无需 Python 或 RPC 服务。当前开发版本为 `0.10.1-dev.0`，可用 `next` 跟随后续预发布更新。
 
 只支持 Node.js 主线程。暂不支持 worker_threads、Electron、Bun 或浏览器。默认校验证书；生成的客户端身份不代表已获得与真实浏览器完全相同的线上指纹。
 
-- 用户 API 与安装方式：本文。
-- Python 行为对应、语言差异与测试证据：[PARITY.md](https://github.com/FastTLS/fastls-ffi/blob/main/node/PARITY.md)。
-- 维护者打包、首次发布和 Trusted Publisher：[NPM_RELEASE.md](https://github.com/FastTLS/fastls-ffi/blob/main/node/NPM_RELEASE.md)。
-- 当前交付状态及后续批次：[NEXT_PHASE.md](https://github.com/FastTLS/fastls-ffi/blob/main/node/NEXT_PHASE.md)。
+先完成下方安装与首次请求。与 Python 的对应关系及测试范围见 [行为映射](https://github.com/FastTLS/fastls-ffi/blob/main/node/PARITY.md)；源码构建、打包和发布见 [维护指南](https://github.com/FastTLS/fastls-ffi/blob/main/node/DEVELOPMENT.md)。
 
 ## 安装与快速开始
 
@@ -348,4 +345,4 @@ JavaScript无法强行中断任意Promise：取消会立即释放原生请求，
 
 ---
 
-来源：[FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/main/node/README.md)。核对日期：2026-10-26；文档来源提交 `34b43b137e1b`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/main/node/README.md)。核对日期：2026-10-26；文档来源提交 `b28e13b82b9c`。高级能力以实际安装版本为准。

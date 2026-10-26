@@ -63,4 +63,4 @@ SSE属于语言便利接口，无新增C符号或ABI版本变化，不包含浏�
 
 ---
 
-来源：[FastTLS/fastls-ffi · SSE.md](https://github.com/FastTLS/fastls-ffi/blob/main/SSE.md)。核对日期：2026-10-26；文档来源提交 `34b43b137e1b`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls-ffi · SSE.md](https://github.com/FastTLS/fastls-ffi/blob/main/SSE.md)。核对日期：2026-10-26；文档来源提交 `b28e13b82b9c`。高级能力以实际安装版本为准。

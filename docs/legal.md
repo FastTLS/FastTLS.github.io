@@ -2,9 +2,11 @@
 
 ## 按组件确认授权
 
-Fastls、fastls/profile、imitate、ftransport、fastls-ffi 与 fastls-lab 的自有代码使用 Apache-2.0。本次为 FastTLS 自有 Fetch、RPC、MITM 服务代码补齐同样的 LICENSE/NOTICE；第三方源码与依赖保留其原许可证，不因补齐项目声明而被重新授权。本文档站及示例采用 [Apache-2.0](https://github.com/FastTLS/FastTLS.github.io/blob/main/LICENSE)。
+Fastls、fastls/profile、imitate、ftransport、fastls-ffi、fastls-lab，以及 Fetch、RPC、MITM 服务的自有代码使用 Apache-2.0，各仓库提供对应 LICENSE 和声明。第三方源码与依赖保留原许可证。本文档站及示例采用 [Apache-2.0](https://github.com/FastTLS/FastTLS.github.io/blob/main/LICENSE)。
 
-uTLS 保留 BSD-3-Clause，quic-go 保留 MIT；图标、品牌资源或嵌入来源可能有独立规则，须看各仓库实际文件。fhttp 的 Go 来源部分有 BSD 证据，但上游新增/修改代码授权范围未确认，不能把整个库认定为 BSD 或 Apache。当前核心已用 ftransport 替代它。oohttp 与数据仓库不因公开可见而获得统一的 FastTLS 授权保证。
+uTLS 保留 BSD-3-Clause，quic-go 保留 MIT；oohttp 保留 OONI、Go Authors 的 BSD 条款及 PATENTS 专利授权。图标、品牌资源或嵌入来源可能有独立规则，须看各仓库实际文件。
+
+fhttp 的 Go 来源部分有 BSD 证据，但上游新增/修改代码授权范围未确认，不能把整个库认定为 BSD 或 Apache。当前核心已用 ftransport 替代它。指纹数据仓库目前发布的 FastTLS 自有说明采用 Apache-2.0，未来采集数据或第三方素材须逐项确认授权，不能由文档许可证推断。
 
 分发二进制时保留许可证、版权、NOTICE、第三方声明和适用专利材料。摘要用于内容完整性，来源签名用于出处核验；两者均不等于安全或法律认证。
 

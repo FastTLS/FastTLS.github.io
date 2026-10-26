@@ -1,8 +1,8 @@
 # Fastls
 
-[完整文档](https://fasttls.github.io/fastls/)
+在 Go 中控制 TLS 握手、HTTP 协议参数与请求头顺序。可以选择浏览器网络配置，也可以使用自定义 JA3/JA4R 或完整 `profile.Spec`，通过 Session 复用连接并处理流式请求。
 
-Go HTTP 客户端库，用于选择浏览器网络配置、自定义 JA3/JA4R 或完整 profile.Spec，发送具有指定 TLS/HTTP 参数及头部顺序的请求。Python、Node 用户请直接使用 [SDK](https://github.com/FastTLS/fastls-ffi)。
+使用其它语言时，直接阅读 [Python SDK](/python/) 或 [Node.js SDK](/node/) 的安装与用法。
 
 ## 安装
 

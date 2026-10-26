@@ -81,4 +81,4 @@ Node SDK已合并：Promise接口与HTTP共享Cookie，支持cookieMode:manual�
 
 ---
 
-来源：[FastTLS/fastls-ffi · WEBSOCKET.md](https://github.com/FastTLS/fastls-ffi/blob/main/WEBSOCKET.md)。核对日期：2026-10-26；文档来源提交 `34b43b137e1b`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls-ffi · WEBSOCKET.md](https://github.com/FastTLS/fastls-ffi/blob/main/WEBSOCKET.md)。核对日期：2026-10-26；文档来源提交 `b28e13b82b9c`。高级能力以实际安装版本为准。
