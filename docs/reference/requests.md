@@ -51,4 +51,4 @@ Node 0.8提供对应的params/json/form/files、流式multipart、encoding和rai
 
 ---
 
-来源：[FastTLS/fastls-ffi · REQUEST_OPTIONS.md](https://github.com/FastTLS/fastls-ffi/blob/main/REQUEST_OPTIONS.md)。核对日期：2026-10-26；文档来源提交 `58b81c8e82e9`。新增 Python 0.1.4 / Node 0.10.1 能力尚待正式发布。
+来源：[FastTLS/fastls-ffi · REQUEST_OPTIONS.md](https://github.com/FastTLS/fastls-ffi/blob/main/REQUEST_OPTIONS.md)。核对日期：2026-10-26；文档来源提交 `9641abc996db`。新增 Python 0.1.4 / Node 0.10.1 能力尚待正式发布。

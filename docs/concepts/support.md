@@ -20,7 +20,7 @@ Node 22+ 主线程；Promise、TypeScript、ESM/CJS。超时以毫秒为单位�
 
 ## 协议与资源
 
-H1/H2 是公开使用范围，不开放完整自定义 Spec。普通响应最多缓存 32 MiB；自动解压默认结果上限 256 MiB。流式响应单读取者。SSE/WebSocket 不自动重连；WebSocket 不支持压缩、H2/H3 Extended CONNECT。HTTP 错误状态需显式调用 raise_for_status()/raiseForStatus()。
+H1/H2 是公开使用范围，不开放完整自定义 Spec。Session 缓冲响应最多 32 MiB；Node fetch 使用标准 Response 的内存行为，大正文应读取 body 流；自动解压默认结果上限 256 MiB。流式响应单读取者。SSE/WebSocket 不自动重连；WebSocket 不支持压缩、H2/H3 Extended CONNECT。HTTP 错误状态需显式调用 raise_for_status()/raiseForStatus()。
 
 ## 所有入口都不保证
 

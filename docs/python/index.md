@@ -261,4 +261,4 @@ SDK-only sdist 不包含动态库，也不会在安装或导入时下载、编�
 
 ---
 
-来源：[FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/main/python/README.md)。核对日期：2026-10-26；文档来源提交 `58b81c8e82e9`。新增 Python 0.1.4 / Node 0.10.1 能力尚待正式发布。
+来源：[FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/main/python/README.md)。核对日期：2026-10-26；文档来源提交 `9641abc996db`。新增 Python 0.1.4 / Node 0.10.1 能力尚待正式发布。
