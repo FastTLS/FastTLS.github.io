@@ -81,4 +81,4 @@ Node Promise 接口与 HTTP 共用 JavaScript Cookie 罐，支持 cookieMode:man
 
 ---
 
-来源：[FastTLS/fastls-ffi · WEBSOCKET.md](https://github.com/FastTLS/fastls-ffi/blob/main/WEBSOCKET.md)。核对日期：2026-10-26；文档来源提交 `9641abc996db`。新增 Python 0.1.4 / Node 0.10.1 能力尚待正式发布。
+来源：[FastTLS/fastls-ffi · WEBSOCKET.md](https://github.com/FastTLS/fastls-ffi/blob/main/WEBSOCKET.md)。核对日期：2026-10-27；文档来源提交 `676c1040117a`。对应 Python 0.1.4（已发布）/ Node 0.10.1（已验证，尚待 npm 上传）。

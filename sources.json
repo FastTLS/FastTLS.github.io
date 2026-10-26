@@ -4,24 +4,24 @@
     "repo": "fastls-ffi",
     "file": "python/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "python/install.md",
     "repo": "fastls-ffi",
     "file": "INSTALL.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "node/index.md",
     "repo": "fastls-ffi",
     "file": "node/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "fastls/profiles.md",
@@ -44,80 +44,80 @@
     "repo": "fastls-ffi",
     "file": "REQUEST_OPTIONS.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "reference/cookies.md",
     "repo": "fastls-ffi",
     "file": "COOKIES_HEADERS.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "reference/pooling.md",
     "repo": "fastls-ffi",
     "file": "POOLING.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "reference/timeouts.md",
     "repo": "fastls-ffi",
     "file": "STREAMING_TIMEOUTS.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "reference/upload.md",
     "repo": "fastls-ffi",
     "file": "STREAMING_UPLOAD.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "reference/duplex.md",
     "repo": "fastls-ffi",
     "file": "DUPLEX.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "reference/sse.md",
     "repo": "fastls-ffi",
     "file": "SSE.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "reference/proxy.md",
     "repo": "fastls-ffi",
     "file": "PROXY.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "reference/websocket.md",
     "repo": "fastls-ffi",
     "file": "WEBSOCKET.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "reference/abi.md",
     "repo": "fastls-ffi",
     "file": "ABI.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-26",
-    "documented_commit": "9641abc996dbc5ddbec76f5b8e42c0dd55c1e8ff"
+    "reviewed": "2026-10-27",
+    "documented_commit": "676c1040117a1da7ad64dbe9f0e8691a1a0c564c"
   },
   {
     "page": "ecosystem/fastls-fetch.md",
