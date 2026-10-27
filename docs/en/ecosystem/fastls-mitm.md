@@ -53,4 +53,4 @@ Report redacted reproductions via [issues](https://github.com/FastTLS/fastls-mit
 
 ---
 
-Source: [FastTLS/fastls-mitm · README.md](https://github.com/FastTLS/fastls-mitm/blob/4074759048bd4375cf5d047538d892ff9d3154b9/README.md). Reviewed 2026-10-27; source revision `4074759048bd`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-mitm · README.md](https://github.com/FastTLS/fastls-mitm/blob/4074759048bd4375cf5d047538d892ff9d3154b9/README.md). Reviewed 2026-10-27.

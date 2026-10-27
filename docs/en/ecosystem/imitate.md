@@ -67,4 +67,4 @@ Owned code uses [Apache-2.0](https://github.com/FastTLS/imitate/blob/v2/LICENSE)
 
 ---
 
-Source: [FastTLS/imitate · README.md](https://github.com/FastTLS/imitate/blob/fd10ea4393408e904ae2866ecbfe3efaaaa6ad8e/README.md). Reviewed 2026-10-27; source revision `fd10ea439340`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/imitate · README.md](https://github.com/FastTLS/imitate/blob/fd10ea4393408e904ae2866ecbfe3efaaaa6ad8e/README.md). Reviewed 2026-10-27.

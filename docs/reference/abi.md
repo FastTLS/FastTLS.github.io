@@ -28,4 +28,4 @@ start 输入字段：url、method、profile、headers、可选 trailers、body �
 
 ---
 
-来源：[FastTLS/fastls-ffi · ABI.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/ABI.md)。核对日期：2026-10-27；文档来源提交 `0f1aaa616e69`。Python 0.1.4 已发布；Node 0.10.1 已正式发布。
+来源：[FastTLS/fastls-ffi · ABI.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/ABI.md)。核对日期：2026-10-27。

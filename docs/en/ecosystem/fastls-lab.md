@@ -32,4 +32,4 @@ Owned code uses [Apache-2.0](https://github.com/FastTLS/fastls-lab/blob/main/LIC
 
 ---
 
-Source: [FastTLS/fastls-lab · README.md](https://github.com/FastTLS/fastls-lab/blob/de2e3d6b83ceb748f7bad241ceb149b196174658/README.md). Reviewed 2026-10-27; source revision `de2e3d6b83ce`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-lab · README.md](https://github.com/FastTLS/fastls-lab/blob/de2e3d6b83ceb748f7bad241ceb149b196174658/README.md). Reviewed 2026-10-27.

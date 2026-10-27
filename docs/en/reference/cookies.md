@@ -48,4 +48,4 @@ Thirteen real-library cookie tests cover H1/H2 headers, scope, replacement/delet
 
 ---
 
-Source: [FastTLS/fastls-ffi · COOKIES_HEADERS.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/COOKIES_HEADERS.md). Reviewed 2026-10-27; source revision `0f1aaa616e69`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-ffi · COOKIES_HEADERS.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/COOKIES_HEADERS.md). Reviewed 2026-10-27.

@@ -94,4 +94,4 @@ These services are not full browsers, VPNs, arbitrary protocol forwarders, or gu
 
 ---
 
-Source: [FastTLS/fastls-rpc · README.md](https://github.com/FastTLS/fastls-rpc/blob/7feeade92f2033ed8bb6cbb45c82e117b49ffdb7/README.md). Reviewed 2026-10-27; source revision `7feeade92f20`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-rpc · README.md](https://github.com/FastTLS/fastls-rpc/blob/7feeade92f2033ed8bb6cbb45c82e117b49ffdb7/README.md). Reviewed 2026-10-27.

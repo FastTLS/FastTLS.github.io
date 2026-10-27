@@ -11,6 +11,6 @@
 
 ## 历史与数据仓库
 
-[fastls-fingerprints](https://github.com/FastTLS/fastls-fingerprints) 目前没有正式发布数据集；不能把本地生成目录当作已发布资产。[fhttp](https://github.com/FastTLS/fhttp) 与 [oohttp](https://github.com/FastTLS/oohttp) 是历史分支，当前核心使用 ftransport。fhttp 上游新增/修改代码授权范围尚未确认，不应表述为整个库已获 BSD/Apache 授权。
+[fastls-fingerprints](https://github.com/FastTLS/fastls-fingerprints) 尚未发布数据集。[fhttp](https://github.com/FastTLS/fhttp) 与 [oohttp](https://github.com/FastTLS/oohttp) 是历史分支，当前核心使用 ftransport。fhttp 上游新增/修改代码授权范围尚未确认，不应表述为整个库已获 BSD/Apache 授权。
 
 [uTLS](https://github.com/FastTLS/utls) 和 [quic-go](https://github.com/FastTLS/quic-go) 是上游派生仓库；Go module 仍可能保留上游路径。只有在理解分支差异与兼容要求时才直接使用它们，普通 SDK 用户无需单独安装。

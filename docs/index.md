@@ -32,5 +32,3 @@ features:
 当前版本：Go 核心 **v0.1.1** · Python **0.1.4** · Node.js **0.10.1**。
 
 [查看平台与功能限制](/concepts/support) · [版本说明与升级](/releases/)
-
-Python **0.1.4** 与 Node **0.10.1** 均已正式发布。新版本将会话管理放在语言 SDK，并提供更便于迁移的常用接口，详见[版本说明](releases/index.md)。

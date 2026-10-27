@@ -81,4 +81,4 @@ Report redacted reproductions through [issues](https://github.com/FastTLS/fastls
 
 ---
 
-Source: [FastTLS/fastls-fetch · README.md](https://github.com/FastTLS/fastls-fetch/blob/c6e3ec88119978e7de32141defef45f32198866a/README.md). Reviewed 2026-10-27; source revision `c6e3ec881199`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-fetch · README.md](https://github.com/FastTLS/fastls-fetch/blob/c6e3ec88119978e7de32141defef45f32198866a/README.md). Reviewed 2026-10-27.

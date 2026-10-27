@@ -56,4 +56,4 @@ Report version, OS/architecture, and redacted reproductions through [issues](htt
 
 ---
 
-Source: [FastTLS/ftransport · README.md](https://github.com/FastTLS/ftransport/blob/80bacf356d8f0b7ed17d398e7f43a15b89e674fc/README.md). Reviewed 2026-10-27; source revision `80bacf356d8f`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/ftransport · README.md](https://github.com/FastTLS/ftransport/blob/80bacf356d8f0b7ed17d398e7f43a15b89e674fc/README.md). Reviewed 2026-10-27.

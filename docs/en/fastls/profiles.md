@@ -38,4 +38,4 @@ FingerprintUserAgent is a backend parsing identity, separate from the actual req
 
 ---
 
-Source: [FastTLS/fastls · imitate/README.md](https://github.com/FastTLS/fastls/blob/fc600f7cc01df1a9ca1784fc15e95eb388f8425c/imitate/README.md). Reviewed 2026-10-27; source revision `fc600f7cc01d`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls · imitate/README.md](https://github.com/FastTLS/fastls/blob/fc600f7cc01df1a9ca1784fc15e95eb388f8425c/imitate/README.md). Reviewed 2026-10-27.

@@ -67,4 +67,4 @@ Node SDK 提供`stream(..., { duplex: true, body })`以及`session.duplex()`手�
 
 ---
 
-来源：[FastTLS/fastls-ffi · DUPLEX.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/DUPLEX.md)。核对日期：2026-10-27；文档来源提交 `0f1aaa616e69`。Python 0.1.4 已发布；Node 0.10.1 已正式发布。
+来源：[FastTLS/fastls-ffi · DUPLEX.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/DUPLEX.md)。核对日期：2026-10-27。

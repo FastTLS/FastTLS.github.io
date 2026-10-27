@@ -6,7 +6,7 @@ FastTLS configures TLS handshakes, HTTP protocol parameters, and request header 
 
 - **Go:** use [Fastls](../fastls/index.md). Browser profiles require an explicitly configured generator or offline Provider.
 - **Python:** use the [Python SDK](../python/index.md) for synchronous requests or asyncio, cookies, and streaming responses.
-- **Node.js:** use the [Node.js SDK](../node/index.md) for Promise APIs, TypeScript, ESM, and CommonJS. Stable 0.10.1 is published on npm.
+- **Node.js:** use the [Node.js SDK](../node/index.md) for Promise APIs, TypeScript, ESM, and CommonJS.
 
 Python wheels and Node platform packages bundle the native library. Regular installation does not require Go, a C compiler, or an RPC service. Check each language's timeout units, certificate verification defaults, and resource ownership rules.
 

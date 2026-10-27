@@ -29,4 +29,4 @@ Owned code uses [Apache-2.0](https://github.com/FastTLS/fastls/blob/v2/profile/L
 
 ---
 
-Source: [FastTLS/fastls · profile/README.md](https://github.com/FastTLS/fastls/blob/fc600f7cc01df1a9ca1784fc15e95eb388f8425c/profile/README.md). Reviewed 2026-10-27; source revision `fc600f7cc01d`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls · profile/README.md](https://github.com/FastTLS/fastls/blob/fc600f7cc01df1a9ca1784fc15e95eb388f8425c/profile/README.md). Reviewed 2026-10-27.

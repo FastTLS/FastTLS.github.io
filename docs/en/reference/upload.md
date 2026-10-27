@@ -51,4 +51,4 @@ Sixteen real-library tests cover 64 MiB sync/async SHA256 uploads, files/large b
 
 ---
 
-Source: [FastTLS/fastls-ffi · STREAMING_UPLOAD.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/STREAMING_UPLOAD.md). Reviewed 2026-10-27; source revision `0f1aaa616e69`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-ffi · STREAMING_UPLOAD.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/STREAMING_UPLOAD.md). Reviewed 2026-10-27.

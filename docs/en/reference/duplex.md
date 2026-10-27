@@ -65,4 +65,4 @@ Mixed duplex soak tests verify continued traffic after many cancellations on a s
 
 ---
 
-Source: [FastTLS/fastls-ffi · DUPLEX.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/DUPLEX.md). Reviewed 2026-10-27; source revision `0f1aaa616e69`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-ffi · DUPLEX.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/DUPLEX.md). Reviewed 2026-10-27.

@@ -1,8 +1,6 @@
 # Fastls Node.js SDK
 
-> Released on 2026-10-27: stable 0.10.1 is available on npm. The main package and five platform packages have matching certified hashes, with latest pointing to 0.10.1.
-
-Node.js 22+ bindings for Fastls C ABI v1, with Promise APIs, TypeScript declarations, ESM, and CommonJS. This guide covers **0.10.1**; registry data determines actual availability.
+Node.js 22+ bindings for Fastls C ABI v1, with Promise APIs, TypeScript declarations, ESM, and CommonJS. This guide covers **0.10.1**.
 
 H1/H2, streaming uploads/downloads, duplex, SSE, WebSocket, session cookies, and HTTP/HTTPS/SOCKS proxies are supported. Go performs network I/O through Koffi in the current process; Python and RPC services are unnecessary.
 
@@ -197,7 +195,7 @@ http uses H1 CONNECT for HTTP/HTTPS targets, port 80. socks5 resolves locally; s
 
 proxyCaFile trusts the proxy; caFile trusts the target. Defaults read once, request paths reread, undefined inherits, null restores system roots. Direct/HTTP/SOCKS ignore proxy CA input. Address/credentials/profile/proxy roots/target roots isolate pools. Proxy-Authorization/Proxy-Connection target headers are rejected; errors redact credentials. Connect/total and AbortSignal cover establishment; one H2 cancellation preserves other tunnel streams. No downgrade/retry follows rejection. See [proxy reference](../reference/proxy.md).
 
-The independent loopback Node proxy lab maps the Python scenarios without an SDK Python dependency. Standalone test:proxy:soak runs 60 seconds/32 concurrency across all four schemes, including cancellation/authentication/stalled handshakes. Overrides are 1..300 seconds. It retains RSS/Go heap/goroutine/handle thresholds and is separate from the 231 cases. SSE/proxy resource tests fix V8 semi-space settings only in test processes and record pre-GC threshold results, without changing SDK users' runtimes. Cancellation is synchronized to actual handshake stages, not fixed timing assumptions.
+For proxy tests and resource soak tests, see the [development guide](https://github.com/FastTLS/fastls-ffi/blob/main/node/DEVELOPMENT.md#代理长测).
 
 ## HTTP/2 duplex
 
@@ -320,4 +318,4 @@ Library selection: explicit library → FASTLS_LIBRARY → embedded manifest →
 
 ---
 
-Source: [FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/node/README.md). Reviewed 2026-10-27; source revision `0f1aaa616e69`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/node/README.md). Reviewed 2026-10-27.
