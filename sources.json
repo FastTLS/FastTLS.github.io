@@ -5,7 +5,7 @@
     "file": "python/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-27",
-    "documented_commit": "0f1aaa616e69282e48dee4ec9927c1516f80450f"
+    "documented_commit": "672f9e3b7aece70359e8d8e82c69749bcedb8456"
   },
   {
     "page": "python/install.md",
@@ -21,7 +21,7 @@
     "file": "node/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-10-27",
-    "documented_commit": "0f1aaa616e69282e48dee4ec9927c1516f80450f"
+    "documented_commit": "672f9e3b7aece70359e8d8e82c69749bcedb8456"
   },
   {
     "page": "fastls/profiles.md",

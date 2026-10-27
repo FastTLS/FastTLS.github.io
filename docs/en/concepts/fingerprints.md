@@ -16,6 +16,8 @@ imitate generates profiles; fastls/profile defines the data contract; Fastls val
 
 Explicit user values override generated defaults, including empty strings. Changing User-Agent does not change the TLS recipe or regenerate all Client Hints. The Go Provider uses canonical IDs. Fetch/RPC/MITM adapters resolve short selectors such as `chrome`; these input formats are not interchangeable.
 
+Header order only arranges existing fields; it does not generate default values. Defaults vary by profile, and automatic decoding does not automatically set `Accept-Encoding`. See the explicit-header examples for [Python](../python/index.md#setting-browser-request-headers) and [Node](../node/index.md#setting-browser-request-headers).
+
 ## Advertising versus implementing algorithms
 
 Advertising an algorithm ID does not mean the backend implements its cryptographic verification. In particular, advertise-only ML-DSA capabilities must not be described as verification support. Measurements for one platform, patch version, or navigation scenario do not validate every browser variant. Pin the tool version, profile ID, data revision, and protocol for precise experiments.

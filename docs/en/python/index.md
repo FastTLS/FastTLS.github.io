@@ -48,6 +48,28 @@ Buffered one-shot calls create a temporary session, read the response, and close
 
 Separate calls do not share cookies or connections. Reuse Session for login/state or sustained traffic; async entry points are ClientSession or AsyncSession. Buffered responses have a 32 MiB cap. stream=True returns an unbuffered response that must be closed with with/close(). Session.stream() is also retained.
 
+## Setting browser request headers
+
+The default `chrome/156/windows` profile used by Python 0.1.4 / Node 0.10.1 does not supply default values for `Accept-Encoding`, `Accept-Language`, or `Priority`. This example adds them explicitly; other profiles may have different defaults.
+
+```python
+import fastls
+
+response = fastls.get(
+    "https://tls.peet.ws/api/all",
+    profile="chrome/156/windows",
+    headers={
+        "Accept-Encoding": "gzip, deflate, br, zstd",
+        "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
+        "Priority": "u=0, i",
+    },
+)
+response.raise_for_status()
+print(response.json())
+```
+
+Adjust `Accept-Language` to your application's language preferences. `Priority` also depends on the request context; this example is not a universal browser template. Header ordering only arranges existing fields and does not generate their values. Automatic gzip/deflate/br/zstd decoding does not automatically advertise them in `Accept-Encoding`. Explicit header values override profile defaults; reusable sessions can also configure these through Session `headers`.
+
 ## Migrating from requests / aiohttp
 
 Common synchronous code can use import fastls as requests: get, Session, params/json/data/files, status_code/text/content/json(), and raise_for_status() retain familiar shapes. Streaming also supports:

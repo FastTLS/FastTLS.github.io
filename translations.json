@@ -7,8 +7,8 @@
       "chinese": "concepts/fingerprints.md",
       "english": "en/concepts/fingerprints.md",
       "reviewed": "2026-10-27",
-      "chinese_sha256": "d0a676eb9a96736f670d90232a430eab5859f90728b206dfc87c57b32bba547b",
-      "english_sha256": "4a884b3092ae7fce451cce07a7c8b543948185fca5bb9597b768da170b4f8fc5"
+      "chinese_sha256": "eca3b8543f0ef1b2cafefcd9d454882d3ee86b5dd63a2788e2a0e0ba960aafc7",
+      "english_sha256": "c87a927f23d6a9ff456e6282c966b14fa22b62e8a21944dc92b2efc13614182c"
     },
     {
       "chinese": "concepts/support.md",
@@ -140,15 +140,15 @@
       "chinese": "node/index.md",
       "english": "en/node/index.md",
       "reviewed": "2026-10-27",
-      "chinese_sha256": "c9860e8ca5cd3c1b0fc4d0659c716373e241319f437202c5c7fdaa9ef5ef4b73",
-      "english_sha256": "352866f0cc1d83253c7def0ed12e9e5e4a3a0f5c2cf44865467335d60cc3d20e"
+      "chinese_sha256": "3a911336d266ee5a20d7fb0274391f382402afc20a49fc83c844f85f76676266",
+      "english_sha256": "023e1fc7f9d8a51269f9e1303e3f19832add62c51e5576da9b7480d7cb3a9b5c"
     },
     {
       "chinese": "python/index.md",
       "english": "en/python/index.md",
       "reviewed": "2026-10-27",
-      "chinese_sha256": "8040bd14098c758724c3063969829d739400ef340a995966980ec0d4bb202e25",
-      "english_sha256": "2ff18bb5492795512ef2b6d08a5c98ddcb1e5e87d8732be46598c091ae1365f3"
+      "chinese_sha256": "96311e90c2767586c0019c4ea6553eb7cb04924a840176af19db4c6a1ffc7274",
+      "english_sha256": "12b7b7c2e53c20434487d3437ec4dcdf7ab879475f5ee597ba5e57d00bb3ca30"
     },
     {
       "chinese": "python/install.md",

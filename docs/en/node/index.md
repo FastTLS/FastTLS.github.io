@@ -41,6 +41,27 @@ try {
 
 Later snippets assume an open session. consume/produceBytes and similar names are application helpers. Close sessions and unconsumed responses. See [development](https://github.com/FastTLS/fastls-ffi/blob/main/node/DEVELOPMENT.md) for source builds, not ordinary installation.
 
+## Setting browser request headers
+
+The default `chrome/156/windows` profile used by Python 0.1.4 / Node 0.10.1 does not supply default values for `Accept-Encoding`, `Accept-Language`, or `Priority`. This example adds them explicitly; other profiles may have different defaults.
+
+```js
+import { fetch } from '@fastls/fastls';
+
+const response = await fetch('https://tls.peet.ws/api/all', {
+  profile: 'chrome/156/windows',
+  headers: {
+    'Accept-Encoding': 'gzip, deflate, br, zstd',
+    'Accept-Language': 'zh-CN,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6',
+    'Priority': 'u=0, i',
+  },
+});
+if (!response.ok) throw new Error(`HTTP ${response.status}`);
+console.log(await response.json());
+```
+
+Adjust `Accept-Language` to your application's language preferences. `Priority` also depends on the request context; this example is not a universal browser template. Header ordering only arranges existing fields and does not generate their values. Automatic gzip/deflate/br/zstd decoding does not automatically advertise them in `Accept-Encoding`. Explicit header values override profile defaults; reusable sessions can also configure these through Session `headers`.
+
 ## Migrating from Node fetch
 
 The fetch adapter follows common Node fetch usage while adding fingerprint, proxy, and certificate options:
