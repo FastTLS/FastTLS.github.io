@@ -60,4 +60,4 @@ Node的`proxyCaFile`与Python的`proxy_ca_file`对应：Session默认值在构�
 
 ---
 
-来源：[FastTLS/fastls-ffi · PROXY.md](https://github.com/FastTLS/fastls-ffi/blob/19c6c57bee4f5663757eda241081d469f62af456/PROXY.md)。核对日期：2026-10-27；文档来源提交 `19c6c57bee4f`。Python 0.1.4 已发布；Node 0.10.1 已验证，尚待 npm 账号验证后上传。
+来源：[FastTLS/fastls-ffi · PROXY.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/PROXY.md)。核对日期：2026-10-27；文档来源提交 `0f1aaa616e69`。Python 0.1.4 已发布；Node 0.10.1 已正式发布。

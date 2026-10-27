@@ -1,6 +1,6 @@
 # Fastls Node.js SDK
 
-> 发布状态（2026-10-27）：0.10.1 已完成认证，尚待 npm 账号验证后上传。当前可安装 0.10.1-dev.0；下文新增接口与 0.10.1 安装命令需正式发布后使用。
+> 发布状态（2026-10-27）：0.10.1 已正式发布至 npm，latest 指向该稳定版本。主包与五个平台原生包均已核对摘要。
 
 Node.js 22+ 的 Fastls C ABI v1 绑定，提供 Promise API、TypeScript 声明、ESM 和 CommonJS 入口。本文对应正式版 **0.10.1**，发行文件与版本状态以 npm registry 为准。
 
@@ -374,4 +374,4 @@ JavaScript无法强行中断任意Promise：取消会立即释放原生请求，
 
 ---
 
-来源：[FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/19c6c57bee4f5663757eda241081d469f62af456/node/README.md)。核对日期：2026-10-27；文档来源提交 `19c6c57bee4f`。Python 0.1.4 已发布；Node 0.10.1 已验证，尚待 npm 账号验证后上传。
+来源：[FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/node/README.md)。核对日期：2026-10-27；文档来源提交 `0f1aaa616e69`。Python 0.1.4 已发布；Node 0.10.1 已正式发布。

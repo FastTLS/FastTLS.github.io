@@ -4,14 +4,14 @@
 
 - Go Fastls：v0.1.1；github.com/FastTLS/fastls。生成器 imitate 为 v0.1.0，profile 和 ftransport 由模块依赖解析。
 - Python：PyPI 当前正式版 fastls==0.1.4，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
-- Node：npm 当前可安装 @fastls/fastls@0.10.1-dev.0 开发版；0.10.1 正式包已完成验证，尚未上传。
+- Node：npm 正式版 @fastls/fastls@0.10.1；主包与五个平台包的 latest 均指向 0.10.1。历史开发版保留用于追溯。
 - Fetch、RPC、MITM：GitHub Releases 的独立服务产物，与 Python/Node 包不是同一个安装入口。
 
 ## Python 0.1.4 / Node 0.10.1
 
 Python 0.1.4 于 2026-10-27 正式发布，提供五个平台 wheel 和一个 SDK-only sdist。六个 PyPI 文件的 SHA256 均与 [GitHub Release](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.1.4) 一致；[正式 CI](https://github.com/FastTLS/fastls-ffi/actions/runs/40366693415) 为 60 项成功、1 项按规则跳过。Windows x64 全新安装复验已通过 HTTPS/2、Cookie、WebSocket、模块级方法和 aiohttp 风格异步接口。
 
-Node 0.10.1 的源码与六包组已经过完整验证；自动上传遇到 npm 权限错误，本机恢复上传需要维护者完成账号验证，目前尚未在 npm 发布。以下新增 Node API 适用于 0.10.1 候选包，不能用于旧开发版。
+Node 0.10.1 于 2026-10-27 正式发布。主包与五个平台包的 registry SHA-512 均匹配认证原始归档，latest 均为 0.10.1。Windows x64 从官方 npm 全新安装后，已复验自带库摘要、HTTPS/2、Session.fetch Cookie 及 ESM/CJS。来源提交 `19c6c57` 的完整 CI 为 58 项通过、3 项按规则跳过。本次经本机 npm 身份验证上传，不声称具有 npm OIDC provenance。
 
 Python 新增 aiohttp 风格 `ClientSession`；Node 新增标准 `fetch` / `Session.fetch`。Cookie、默认参数、重定向由各语言 SDK 管理，动态库只承担传输资源与 TLS。
 

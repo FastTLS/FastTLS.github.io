@@ -6,7 +6,7 @@ FastTLS 用于配置客户端的 TLS 握手、HTTP 协议参数和请求头顺�
 
 - **Go**：使用 [Fastls](../fastls/index.md)，直接配置指纹和传输选项。浏览器配置需要显式提供生成器或离线 Provider。
 - **Python**：使用 [Python SDK](../python/index.md)，通过同步或 asyncio 接口管理请求、Cookie 和流式响应。
-- **Node.js**：使用 [Node.js SDK](../node/index.md)，通过 Promise API 接入，支持 TypeScript、ESM 和 CommonJS。当前提供开发版本，正式版 0.10.1 已完成验证，等待 npm 账号验证后上传。
+- **Node.js**：使用 [Node.js SDK](../node/index.md)，通过 Promise API 接入，支持 TypeScript、ESM 和 CommonJS。正式版 0.10.1 已发布。
 
 Python 和 Node.js 的平台包内置原生库，普通安装不需要 Go、C 编译器或 RPC 服务。各语言的参数和默认行为有所差异，尤其要核对超时单位、TLS 验证和资源关闭方式。
 

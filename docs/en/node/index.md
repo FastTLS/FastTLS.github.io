@@ -1,6 +1,6 @@
 # Fastls Node.js SDK
 
-> Release status, 2026-10-27: the 0.10.1 six-package set has passed validation but awaits npm account authentication before upload. The installable version is still 0.10.1-dev.0. New APIs and the 0.10.1 command below require the stable upload to complete.
+> Released on 2026-10-27: stable 0.10.1 is available on npm. The main package and five platform packages have matching certified hashes, with latest pointing to 0.10.1.
 
 Node.js 22+ bindings for Fastls C ABI v1, with Promise APIs, TypeScript declarations, ESM, and CommonJS. This guide covers **0.10.1**; registry data determines actual availability.
 
@@ -12,7 +12,7 @@ Only the Node main thread is supported, not worker_threads, Electron, Bun, or br
 
 ## Installation and first request
 
-After stable 0.10.1 becomes available:
+Install the stable release:
 
 ```sh
 npm install @fastls/fastls@0.10.1
@@ -299,4 +299,4 @@ Library selection: explicit library → FASTLS_LIBRARY → embedded manifest →
 
 ---
 
-Source: [FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/19c6c57bee4f5663757eda241081d469f62af456/node/README.md). Reviewed 2026-10-27; source revision `19c6c57bee4f`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/node/README.md). Reviewed 2026-10-27; source revision `0f1aaa616e69`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).

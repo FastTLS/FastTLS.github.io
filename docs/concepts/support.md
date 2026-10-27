@@ -12,11 +12,11 @@ Python 3.10+；同步/asyncio；HTTP 总超时默认 30 秒，所有 HTTP/WS 超
 
 ## Node.js
 
-Node 22+ 主线程；Promise、TypeScript、ESM/CJS。超时以毫秒为单位。0.10.1 候选与已发布开发版 0.10.1-dev.0 支持五种原生平台组合，系统最低版本以 native/manifest.json 为准。不支持 worker_threads、Electron、Bun、浏览器或 musl。默认验证 TLS。
+Node 22+ 主线程；Promise、TypeScript、ESM/CJS。超时以毫秒为单位。正式版 0.10.1 支持五种原生平台组合，系统最低版本以 native/manifest.json 为准。不支持 worker_threads、Electron、Bun、浏览器或 musl。默认验证 TLS。
 
 ## SDK 共同边界
 
-Python 0.1.4（已发布）/ Node 0.10.1（已验证、尚待上传）将 Cookie、默认参数与重定向放在语言 SDK，动态库负责连接、指纹、证书和收发。Python 可选 requests 风格同步接口或 aiohttp 风格 ClientSession；Node 可选标准 fetch 响应接口。以常用迁移为目标，不宣称与参考库完全兼容。
+Python 0.1.4（已发布）/ Node 0.10.1（已发布）将 Cookie、默认参数与重定向放在语言 SDK，动态库负责连接、指纹、证书和收发。Python 可选 requests 风格同步接口或 aiohttp 风格 ClientSession；Node 可选标准 fetch 响应接口。以常用迁移为目标，不宣称与参考库完全兼容。
 
 ## 协议与资源
 

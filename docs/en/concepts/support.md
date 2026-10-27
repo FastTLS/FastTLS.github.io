@@ -12,11 +12,11 @@ Python 3.10+, synchronous and asyncio APIs. The default HTTP total timeout is 30
 
 ## Node.js
 
-Node 22+ on the main thread, with Promise APIs, TypeScript, ESM, and CommonJS. Timeouts use **milliseconds**. The validated 0.10.1 package set and published 0.10.1-dev.0 support five native platforms; exact minimum systems are recorded in `native/manifest.json`. worker_threads, Electron, Bun, browsers, and musl are unsupported. TLS certificates are verified by default.
+Node 22+ on the main thread, with Promise APIs, TypeScript, ESM, and CommonJS. Timeouts use **milliseconds**. Stable 0.10.1 supports five native platforms; exact minimum systems are recorded in `native/manifest.json`. worker_threads, Electron, Bun, browsers, and musl are unsupported. TLS certificates are verified by default.
 
 ## SDK responsibilities
 
-Python 0.1.4 is published; Node 0.10.1 is validated but awaits upload. These versions keep cookies, defaults, and redirects in their language SDKs. The native library manages connections, fingerprints, certificates, and transport I/O. Python offers requests-style synchronous calls and aiohttp-style ClientSession; Node offers a standard fetch response adapter. These APIs ease common migrations without claiming complete compatibility with the reference libraries.
+Python 0.1.4 and Node 0.10.1 are published stable releases. These versions keep cookies, defaults, and redirects in their language SDKs. The native library manages connections, fingerprints, certificates, and transport I/O. Python offers requests-style synchronous calls and aiohttp-style ClientSession; Node offers a standard fetch response adapter. These APIs ease common migrations without claiming complete compatibility with the reference libraries.
 
 ## Protocol and resource limits
 

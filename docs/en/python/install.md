@@ -144,4 +144,4 @@ The SDK-only .tar.gz neither includes nor downloads/builds native code. Provide 
 
 ---
 
-Source: [FastTLS/fastls-ffi · INSTALL.md](https://github.com/FastTLS/fastls-ffi/blob/19c6c57bee4f5663757eda241081d469f62af456/INSTALL.md). Reviewed 2026-10-27; source revision `19c6c57bee4f`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).
+Source: [FastTLS/fastls-ffi · INSTALL.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/INSTALL.md). Reviewed 2026-10-27; source revision `0f1aaa616e69`. Availability and advanced features depend on the installed release; see [release status](/en/releases/).

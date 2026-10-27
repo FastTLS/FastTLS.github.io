@@ -29,8 +29,8 @@ features:
     link: /en/node/
 ---
 
-Available versions: Go core **v0.1.1** · Python **0.1.4** · Node.js **0.10.1-dev.0 (development)**.
+Available versions: Go core **v0.1.1** · Python **0.1.4** · Node.js **0.10.1**.
 
-Python **0.1.4** is published. Node **0.10.1** has passed validation but awaits npm account authentication before upload. Its new APIs are unavailable in the old development version. See [release status](/en/releases/).
+Python **0.1.4** and Node **0.10.1** are both published stable releases. Their new APIs are available after upgrading to these versions. See [release status](/en/releases/).
 
 [Supported platforms and limitations](/en/concepts/support) · [Installation help](/en/help/)
