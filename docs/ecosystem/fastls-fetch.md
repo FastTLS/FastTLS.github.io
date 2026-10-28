@@ -4,7 +4,7 @@
 
 基于 HTTP 的 FastTLS Fetch 服务。它把 URL、请求头、Cookie、代理和 TLS 指纹配置转换为一次服务端 HTTP 请求，并以统一 JSON 结构返回结果。
 
-> 当前状态：`v0.1.0` 正式版。正式产物只在 GitHub Releases 发布；PyPI、npm、容器仓库等渠道不在发布范围内。
+> 当前状态：`v0.1.1` 正式版。正式产物只在 GitHub Releases 发布；PyPI、npm、容器仓库等渠道不在发布范围内。
 
 [使用文档](https://fasttls.github.io/ecosystem/) · [下载发布包](https://github.com/FastTLS/fastls-fetch/releases)
 
@@ -138,3 +138,9 @@ FastTLS 自有代码采用 [Apache-2.0](https://github.com/FastTLS/fastls-fetch/
 ---
 
 来源：[FastTLS/fastls-fetch · README.md](https://github.com/FastTLS/fastls-fetch/blob/c6e3ec88119978e7de32141defef45f32198866a/README.md)。核对日期：2026-10-27；文档来源提交 `c6e3ec881199`。高级能力以实际安装版本为准。
+
+## v0.1.1 升级说明
+
+绑定 core v0.1.2、ftransport/imitate v0.1.1，profile 保留 v0.1.0。服务整合接入与解析资源边界、统一响应契约，以及默认关闭的脱敏审计。启用审计时需配置文件与停机预算，队列可能丢弃事件，不能把审计当成完整流量记录。配置及字段见 [审计说明](https://github.com/FastTLS/fastls-fetch/blob/v0.1.1/AUDIT.md)。
+
+回滚应恢复经过验证的完整服务二进制与配置；需要地址策略的部署不能通过关闭策略恢复。

@@ -54,3 +54,9 @@ Report redacted reproductions via [issues](https://github.com/FastTLS/fastls-mit
 ---
 
 Source: [FastTLS/fastls-mitm · README.md](https://github.com/FastTLS/fastls-mitm/blob/4074759048bd4375cf5d047538d892ff9d3154b9/README.md). Reviewed 2026-10-27.
+
+## Upgrading to v0.1.1
+
+Uses core v0.1.2 and ftransport/imitate v0.1.1; profile stays at v0.1.0. MITM integrates default proxy response contracts, cancellation and connection reuse handling, and opt-in redacted auditing. Auditing is disabled by default. Configure its file and shutdown budget explicitly; the bounded queue may drop events, so it is not a complete traffic log. See the [audit configuration](https://github.com/FastTLS/fastls-mitm/blob/v0.1.1/AUDIT.md).
+
+Roll back a verified complete service binary/configuration set. A deployment that requires address policy must not recover by disabling that policy.

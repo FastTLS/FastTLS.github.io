@@ -1,11 +1,19 @@
 # 版本、安装渠道与升级
 
-核对日期：2026-10-27。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
+核对日期：2026-10-28。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
 
-- Go Fastls：v0.1.1；github.com/FastTLS/fastls。生成器 imitate 为 v0.1.0，profile 和 ftransport 由模块依赖解析。
-- Python：PyPI 当前正式版 fastls==0.1.4，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
-- Node：npm 正式版 @fastls/fastls@0.10.1；主包与五个平台包的 latest 均指向 0.10.1。历史开发版保留用于追溯。
+- Go Fastls：v0.1.2；github.com/FastTLS/fastls。生成器 imitate 为 v0.1.1，ftransport 为 v0.1.1，profile 保留 v0.1.0。
+- Python：PyPI 当前正式版 fastls==0.1.5，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
+- Node：npm 正式版 @fastls/fastls@0.10.2；主包与五个平台包的 latest 均指向 0.10.2。历史开发版保留用于追溯。
 - Fetch、RPC、MITM：GitHub Releases 的独立服务产物，与 Python/Node 包不是同一个安装入口。
+
+## Python 0.1.5 / Node 0.10.2 / 服务 v0.1.1
+
+2026-10-28 发布。SDK 绑定真实正式模块图，原生库与安装包记录来源提交、模块校验值及许可证摘要。core v0.1.2 和 ftransport v0.1.1 整合连接生命周期、取消及响应契约修复；imitate v0.1.1 为许可证材料修订，profile 保留 v0.1.0。Fetch、RPC、MITM v0.1.1 整合接入/解析边界、统一响应契约及默认关闭的脱敏审计。
+
+[Python 0.1.5](https://pypi.org/project/fastls/0.1.5/) · [Node 0.10.2](https://www.npmjs.com/package/@fastls/fastls/v/0.10.2) · [SDK 正式资产](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.1.5)
+
+Python 保持五个平台 wheel 和一个 SDK-only sdist；Node 保持主包与五个平台包。ABI、语言安装入口和默认配置不变。SDK 地址策略和完整 Spec 接口仍未实现，本次没有新增 H3 或浏览器一致性承诺。原生库按正式标签构建后重新验证，不能将开发包重命名为正式包。
 
 ## Python 0.1.4 / Node 0.10.1
 

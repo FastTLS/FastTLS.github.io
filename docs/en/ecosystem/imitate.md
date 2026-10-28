@@ -5,7 +5,7 @@ The independent generator at github.com/FastTLS/imitate produces protocol profil
 ## Install and resolve
 
 ```sh
-go get github.com/FastTLS/imitate@v0.1.0
+go get github.com/FastTLS/imitate@v0.1.1
 ```
 
 ```go
@@ -60,7 +60,7 @@ go test ./...
 
 Fastls imitate.Register(data) creates an isolated read-only Provider, without global registration or download scripts. The data repository stores evidence and fixed outputs; executable recipe maintenance lives here.
 
-Stable module version is v0.1.0. Default-branch data revisions are not automatically new published module releases. Explicit user header values, including empties, override defaults. WithUserAgent changes HTTP UA, not TLS. Unknown profiles fail. See [fingerprint concepts](../concepts/fingerprints.md).
+Stable module version is v0.1.1. Default-branch data revisions are not automatically new published module releases. Explicit user header values, including empties, override defaults. WithUserAgent changes HTTP UA, not TLS. Unknown profiles fail. See [fingerprint concepts](../concepts/fingerprints.md).
 
 Owned code uses [Apache-2.0](https://github.com/FastTLS/imitate/blob/v2/LICENSE); consult [NOTICE.md](https://github.com/FastTLS/imitate/blob/v2/NOTICE.md) for origins and rights boundaries. Product names belong to their owners and imply no endorsement. Report redacted issues at [the repository](https://github.com/FastTLS/imitate/issues); see [authorized use and disclaimer](../legal.md).
 
@@ -68,3 +68,5 @@ Owned code uses [Apache-2.0](https://github.com/FastTLS/imitate/blob/v2/LICENSE)
 ---
 
 Source: [FastTLS/imitate · README.md](https://github.com/FastTLS/imitate/blob/fd10ea4393408e904ae2866ecbfe3efaaaa6ad8e/README.md). Reviewed 2026-10-27.
+
+v0.1.1 updates license and origin materials without refreshing the browser catalog. The profile module remains v0.1.0.

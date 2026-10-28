@@ -9,7 +9,7 @@
 Go 1.26+：
 
 ```sh
-go get github.com/FastTLS/ftransport@v0.1.0
+go get github.com/FastTLS/ftransport@v0.1.1
 ```
 
 ## 快速开始

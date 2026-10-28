@@ -78,3 +78,9 @@ FastTLS 自有代码采用 [Apache-2.0](https://github.com/FastTLS/fastls-mitm/b
 ---
 
 来源：[FastTLS/fastls-mitm · README.md](https://github.com/FastTLS/fastls-mitm/blob/4074759048bd4375cf5d047538d892ff9d3154b9/README.md)。核对日期：2026-10-27；文档来源提交 `4074759048bd`。高级能力以实际安装版本为准。
+
+## v0.1.1 升级说明
+
+绑定 core v0.1.2、ftransport/imitate v0.1.1，profile 保留 v0.1.0。MITM 整合默认代理响应契约、取消与连接复用处理，以及默认关闭的脱敏审计。启用审计时需配置文件与停机预算，队列可能丢弃事件，不能把审计当成完整流量记录。配置及字段见 [审计说明](https://github.com/FastTLS/fastls-mitm/blob/v0.1.1/AUDIT.md)。
+
+回滚应恢复经过验证的完整服务二进制与配置；需要地址策略的部署不能通过关闭策略恢复。

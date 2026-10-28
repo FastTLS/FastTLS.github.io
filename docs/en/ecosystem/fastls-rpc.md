@@ -1,6 +1,6 @@
 # fastls-rpc
 
-JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.1.0** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
+JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.1.1** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
 
 ## Choose an endpoint
 
@@ -95,3 +95,9 @@ These services are not full browsers, VPNs, arbitrary protocol forwarders, or gu
 ---
 
 Source: [FastTLS/fastls-rpc · README.md](https://github.com/FastTLS/fastls-rpc/blob/7feeade92f2033ed8bb6cbb45c82e117b49ffdb7/README.md). Reviewed 2026-10-27.
+
+## Upgrading to v0.1.1
+
+Uses core v0.1.2 and ftransport/imitate v0.1.1; profile stays at v0.1.0. The services integrate admission and parsing resource boundaries, consistent response contracts, and opt-in redacted auditing. Auditing is disabled by default. Configure its file and shutdown budget explicitly; the bounded queue may drop events, so it is not a complete traffic log. See the [audit configuration](https://github.com/FastTLS/fastls-rpc/blob/v0.1.1/AUDIT.md).
+
+Roll back a verified complete service binary/configuration set. A deployment that requires address policy must not recover by disabling that policy.

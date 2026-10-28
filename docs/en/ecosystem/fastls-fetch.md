@@ -2,7 +2,7 @@
 
 An HTTP JSON service that turns a URL, headers, cookies, proxy, and TLS fingerprint options into a server-side request and returns a structured result.
 
-Stable **v0.1.0** binaries are distributed through [GitHub Releases](https://github.com/FastTLS/fastls-fetch/releases), not PyPI/npm/container registries. Download the matching OS/architecture, verify hashes/provenance, and unpack it. Binary users do not need Go.
+Stable **v0.1.1** binaries are distributed through [GitHub Releases](https://github.com/FastTLS/fastls-fetch/releases), not PyPI/npm/container registries. Download the matching OS/architecture, verify hashes/provenance, and unpack it. Binary users do not need Go.
 
 ## Capabilities
 
@@ -82,3 +82,9 @@ Report redacted reproductions through [issues](https://github.com/FastTLS/fastls
 ---
 
 Source: [FastTLS/fastls-fetch · README.md](https://github.com/FastTLS/fastls-fetch/blob/c6e3ec88119978e7de32141defef45f32198866a/README.md). Reviewed 2026-10-27.
+
+## Upgrading to v0.1.1
+
+Uses core v0.1.2 and ftransport/imitate v0.1.1; profile stays at v0.1.0. The services integrate admission and parsing resource boundaries, consistent response contracts, and opt-in redacted auditing. Auditing is disabled by default. Configure its file and shutdown budget explicitly; the bounded queue may drop events, so it is not a complete traffic log. See the [audit configuration](https://github.com/FastTLS/fastls-fetch/blob/v0.1.1/AUDIT.md).
+
+Roll back a verified complete service binary/configuration set. A deployment that requires address policy must not recover by disabling that policy.

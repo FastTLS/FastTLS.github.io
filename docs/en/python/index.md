@@ -1,13 +1,13 @@
 # fastls Python SDK
 
-Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.1.4**.
+Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.1.5**.
 
 ## Installation and platforms
 
 Python 3.10+ is required. Prefer a virtual environment:
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.1.4
+python -m pip install --only-binary=:all: fastls==0.1.5
 ```
 
 Platform wheels contain the native library: no Go, C compiler, or separate DLL download is needed. --only-binary=:all: rejects unsupported platforms rather than installing an SDK-only sdist.
@@ -50,7 +50,7 @@ Separate calls do not share cookies or connections. Reuse Session for login/stat
 
 ## Setting browser request headers
 
-The default `chrome/156/windows` profile used by Python 0.1.4 / Node 0.10.1 does not supply default values for `Accept-Encoding`, `Accept-Language`, or `Priority`. This example adds them explicitly; other profiles may have different defaults.
+The default `chrome/156/windows` profile used by Python 0.1.5 / Node 0.10.2 does not supply default values for `Accept-Encoding`, `Accept-Language`, or `Priority`. This example adds them explicitly; other profiles may have different defaults.
 
 ```python
 import fastls

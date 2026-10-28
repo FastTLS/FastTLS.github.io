@@ -7,7 +7,7 @@ A Go H1/H2 client transport using standard net/http types, with ordered request 
 Go 1.26+:
 
 ```sh
-go get github.com/FastTLS/ftransport@v0.1.0
+go get github.com/FastTLS/ftransport@v0.1.1
 ```
 
 ```go

@@ -9,11 +9,11 @@ For other languages, start with [Python](../python/index.md) or [Node](../node/i
 Go 1.26+ is required. Run in your own Go project:
 
 ```sh
-go get github.com/FastTLS/fastls@v0.1.1
-go get github.com/FastTLS/imitate@v0.1.0
+go get github.com/FastTLS/fastls@v0.1.2
+go get github.com/FastTLS/imitate@v0.1.1
 ```
 
-The stable core is v0.1.1. v2 is a source branch/implementation generation; the module path has no /v2 suffix. Pin a release rather than treating default-branch additions as released features.
+The stable core is v0.1.2. v2 is a source branch/implementation generation; the module path has no /v2 suffix. Pin a release rather than treating default-branch additions as released features.
 
 ## First request
 

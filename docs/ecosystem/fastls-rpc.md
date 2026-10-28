@@ -4,7 +4,7 @@
 
 FastTLS 的 RPC 服务集合，同一仓库提供 JSON-RPC 2.0 和 gRPC 两种接入方式。两种服务共享相同的浏览器/JA3/JA4R 指纹解析，并通过 `fastls` + `ftransport` 发起请求。
 
-> 当前状态：`v0.1.0` 正式版。正式产物只在 GitHub Releases 发布；其他软件包、镜像和应用商店不在发布范围内。
+> 当前状态：`v0.1.1` 正式版。正式产物只在 GitHub Releases 发布；其他软件包、镜像和应用商店不在发布范围内。
 
 [使用文档](https://fasttls.github.io/ecosystem/) · [下载发布包](https://github.com/FastTLS/fastls-rpc/releases)
 
@@ -138,3 +138,9 @@ FastTLS 自有代码采用 [Apache-2.0](https://github.com/FastTLS/fastls-rpc/bl
 ---
 
 来源：[FastTLS/fastls-rpc · README.md](https://github.com/FastTLS/fastls-rpc/blob/7feeade92f2033ed8bb6cbb45c82e117b49ffdb7/README.md)。核对日期：2026-10-27；文档来源提交 `7feeade92f20`。高级能力以实际安装版本为准。
+
+## v0.1.1 升级说明
+
+绑定 core v0.1.2、ftransport/imitate v0.1.1，profile 保留 v0.1.0。服务整合接入与解析资源边界、统一响应契约，以及默认关闭的脱敏审计。启用审计时需配置文件与停机预算，队列可能丢弃事件，不能把审计当成完整流量记录。配置及字段见 [审计说明](https://github.com/FastTLS/fastls-rpc/blob/v0.1.1/AUDIT.md)。
+
+回滚应恢复经过验证的完整服务二进制与配置；需要地址策略的部署不能通过关闭策略恢复。

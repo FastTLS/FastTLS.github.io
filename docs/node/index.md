@@ -1,6 +1,6 @@
 # Fastls Node.js SDK
 
-Node.js 22+ 的 Fastls C ABI v1 绑定，提供 Promise API、TypeScript 声明、ESM 和 CommonJS 入口。本文对应 **0.10.1**。
+Node.js 22+ 的 Fastls C ABI v1 绑定，提供 Promise API、TypeScript 声明、ESM 和 CommonJS 入口。本文对应 **0.10.2**。
 
 支持 HTTP/1.1、HTTP/2、流式上传下载、双工、SSE、WebSocket、会话 Cookie 和 HTTP/HTTPS/SOCKS 代理。网络请求由 Go 执行，通过 Koffi 在当前 Node 进程中调用；使用者无需 Python 或 RPC 服务。
 
@@ -16,7 +16,7 @@ Node.js 22+ 的 Fastls C ABI v1 绑定，提供 Promise API、TypeScript 声明�
 安装指定版本：
 
 ```sh
-npm install @fastls/fastls@0.10.1
+npm install @fastls/fastls@0.10.2
 ```
 
 主包通过同版本的可选依赖自动安装当前平台的 Fastls 原生库。保留 optional dependencies；支持 Windows x64、Linux glibc x64/arm64、macOS x64/arm64。Linux musl 和其它架构没有内置包。具体系统最低版本见原生包的 `native/manifest.json`。
@@ -46,7 +46,7 @@ try {
 
 ## 设置浏览器请求头
 
-Python 0.1.4 / Node 0.10.1 所用的默认 `chrome/156/windows` 配置没有为 `Accept-Encoding`、`Accept-Language` 和 `Priority` 设置默认值。下面的示例显式补充它们；其它配置的默认值可能不同。
+Python 0.1.5 / Node 0.10.2 所用的默认 `chrome/156/windows` 配置没有为 `Accept-Encoding`、`Accept-Language` 和 `Priority` 设置默认值。下面的示例显式补充它们；其它配置的默认值可能不同。
 
 ```js
 import { fetch } from '@fastls/fastls';
@@ -332,7 +332,7 @@ send/ping/pong等到原生写入完成；同时最多一名读者和一名写入
 
 npm run test:quick先运行类型、清单及WS/原生用例；test:ws针对25项WS和16项共享Cookie；test:ws:soak运行独立60秒/32路资源回收。快速反馈不能替代231项源码/安装包完整回归与六组平台验收。
 
-0.10.1 SDK 使用不含 Cookie 的原生传输上下文，并在 JavaScript 中完成 Cookie 选择及响应更新。旧原生 Cookie 能力只为历史客户端保留。npm run test:compat 验证当前完整库的收发、显式头和失败握手。
+0.10.2 SDK 使用不含 Cookie 的原生传输上下文，并在 JavaScript 中完成 Cookie 选择及响应更新。旧原生 Cookie 能力只为历史客户端保留。npm run test:compat 验证当前完整库的收发、显式头和失败握手。
 
 ## 原生就绪通知
 

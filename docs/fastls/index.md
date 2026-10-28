@@ -9,11 +9,11 @@
 需要 Go 1.26+。在自己的 Go 项目中执行：
 
 ```sh
-go get github.com/FastTLS/fastls@v0.1.1
-go get github.com/FastTLS/imitate@v0.1.0
+go get github.com/FastTLS/fastls@v0.1.2
+go get github.com/FastTLS/imitate@v0.1.1
 ```
 
-当前稳定核心版本为 `v0.1.1`；v2 是源码分支/实现代际，导入路径没有 `/v2` 后缀。使用正式标签可避免把尚未发布的默认分支功能当作稳定版本。
+当前稳定核心版本为 `v0.1.2`；v2 是源码分支/实现代际，导入路径没有 `/v2` 后缀。使用正式标签可避免把尚未发布的默认分支功能当作稳定版本。
 
 ## 快速开始
 

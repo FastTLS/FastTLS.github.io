@@ -33,7 +33,7 @@ Custom JA3/JA4R remains supported. Cold connections do not fabricate PSK identit
 
 Complete Spec supports TLS1.2/1.3 and implemented extensions with ordered H1/H2 parameters. WS/WSS allows header value overrides but rejects explicit arbitrary Upgrade order and H2/H3 ALPN as UnsupportedFeature. Gorilla is not claimed to reproduce arbitrary browser Upgrade sequences. H3 is outside complete Spec support.
 
-FingerprintUserAgent is a backend parsing identity, separate from the actual request UA. Match product/version/platform describes selection, and Match.UserAgent records the value at Use time. Stable core v0.1.1 and old generator tags may differ from default-branch contracts; check the actual installed versions. See [development](https://github.com/FastTLS/fastls/blob/v2/DEVELOPMENT.md).
+FingerprintUserAgent is a backend parsing identity, separate from the actual request UA. Match product/version/platform describes selection, and Match.UserAgent records the value at Use time. Stable core v0.1.2 and old generator tags may differ from default-branch contracts; check the actual installed versions. See [development](https://github.com/FastTLS/fastls/blob/v2/DEVELOPMENT.md).
 
 
 ---
