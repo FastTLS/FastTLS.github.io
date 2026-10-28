@@ -230,9 +230,9 @@
     {
       "chinese": "releases/index.md",
       "english": "en/releases/index.md",
-      "reviewed": "2026-10-28",
-      "chinese_sha256": "c1c91cd34fda159c2d4dcf2708fdef1eb34e3b5018e142d695c72c93f73ea0fd",
-      "english_sha256": "e0a74258f8418f50996ace05896a0cb27cbf18550e343ac906174e1ad77bd2ae"
+      "reviewed": "2026-10-29",
+      "chinese_sha256": "b23fb0de2f8de1e6fa5ed9bd4717093aadb169b7f570a4d066044db399a59147",
+      "english_sha256": "aa5ee7584e2f06386ae1d7f1ff21e8877117ff0fd4eb6d65efe365335797c18c"
     }
   ]
 }
