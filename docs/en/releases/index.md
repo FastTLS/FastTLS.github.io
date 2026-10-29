@@ -1,11 +1,19 @@
 # Versions, installation channels, and upgrades
 
-Checked on 2026-10-29. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
+Checked on 2026-10-30. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
 
 - Go Fastls: `v0.1.2`, module `github.com/FastTLS/fastls`. The imitate generator is `v0.1.1`; ftransport is v0.1.1 and profile remains v0.1.0.
-- Python: published PyPI package `fastls==0.2.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
-- Node: stable `@fastls/fastls@0.11.0` on npm. The main and five platform packages use latest=0.11.0; historical development versions remain available.
+- Python: published PyPI package `fastls==0.3.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
+- Node: stable `@fastls/fastls@0.12.0` on npm. The main and five platform packages use latest=0.12.0; historical development versions remain available.
 - Fetch, RPC, and MITM: independent GitHub Release binaries, separate from language SDK packages.
+
+## Python 0.3.0 / Node 0.12.0
+
+Released on 2026-10-30. Python adds Basic/Bearer authentication, request-local Cookie mappings and atomic session merges. Both SDKs add opt-in retries, explicit body factories and pinned offline ProfileBundle/ProfileStore tools. New business retries are disabled by default; deadlines, cancellation and replay rules bound the entire redirect chain. ABI v1 and existing defaults remain compatible. Native source, module dependencies and unchanged services are tracked separately.
+
+[Python 0.3.0](https://pypi.org/project/fastls/0.3.0/) · [Node 0.12.0](https://www.npmjs.com/package/@fastls/fastls/v/0.12.0) · [SDK assets](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.3.0) · [Node archives and signatures](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.12.0) · [Contract and examples](../reference/reliability.md)
+
+Certificate/policy failures, cancellation, one-shot uploads and response-body failures are not retried. Non-idempotent methods require explicit authorization. Offline pins verify integrity, not producer authenticity, and imports never fetch configuration. H3 browser fingerprints, UDP proxies, Alt-Svc, online browser capture and additional platforms remain future work. The five existing platforms are retained.
 
 ## Python 0.2.0 / Node 0.11.0
 

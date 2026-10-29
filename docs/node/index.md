@@ -1,6 +1,6 @@
 # Fastls Node.js SDK
 
-Node.js 22+ 的 Fastls C ABI v1 绑定，提供 Promise API、TypeScript 声明、ESM 和 CommonJS 入口。本文对应 **0.11.0**。
+Node.js 22+ 的 Fastls C ABI v1 绑定，提供 Promise API、TypeScript 声明、ESM 和 CommonJS 入口。本文对应 **0.12.0**。
 
 支持 HTTP/1.1、HTTP/2、流式上传下载、双工、SSE、WebSocket、会话 Cookie 和 HTTP/HTTPS/SOCKS 代理。网络请求由 Go 执行，通过 Koffi 在当前 Node 进程中调用；使用者无需 Python 或 RPC 服务。
 
@@ -16,7 +16,7 @@ Node.js 22+ 的 Fastls C ABI v1 绑定，提供 Promise API、TypeScript 声明�
 安装指定版本：
 
 ```sh
-npm install @fastls/fastls@0.11.0
+npm install @fastls/fastls@0.12.0
 ```
 
 主包通过同版本的可选依赖自动安装当前平台的 Fastls 原生库。保留 optional dependencies；支持 Windows x64、Linux glibc x64/arm64、macOS x64/arm64。Linux musl 和其它架构没有内置包。具体系统最低版本见原生包的 `native/manifest.json`。
@@ -387,8 +387,12 @@ JavaScript无法强行中断任意Promise：取消会立即释放原生请求，
 
 ---
 
-来源：[FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/node/README.md)。核对日期：2026-10-27。
+来源：[FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/84a568d35f4680eb7b8b5425d898d33c8eaecf2f/node/README.md)。核对日期：2026-10-30。
 
 ## 会话能力与显式 HTTP/3
 
 Python 0.2.0 / Node 0.11.0 新增可信 Session 地址策略、完整 Spec 快照和显式 H3；各能力分别发现。H3 限定直连 HTTPS，失败不降级，且不能与代理或地址策略组合。完整 schema、参数和限制见 [能力契约](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md)。
+
+## 认证、重试与离线配置
+
+Python 0.3.0 / Node 0.12.0 新增默认关闭的业务重试、显式正文工厂与离线配置固定/回滚；Python 另有 BasicAuth/BearerAuth 与 request_cookies。参数优先级、取消、正文重放和回滚见[契约与示例](../reference/reliability.md)。

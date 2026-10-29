@@ -1,6 +1,6 @@
 # Fastls Node.js SDK
 
-Node.js 22+ bindings for Fastls C ABI v1, with Promise APIs, TypeScript declarations, ESM, and CommonJS. This guide covers **0.11.0**.
+Node.js 22+ bindings for Fastls C ABI v1, with Promise APIs, TypeScript declarations, ESM, and CommonJS. This guide covers **0.12.0**.
 
 H1/H2, streaming uploads/downloads, duplex, SSE, WebSocket, session cookies, and HTTP/HTTPS/SOCKS proxies are supported. Go performs network I/O through Koffi in the current process; Python and RPC services are unnecessary.
 
@@ -13,7 +13,7 @@ Only the Node main thread is supported, not worker_threads, Electron, Bun, or br
 Install the stable release:
 
 ```sh
-npm install @fastls/fastls@0.11.0
+npm install @fastls/fastls@0.12.0
 ```
 
 The main package installs the matching native optional dependency. Keep optional dependencies enabled. Platforms are Windows x64, Linux glibc x64/arm64, and macOS x64/arm64; musl and other architectures have no bundled package. Minimum OS/runtime requirements are recorded in native/manifest.json.
@@ -318,8 +318,12 @@ Library selection: explicit library → FASTLS_LIBRARY → embedded manifest →
 
 ---
 
-Source: [FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/node/README.md). Reviewed 2026-10-27.
+Source: [FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/84a568d35f4680eb7b8b5425d898d33c8eaecf2f/node/README.md). Reviewed 2026-10-30.
 
 ## Session capabilities and explicit HTTP/3
 
 Python 0.2.0 / Node 0.11.0 add trusted Session address policies, immutable complete Spec snapshots, and explicit H3 with independent capability discovery. H3 requires direct HTTPS, never falls back to TCP, and cannot be combined with proxies or address policies. See the [capability contract](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md) for schemas, options, and limitations.
+
+## Authentication, retry and offline configuration
+
+Python 0.3.0 / Node 0.12.0 add default-disabled business retries, explicit body factories and offline pinned profile stores. Python also adds BasicAuth/BearerAuth and request_cookies. See the [contract and examples](../reference/reliability.md) for precedence, cancellation, replay and rollback.

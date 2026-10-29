@@ -1,13 +1,13 @@
 # fastls Python SDK
 
-通过原生 Fastls 动态库发送带浏览器配置的 HTTP 请求，支持同步、asyncio、流式上传下载、HTTP/2 全双工、SSE 和 WebSocket。Python 发行包名与导入名均为 `fastls`，仓库名为 `fastls-ffi`。本文对应 Python **0.2.0**，发行文件与版本状态以 PyPI 为准。
+通过原生 Fastls 动态库发送带浏览器配置的 HTTP 请求，支持同步、asyncio、流式上传下载、HTTP/2 全双工、SSE 和 WebSocket。Python 发行包名与导入名均为 `fastls`，仓库名为 `fastls-ffi`。本文对应 Python **0.3.0**，发行文件与版本状态以 PyPI 为准。
 
 ## 安装与平台
 
 需要 Python 3.10+。推荐在虚拟环境中安装：
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.2.0
+python -m pip install --only-binary=:all: fastls==0.3.0
 ```
 
 平台 wheel 已包含动态库，无需 Go、C 编译器或额外下载 DLL。`--only-binary=:all:` 确保没有匹配平台时明确失败，避免误装不含动态库的源码包。
@@ -102,7 +102,7 @@ asyncio.run(main())
 
 `await response.read()/text()/json()` 与 `response.content.iter_chunked(n)` 是该入口的常用读取方式；`response.release()` 或 `await response.wait_for_close()` 可显式释放。`ClientSession.close()` 为异步方法。已有 `AsyncSession` 保留其缓冲响应、`aread/aiter_bytes`、双工、SSE 和 WebSocket 接口。
 
-兼容以常用流程为目标，不承诺完整替换：不接受 requests 的 `auth/hooks/adapters/verify=False`，不自动读取环境代理；没有 aiohttp 的连接器、TraceConfig 或完整 StreamReader API。超时使用 Fastls 的秒数或 `Timeout`，证书使用 `ca_file`，代理使用 `proxy`。Cookie 仍以 URL 范围访问，不是 RequestsCookieJar 的完整兼容对象；不支持 `cookies={...}`，需要 `session.cookies.set(..., url=...)` 或显式 Cookie 头。未支持的关键字会报错。
+兼容以常用流程为目标。auth 接受 BasicAuth、BearerAuth 或用户名/密码元组；hooks/adapters/verify=False、环境代理及完整 aiohttp 连接器/TraceConfig/StreamReader 生态仍不支持。逐请求 Cookie 映射使用 request_cookies={...}，cookies: bool 保留会话管理开关；时长用秒或 Timeout，证书用 ca_file，代理用 proxy。未知关键字明确报错。
 
 ## 会话职责与重定向
 
@@ -263,7 +263,7 @@ with Session(profile="chrome/156/windows") as session:
 - **代理**：会话或单次请求传 `proxy="http://127.0.0.1:8080"`；支持 HTTP/HTTPS CONNECT、SOCKS5、SOCKS5h。单次 `proxy=None` 显式直连，不读取环境代理。`proxy_ca_file` 只设置 HTTPS 代理根证书，与目标 `ca_file` 分离。详见[代理](https://github.com/FastTLS/fastls-ffi/blob/main/PROXY.md)。
 - **关闭**：Session、响应、SSE 和 WebSocket 都应使用对应同步/异步上下文；提前退出也要关闭。`response.cancel()` 取消请求，Session 关闭取消所属活动请求。
 
-这里的 URL 为示例占位，上传、SSE、WebSocket 和全双工需要目标服务提供对应协议。SDK 不承诺完整兼容 requests/httpx，也不开放完整自定义 TLS Spec。
+这里的 URL 为示例占位，上传、SSE、WebSocket 和全双工需要目标服务提供对应协议。SDK 不承诺完整兼容 requests/httpx，完整自定义 TLS Spec 通过 ProfileSpec 显式传入并由原生层校验。
 
 ## 源码开发与许可证
 
@@ -283,8 +283,12 @@ SDK-only sdist 不包含动态库，也不会在安装或导入时下载、编�
 
 ---
 
-来源：[FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/python/README.md)。核对日期：2026-10-27。
+来源：[FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/84a568d35f4680eb7b8b5425d898d33c8eaecf2f/python/README.md)。核对日期：2026-10-30。
 
 ## 会话能力与显式 HTTP/3
 
 Python 0.2.0 / Node 0.11.0 新增可信 Session 地址策略、完整 Spec 快照和显式 H3；各能力分别发现。H3 限定直连 HTTPS，失败不降级，且不能与代理或地址策略组合。完整 schema、参数和限制见 [能力契约](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md)。
+
+## 认证、重试与离线配置
+
+Python 0.3.0 / Node 0.12.0 新增默认关闭的业务重试、显式正文工厂与离线配置固定/回滚；Python 另有 BasicAuth/BearerAuth 与 request_cookies。参数优先级、取消、正文重放和回滚见[契约与示例](../reference/reliability.md)。

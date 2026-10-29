@@ -4,24 +4,24 @@
     "repo": "fastls-ffi",
     "file": "python/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-29",
-    "documented_commit": "70215098664c5d98a9da7d37adb9d97b88a35c1c"
+    "reviewed": "2026-10-30",
+    "documented_commit": "84a568d35f4680eb7b8b5425d898d33c8eaecf2f"
   },
   {
     "page": "python/install.md",
     "repo": "fastls-ffi",
     "file": "INSTALL.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-29",
-    "documented_commit": "70215098664c5d98a9da7d37adb9d97b88a35c1c"
+    "reviewed": "2026-10-30",
+    "documented_commit": "84a568d35f4680eb7b8b5425d898d33c8eaecf2f"
   },
   {
     "page": "node/index.md",
     "repo": "fastls-ffi",
     "file": "node/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-10-29",
-    "documented_commit": "70215098664c5d98a9da7d37adb9d97b88a35c1c"
+    "reviewed": "2026-10-30",
+    "documented_commit": "84a568d35f4680eb7b8b5425d898d33c8eaecf2f"
   },
   {
     "page": "fastls/profiles.md",
@@ -166,5 +166,13 @@
     "baseline": "fec4f3786629d95e40802d615a608cf5d2c34522",
     "reviewed": "2026-10-27",
     "documented_commit": "de2e3d6b83ceb748f7bad241ceb149b196174658"
+  },
+  {
+    "page": "reference/reliability.md",
+    "repo": "fastls-ffi",
+    "file": "RELIABILITY.zh-CN.md",
+    "baseline": "89907ad9828f485e3c1599d1f3011cca715d3a55",
+    "reviewed": "2026-10-30",
+    "documented_commit": "84a568d35f4680eb7b8b5425d898d33c8eaecf2f"
   }
 ]

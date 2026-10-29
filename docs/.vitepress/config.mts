@@ -118,6 +118,10 @@ export default defineConfig({
                 "link": "/reference/requests"
               },
               {
+                "text": "认证、重试与离线配置",
+                "link": "/reference/reliability"
+              },
+              {
                 "text": "Cookie 与头部",
                 "link": "/reference/cookies"
               },
@@ -308,6 +312,10 @@ export default defineConfig({
               {
                 "text": "Requests and responses",
                 "link": "/en/reference/requests"
+              },
+              {
+                "text": "Authentication, retry and offline profiles",
+                "link": "/en/reference/reliability"
               },
               {
                 "text": "Cookies and headers",

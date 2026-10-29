@@ -1,13 +1,13 @@
 # fastls Python SDK
 
-Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.2.0**.
+Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.3.0**.
 
 ## Installation and platforms
 
 Python 3.10+ is required. Prefer a virtual environment:
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.2.0
+python -m pip install --only-binary=:all: fastls==0.3.0
 ```
 
 Platform wheels contain the native library: no Go, C compiler, or separate DLL download is needed. --only-binary=:all: rejects unsupported platforms rather than installing an SDK-only sdist.
@@ -100,7 +100,7 @@ asyncio.run(main())
 
 Read with await response.read()/text()/json() or response.content.iter_chunked(n). Explicit cleanup is response.release() or await response.wait_for_close(); ClientSession.close() is async. Existing AsyncSession retains buffered responses, aread/aiter_bytes, duplex, SSE, and WebSocket.
 
-Compatibility targets common workflows, not all features. Requests auth/hooks/adapters/verify=False, environment proxies, aiohttp connectors/TraceConfig, and the full StreamReader API are unsupported. Use seconds/Timeout, ca_file, and proxy. Cookies are URL-scoped, not a full RequestsCookieJar: cookies={...} is unsupported; use session.cookies.set(...,url=...) or a manual Cookie header. Unsupported keywords fail explicitly.
+Compatibility targets common workflows. Auth accepts BasicAuth, BearerAuth or a username/password tuple; hooks/adapters/verify=False, environment proxies and full aiohttp connector/TraceConfig/StreamReader APIs remain unsupported. Use request_cookies={...} for request-local Cookie mappings; cookies: bool retains the existing session switch. Use seconds/Timeout, ca_file and proxy. Unsupported keywords fail explicitly.
 
 ## Session ownership and redirects
 
@@ -261,7 +261,7 @@ RFC6455 Upgrade uses H1 with adapted ALPN, not an exact full browser handshake. 
 - **Proxies:** http/https CONNECT, socks5, and socks5h. Per-call proxy=None forces direct access. Environment proxies are ignored. proxy_ca_file trusts only an HTTPS proxy, independently of target ca_file. See [proxies](../reference/proxy.md).
 - **Cleanup:** use matching sync/async contexts for Sessions, responses, SSE, and WS, including early exits. response.cancel() cancels one request; Session close cancels all owned requests.
 
-Example URLs are placeholders for uploads/SSE/WS/duplex. The SDK does not provide complete requests/httpx compatibility or arbitrary TLS Spec input.
+Example URLs are placeholders for uploads/SSE/WS/duplex. The SDK does not provide complete requests/httpx compatibility and accepts explicit complete ProfileSpec snapshots validated by the native backend.
 
 ## Source development and licensing
 
@@ -274,8 +274,12 @@ Loading order: explicit Session library path → FASTLS_LIBRARY → bundled whee
 
 ---
 
-Source: [FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/python/README.md). Reviewed 2026-10-27.
+Source: [FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/84a568d35f4680eb7b8b5425d898d33c8eaecf2f/python/README.md). Reviewed 2026-10-30.
 
 ## Session capabilities and explicit HTTP/3
 
 Python 0.2.0 / Node 0.11.0 add trusted Session address policies, immutable complete Spec snapshots, and explicit H3 with independent capability discovery. H3 requires direct HTTPS, never falls back to TCP, and cannot be combined with proxies or address policies. See the [capability contract](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md) for schemas, options, and limitations.
+
+## Authentication, retry and offline configuration
+
+Python 0.3.0 / Node 0.12.0 add default-disabled business retries, explicit body factories and offline pinned profile stores. Python also adds BasicAuth/BearerAuth and request_cookies. See the [contract and examples](../reference/reliability.md) for precedence, cancellation, replay and rollback.
