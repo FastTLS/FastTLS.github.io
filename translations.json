@@ -13,9 +13,9 @@
     {
       "chinese": "concepts/support.md",
       "english": "en/concepts/support.md",
-      "reviewed": "2026-10-28",
-      "chinese_sha256": "b4120c5bcb6ae9afa89081862108bce6f9b72f7bbd456ef71a694ecd0c2dabf8",
-      "english_sha256": "9b9e3cc734437749a4a15281f72c747684a809c98f9366851c8d1628ac06e9ff"
+      "reviewed": "2026-10-29",
+      "chinese_sha256": "b18f0a5940e43f0d5a901c5d3a457b867b6a30dbca8f39efabe0fc07afd5902d",
+      "english_sha256": "72cf2832fdd9cf2099a4e339cf027534dbb84b7d4951b72120f78ac2879f0342"
     },
     {
       "chinese": "ecosystem/fastls-fetch.md",
@@ -139,23 +139,23 @@
     {
       "chinese": "node/index.md",
       "english": "en/node/index.md",
-      "reviewed": "2026-10-28",
-      "chinese_sha256": "e1b2bf8d327b51e0f76b1e5fd1eaea386af6b45f02e26eb79793482068669aa4",
-      "english_sha256": "db1cf64f8a4795bf9fe3ece114388b278705361cd5a2cf4ef9c2578ad88430c4"
+      "reviewed": "2026-10-29",
+      "chinese_sha256": "27d55f3cf58d7f10bc14201af0add68dfabfc0126c1c90db2fadda6dd0b1c23e",
+      "english_sha256": "7b78ae97a4e3e0bef91dac92e8d177962d559e2d9615931a658b05c6d607d12c"
     },
     {
       "chinese": "python/index.md",
       "english": "en/python/index.md",
-      "reviewed": "2026-10-28",
-      "chinese_sha256": "9aff41ef3a0634789268a8f2d9445a64113eb00d275d2d4c164ee9ad39f380f0",
-      "english_sha256": "2dfa08c1529d744afe18e2fd88bfca1f1a0ad7bd61028df2bd6244100c8af754"
+      "reviewed": "2026-10-29",
+      "chinese_sha256": "7cb7bfd556fb312101a584b0cd6d4f1d83d1436241f8b0134c5f8e46600d0526",
+      "english_sha256": "7df330c84b6adf1dfa9657fc3ef852cf2c104422e17999b2ed6ced96c497d636"
     },
     {
       "chinese": "python/install.md",
       "english": "en/python/install.md",
-      "reviewed": "2026-10-28",
-      "chinese_sha256": "d5419fc47b6597dc5e8f06de67e8d16b68460d879f93970d1112ea5b9a2e0339",
-      "english_sha256": "564610d6b13d15057fc413c4cd4fdfead97cda679111c6ccbe89f814c39b8152"
+      "reviewed": "2026-10-29",
+      "chinese_sha256": "bc647b374f2012514a6de9ab9e077f376454fe2eaf6c94c03cd754bea58fa76e",
+      "english_sha256": "54552874d423783f5af512574a0895b026bba57e79ac16353d67e850e99c237f"
     },
     {
       "chinese": "reference/abi.md",
@@ -231,8 +231,8 @@
       "chinese": "releases/index.md",
       "english": "en/releases/index.md",
       "reviewed": "2026-10-29",
-      "chinese_sha256": "b23fb0de2f8de1e6fa5ed9bd4717093aadb169b7f570a4d066044db399a59147",
-      "english_sha256": "aa5ee7584e2f06386ae1d7f1ff21e8877117ff0fd4eb6d65efe365335797c18c"
+      "chinese_sha256": "7ed05326ae94a28c4eef50a77dc7af685f6bb7318e051741b0895287561a0ab0",
+      "english_sha256": "8a39af72347d0649060450fff83dea151c6bc16718f539961b7d423b2b6676dd"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # Fastls Node.js SDK
 
-Node.js 22+ bindings for Fastls C ABI v1, with Promise APIs, TypeScript declarations, ESM, and CommonJS. This guide covers **0.10.2**.
+Node.js 22+ bindings for Fastls C ABI v1, with Promise APIs, TypeScript declarations, ESM, and CommonJS. This guide covers **0.11.0**.
 
 H1/H2, streaming uploads/downloads, duplex, SSE, WebSocket, session cookies, and HTTP/HTTPS/SOCKS proxies are supported. Go performs network I/O through Koffi in the current process; Python and RPC services are unnecessary.
 
@@ -13,7 +13,7 @@ Only the Node main thread is supported, not worker_threads, Electron, Bun, or br
 Install the stable release:
 
 ```sh
-npm install @fastls/fastls@0.10.2
+npm install @fastls/fastls@0.11.0
 ```
 
 The main package installs the matching native optional dependency. Keep optional dependencies enabled. Platforms are Windows x64, Linux glibc x64/arm64, and macOS x64/arm64; musl and other architectures have no bundled package. Minimum OS/runtime requirements are recorded in native/manifest.json.
@@ -41,7 +41,7 @@ Later snippets assume an open session. consume/produceBytes and similar names ar
 
 ## Setting browser request headers
 
-The default `chrome/156/windows` profile used by Python 0.1.5 / Node 0.10.2 does not supply default values for `Accept-Encoding`, `Accept-Language`, or `Priority`. This example adds them explicitly; other profiles may have different defaults.
+The default `chrome/156/windows` profile used by Python 0.2.0 / Node 0.11.0 does not supply default values for `Accept-Encoding`, `Accept-Language`, or `Priority`. This example adds them explicitly; other profiles may have different defaults.
 
 ```js
 import { fetch } from '@fastls/fastls';
@@ -319,3 +319,7 @@ Library selection: explicit library → FASTLS_LIBRARY → embedded manifest →
 ---
 
 Source: [FastTLS/fastls-ffi · node/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/node/README.md). Reviewed 2026-10-27.
+
+## Session capabilities and explicit HTTP/3
+
+Python 0.2.0 / Node 0.11.0 add trusted Session address policies, immutable complete Spec snapshots, and explicit H3 with independent capability discovery. H3 requires direct HTTPS, never falls back to TCP, and cannot be combined with proxies or address policies. See the [capability contract](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md) for schemas, options, and limitations.

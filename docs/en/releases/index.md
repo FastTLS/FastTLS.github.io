@@ -3,9 +3,21 @@
 Checked on 2026-10-29. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
 
 - Go Fastls: `v0.1.2`, module `github.com/FastTLS/fastls`. The imitate generator is `v0.1.1`; ftransport is v0.1.1 and profile remains v0.1.0.
-- Python: published PyPI package `fastls==0.1.5`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
-- Node: stable `@fastls/fastls@0.10.2` on npm. The main and five platform packages use latest=0.10.2; historical development versions remain available.
+- Python: published PyPI package `fastls==0.2.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
+- Node: stable `@fastls/fastls@0.11.0` on npm. The main and five platform packages use latest=0.11.0; historical development versions remain available.
 - Fetch, RPC, and MITM: independent GitHub Release binaries, separate from language SDK packages.
+
+## Python 0.2.0 / Node 0.11.0
+
+Released on 2026-10-29. Trusted Session address policies, complete profile Spec snapshots, and explicit HTTP/3 are now exposed through the C ABI, Python sync/async APIs, and Node Session/fetch. ABI v1 and existing default requests remain compatible; older native libraries reject unsupported new options before sending requests.
+
+[Python 0.2.0](https://pypi.org/project/fastls/0.2.0/) · [Node 0.11.0](https://www.npmjs.com/package/@fastls/fastls/v/0.11.0) · [Original Node archives and signatures](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.11.0) · [Official SDK assets](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.2.0) · [Capability contract](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md)
+
+The SDK pins the public core version v0.1.3-0.20261029044750-32699153caa1.
+
+H3 requires direct HTTPS and never falls back to TCP. It cannot be combined with proxies, address policies, H1/H2 fingerprints, request trailers, WebSocket or H2 duplex. Browser QUIC fingerprints, UDP proxies, automatic Alt-Svc and generic retries remain future work. Unchanged services and components are not republished.
+
+Python retains five platform wheels and an SDK-only sdist; Node retains the main and five platform packages. npm uses GitHub Actions OIDC and PyPI uses trusted publishing. Source identity, hashes, five-platform installation and post-publication registry installation are checked separately. Development packages are not renamed into stable releases, and historical resource observations do not certify new bytes.
 
 ## Python 0.1.5 / Node 0.10.2 / services v0.1.1
 

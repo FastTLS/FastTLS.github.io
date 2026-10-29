@@ -3,9 +3,21 @@
 核对日期：2026-10-29。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
 
 - Go Fastls：v0.1.2；github.com/FastTLS/fastls。生成器 imitate 为 v0.1.1，ftransport 为 v0.1.1，profile 保留 v0.1.0。
-- Python：PyPI 当前正式版 fastls==0.1.5，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
-- Node：npm 正式版 @fastls/fastls@0.10.2；主包与五个平台包的 latest 均指向 0.10.2。历史开发版保留用于追溯。
+- Python：PyPI 当前正式版 fastls==0.2.0，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
+- Node：npm 正式版 @fastls/fastls@0.11.0；主包与五个平台包的 latest 均指向 0.11.0。历史开发版保留用于追溯。
 - Fetch、RPC、MITM：GitHub Releases 的独立服务产物，与 Python/Node 包不是同一个安装入口。
+
+## Python 0.2.0 / Node 0.11.0
+
+2026-10-29 发布。本次新增可信 Session 地址策略、完整 profile Spec 快照和显式 HTTP/3，接入 C ABI、Python 同步/异步以及 Node Session/fetch。ABI v1 和旧默认请求保持兼容；旧原生库会在发请求前拒绝不支持的新选项。
+
+[Python 0.2.0](https://pypi.org/project/fastls/0.2.0/) · [Node 0.11.0](https://www.npmjs.com/package/@fastls/fastls/v/0.11.0) · [Node 原始包与签名](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.11.0) · [正式 SDK 资产](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.2.0) · [能力契约](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md)
+
+SDK 核心依赖固定为公开版本 0.1.3-0.20261029044750-32699153caa1。
+
+H3 限定直连 HTTPS，失败不回退 TCP；不能与代理、地址策略、H1/H2 指纹、请求 Trailer、WebSocket 或 H2 双工组合。浏览器 QUIC 指纹、UDP 代理、自动 Alt-Svc 和通用重试仍是后续范围。服务和未改动组件不重发。
+
+Python 保持五个平台 wheel 和一个 SDK-only sdist；Node 保持主包与五个平台包。npm 使用 GitHub Actions OIDC，PyPI 使用可信发布。来源、摘要、五平台安装与发布后 registry 安装分别核验，不把开发包改名为正式包，也不把历史资源观测当成新字节认证。
 
 ## Python 0.1.5 / Node 0.10.2 / 服务 v0.1.1
 

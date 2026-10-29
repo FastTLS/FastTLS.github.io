@@ -1,13 +1,13 @@
 # fastls Python SDK
 
-通过原生 Fastls 动态库发送带浏览器配置的 HTTP 请求，支持同步、asyncio、流式上传下载、HTTP/2 全双工、SSE 和 WebSocket。Python 发行包名与导入名均为 `fastls`，仓库名为 `fastls-ffi`。本文对应 Python **0.1.5**，发行文件与版本状态以 PyPI 为准。
+通过原生 Fastls 动态库发送带浏览器配置的 HTTP 请求，支持同步、asyncio、流式上传下载、HTTP/2 全双工、SSE 和 WebSocket。Python 发行包名与导入名均为 `fastls`，仓库名为 `fastls-ffi`。本文对应 Python **0.2.0**，发行文件与版本状态以 PyPI 为准。
 
 ## 安装与平台
 
 需要 Python 3.10+。推荐在虚拟环境中安装：
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.1.5
+python -m pip install --only-binary=:all: fastls==0.2.0
 ```
 
 平台 wheel 已包含动态库，无需 Go、C 编译器或额外下载 DLL。`--only-binary=:all:` 确保没有匹配平台时明确失败，避免误装不含动态库的源码包。
@@ -52,7 +52,7 @@ print(resp.status_code, resp.text)
 
 ## 设置浏览器请求头
 
-Python 0.1.5 / Node 0.10.2 所用的默认 `chrome/156/windows` 配置没有为 `Accept-Encoding`、`Accept-Language` 和 `Priority` 设置默认值。下面的示例显式补充它们；其它配置的默认值可能不同。
+Python 0.2.0 / Node 0.11.0 所用的默认 `chrome/156/windows` 配置没有为 `Accept-Encoding`、`Accept-Language` 和 `Priority` 设置默认值。下面的示例显式补充它们；其它配置的默认值可能不同。
 
 ```python
 import fastls
@@ -284,3 +284,7 @@ SDK-only sdist 不包含动态库，也不会在安装或导入时下载、编�
 ---
 
 来源：[FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/python/README.md)。核对日期：2026-10-27。
+
+## 会话能力与显式 HTTP/3
+
+Python 0.2.0 / Node 0.11.0 新增可信 Session 地址策略、完整 Spec 快照和显式 H3；各能力分别发现。H3 限定直连 HTTPS，失败不降级，且不能与代理或地址策略组合。完整 schema、参数和限制见 [能力契约](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md)。

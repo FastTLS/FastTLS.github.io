@@ -1,11 +1,11 @@
 # Python SDK installation
 
-This guide covers published fastls 0.1.5 and its [GitHub Release](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.1.5). Platform wheels bundle the library; regular users need no Go, C compiler, source checkout, or separate DLL/dylib/so download.
+This guide covers published fastls 0.2.0 and its [GitHub Release](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.2.0). Platform wheels bundle the library; regular users need no Go, C compiler, source checkout, or separate DLL/dylib/so download.
 
-The package and import name are fastls. Prefer [PyPI](https://pypi.org/project/fastls/0.1.5/):
+The package and import name are fastls. Prefer [PyPI](https://pypi.org/project/fastls/0.2.0/):
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.1.5
+python -m pip install --only-binary=:all: fastls==0.2.0
 ```
 
 --only-binary=:all: rejects unsupported platforms instead of installing an SDK-only sdist without native code. Historical v0.1.2 used distribution fastls-ffi; its assets keep their names. Uninstall fastls-ffi before installing fastls, and vice versa, because they own the same import directory.
@@ -53,37 +53,37 @@ Run only the command matching your interpreter.
 ### Windows x64
 
 ```shell
-python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.1.5/fastls-0.1.5-py3-none-win_amd64.whl"
+python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.2.0/fastls-0.2.0-py3-none-win_amd64.whl"
 ```
 
 ### Linux x64
 
 ```shell
-python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.1.5/fastls-0.1.5-py3-none-manylinux_2_39_x86_64.whl"
+python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.2.0/fastls-0.2.0-py3-none-manylinux_2_39_x86_64.whl"
 ```
 
 ### Linux ARM64
 
 ```shell
-python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.1.5/fastls-0.1.5-py3-none-manylinux_2_39_aarch64.whl"
+python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.2.0/fastls-0.2.0-py3-none-manylinux_2_39_aarch64.whl"
 ```
 
 ### macOS Intel, 15+
 
 ```shell
-python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.1.5/fastls-0.1.5-py3-none-macosx_15_0_x86_64.whl"
+python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.2.0/fastls-0.2.0-py3-none-macosx_15_0_x86_64.whl"
 ```
 
 ### macOS Apple Silicon, 15+
 
 ```shell
-python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.1.5/fastls-0.1.5-py3-none-macosx_15_0_arm64.whl"
+python -m pip install "https://github.com/FastTLS/fastls-ffi/releases/download/v0.2.0/fastls-0.2.0-py3-none-macosx_15_0_arm64.whl"
 ```
 
 Alternatively download a wheel from the release and install the local file, for example on Windows:
 
 ```shell
-python -m pip install ./fastls-0.1.5-py3-none-win_amd64.whl
+python -m pip install ./fastls-0.2.0-py3-none-win_amd64.whl
 ```
 
 Do not rename wheels to bypass compatibility checks: names do not change architecture or system dependencies. Online installation requires access to GitHub's release download service.
@@ -96,7 +96,7 @@ Check the installed version:
 python -c "from importlib.metadata import version; print(version('fastls'))"
 ```
 
-Expect 0.1.5. Then create a Session, load native code, and list profiles without internet access:
+Expect 0.2.0. Then create a Session, load native code, and list profiles without internet access:
 
 ```python
 from fastls import Session
@@ -112,7 +112,7 @@ Import alone is insufficient. See the [Python guide](index.md) for actual reques
 Use python -m pip install --upgrade --only-binary=:all: fastls for PyPI. For GitHub, select a release and matching wheel URL; the tag and filename versions must agree. To reinstall this release on Windows:
 
 ```shell
-python -m pip install --force-reinstall "https://github.com/FastTLS/fastls-ffi/releases/download/v0.1.5/fastls-0.1.5-py3-none-win_amd64.whl"
+python -m pip install --force-reinstall "https://github.com/FastTLS/fastls-ffi/releases/download/v0.2.0/fastls-0.2.0-py3-none-win_amd64.whl"
 ```
 
 Use the matching platform URL elsewhere. Restart the Python process or notebook kernel after upgrading so the old loaded library is not reused.
@@ -139,7 +139,7 @@ The SDK-only .tar.gz neither includes nor downloads/builds native code. Provide 
 
 ## 8. PyPI publishing
 
-0.1.5 includes five platform wheels and one SDK-only sdist. Formal v* tag workflows run all gates and use Trusted Publishing; ordinary branches, PRs, and development snapshots do not upload to PyPI. manylinux_2_39 requires glibc 2.39+, not musl. See [maintainer notes](https://github.com/FastTLS/fastls-ffi/blob/main/PYPI.md), [PyPI publisher setup](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/), and [GitHub publishing](https://docs.pypi.org/trusted-publishers/using-a-publisher/).
+0.2.0 includes five platform wheels and one SDK-only sdist. Formal v* tag workflows run all gates and use Trusted Publishing; ordinary branches, PRs, and development snapshots do not upload to PyPI. manylinux_2_39 requires glibc 2.39+, not musl. See [maintainer notes](https://github.com/FastTLS/fastls-ffi/blob/main/PYPI.md), [PyPI publisher setup](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/), and [GitHub publishing](https://docs.pypi.org/trusted-publishers/using-a-publisher/).
 
 
 ---

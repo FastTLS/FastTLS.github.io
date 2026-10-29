@@ -1,13 +1,13 @@
 # fastls Python SDK
 
-Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.1.5**.
+Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.2.0**.
 
 ## Installation and platforms
 
 Python 3.10+ is required. Prefer a virtual environment:
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.1.5
+python -m pip install --only-binary=:all: fastls==0.2.0
 ```
 
 Platform wheels contain the native library: no Go, C compiler, or separate DLL download is needed. --only-binary=:all: rejects unsupported platforms rather than installing an SDK-only sdist.
@@ -50,7 +50,7 @@ Separate calls do not share cookies or connections. Reuse Session for login/stat
 
 ## Setting browser request headers
 
-The default `chrome/156/windows` profile used by Python 0.1.5 / Node 0.10.2 does not supply default values for `Accept-Encoding`, `Accept-Language`, or `Priority`. This example adds them explicitly; other profiles may have different defaults.
+The default `chrome/156/windows` profile used by Python 0.2.0 / Node 0.11.0 does not supply default values for `Accept-Encoding`, `Accept-Language`, or `Priority`. This example adds them explicitly; other profiles may have different defaults.
 
 ```python
 import fastls
@@ -275,3 +275,7 @@ Loading order: explicit Session library path → FASTLS_LIBRARY → bundled whee
 ---
 
 Source: [FastTLS/fastls-ffi · python/README.md](https://github.com/FastTLS/fastls-ffi/blob/0f1aaa616e69282e48dee4ec9927c1516f80450f/python/README.md). Reviewed 2026-10-27.
+
+## Session capabilities and explicit HTTP/3
+
+Python 0.2.0 / Node 0.11.0 add trusted Session address policies, immutable complete Spec snapshots, and explicit H3 with independent capability discovery. H3 requires direct HTTPS, never falls back to TCP, and cannot be combined with proxies or address policies. See the [capability contract](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md) for schemas, options, and limitations.
