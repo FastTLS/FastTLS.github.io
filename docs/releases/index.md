@@ -13,7 +13,7 @@
 
 [Python 0.2.0](https://pypi.org/project/fastls/0.2.0/) · [Node 0.11.0](https://www.npmjs.com/package/@fastls/fastls/v/0.11.0) · [Node 原始包与签名](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.11.0) · [正式 SDK 资产](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.2.0) · [能力契约](https://github.com/FastTLS/fastls-ffi/blob/v0.2.0/CAPABILITIES.md)
 
-SDK 核心依赖固定为公开版本 0.1.3-0.20261029044750-32699153caa1。
+SDK 核心依赖固定为公开版本 v0.1.3-0.20261029044750-32699153caa1。
 
 H3 限定直连 HTTPS，失败不回退 TCP；不能与代理、地址策略、H1/H2 指纹、请求 Trailer、WebSocket 或 H2 双工组合。浏览器 QUIC 指纹、UDP 代理、自动 Alt-Svc 和通用重试仍是后续范围。服务和未改动组件不重发。
 
