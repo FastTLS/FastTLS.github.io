@@ -1,5 +1,13 @@
 # profile 规范模块
 
+## H2 流级配置
+
+schema 1 增加可选 `http2.first_stream_id`、`http2.stream_window_increment`。首流编号省略或为 0 时使用 1，其它值须为不超过 2147483647 的奇数；每个物理连接重新起号，后续请求递增 2，不发送占位请求。窗口增量在每个请求的初始 HEADERS（含全部 CONTINUATION）后发送一次，Trailer 不重复触发；与 SETTINGS_INITIAL_WINDOW_SIZE 之和不得超过 31 位上限。增加额度也增加单流潜在缓冲，应结合并发预算配置。
+
+任一字段非零须要求 `http2.stream.v1`，保留其它必需能力。旧严格解析器拒绝未知字段，旧后端拒绝未知必需能力；新增字段不改变 Spec、Bundle 或 C ABI 版本。SDK 还会检查原生 `http2_stream_v1`，缺能力时在 owner 创建前报错。JA3/H2 紧凑输入没有编码这两项，转换保留 base 值；Clone、Bundle、Store 和 pin/回滚保留它们。
+
+该能力属于新源码及Python 0.5.0 / Node 0.14.0，旧 profile/v0.1.0 和旧 SDK 不会自动获得。候选继续经过显式导入与固定，不改变内置 selector。单次冷请求的初始帧匹配不能推导完整浏览器语义等价。协议边界见 [HTTP/2 流编号](https://www.rfc-editor.org/rfc/rfc9113.html#section-5.1.1)及[流控窗口](https://www.rfc-editor.org/rfc/rfc9113.html#section-6.9)。
+
 模块路径：`github.com/FastTLS/fastls/profile`。这是 Fastls 仓库中的独立小模块，只依赖 Go 标准库；没有产品目录、UA 算法或协议后端。
 
 `Spec`、`Metadata`、`Match`、`Defaults` 和错误类型保留原导入路径。TLS ID 使用固定宽度 `0x0000` JSON 字符串；TLS 扩展、HTTP2 设置、头和伪头顺序使用有序数组。`Clone` 深拷贝；`Validate` 检查模型语义，执行支持由请求后端另外检查。
@@ -25,4 +33,4 @@
 
 ---
 
-来源：[FastTLS/fastls · profile/README.md](https://github.com/FastTLS/fastls/blob/fc600f7cc01df1a9ca1784fc15e95eb388f8425c/profile/README.md)。核对日期：2026-10-27；文档来源提交 `fc600f7cc01d`。高级能力以实际安装版本为准。
+来源：[FastTLS/fastls · profile/README.md](https://github.com/FastTLS/fastls/blob/13c745e861faaad743823d92745005f42a98d9e5/profile/README.md)。核对日期：2026-10-27；文档来源提交 `fc600f7cc01d`。高级能力以实际安装版本为准。

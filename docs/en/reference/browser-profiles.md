@@ -1,5 +1,43 @@
 # Browser candidates and compact fingerprint parameters
 
+## Optional H2 stream configuration
+
+Python 0.5.0 / Node 0.14.0 add `http2.first_stream_id` and
+`http2.stream_window_increment` inside a complete Spec. Zero or omission keeps
+stream 1 and no initial per-stream update. Nonzero IDs must be odd and at most
+2147483647; each physical connection starts at that ID and subsequent requests
+advance by two. No dummy request is sent. The increment is receive credit sent
+once after initial request HEADERS, including all CONTINUATION frames, never
+again for trailers. Its sum with SETTINGS_INITIAL_WINDOW_SIZE must fit 31 bits.
+More credit increases possible per-stream response buffering; choose it with
+the concurrency budget in mind.
+
+Nonzero fields require `http2.stream.v1` in `capabilities.required_features`,
+alongside any other required features. SDKs negotiate native `http2_stream_v1`
+before creating an owner or adapting a Spec. Older strict parsers/backends
+reject unsupported configuration. Spec/Bundle schema and C ABI remain v1.
+Compact JA3/H2 inputs do not encode these two fields and preserve the base
+values. Bundle digest validation, pin, rollback, sync/async and fetch use the
+same contract. Browser candidates remain explicit imports; installed selectors
+are not silently replaced.
+
+```python
+value = base.to_dict()  # start with a complete, reviewed Spec
+value["http2"].update(first_stream_id=3, stream_window_increment=12451840)
+features = value["capabilities"]["required_features"]
+if "http2.stream.v1" not in features:
+    features.append("http2.stream.v1")
+spec = ProfileSpec(value)
+```
+
+This is a configuration example, not sufficient to recreate a browser. The
+Firefox Windows cold-request candidate additionally needs its observed TLS,
+headers and SETTINGS. Replays compare raw initial frames, with stream ID checked
+independently of HEADERS priority. They do not certify full browser semantics.
+Protocol boundaries follow [stream identifiers](https://www.rfc-editor.org/rfc/rfc9113.html#section-5.1.1)
+and [receive windows](https://www.rfc-editor.org/rfc/rfc9113.html#section-6.9).
+
+
 Python 0.4.0 / Node 0.13.0 add a shared offline converter. C ABI remains v1 with
 the optional `fingerprint_adapter_v1` capability and owned-result function
 `char *fastls_profile_adapt(char *json, size_t length)`. Release the returned
@@ -112,8 +150,8 @@ Go consumers must pin the core version containing this API; the older stable
 v0.1.2 does not export `AdaptProfile`. The Firefox data update is also pinned:
 
 ```sh
-go get github.com/FastTLS/fastls@v0.1.3-0.20261030065220-4c07fe9e4059
-go get github.com/FastTLS/imitate@v0.1.2-0.20261030065723-c75c3bf7679f
+go get github.com/FastTLS/fastls@v0.1.3-0.20261030131347-13c745e861fa
+go get github.com/FastTLS/imitate@v0.1.2-0.20261030131552-ebd18547d28a
 ```
 
 Python/Node distributions already include their native library and fixed data;
@@ -121,4 +159,4 @@ ordinary SDK installation does not require Go.
 
 ---
 
-Source: [FastTLS/fastls-ffi · FINGERPRINTS.md](https://github.com/FastTLS/fastls-ffi/blob/7a6ea60e9a3c6226cf93b17c21da9ff7aa072227/FINGERPRINTS.md) · 2026-10-30.
+Source: [FastTLS/fastls-ffi · FINGERPRINTS.md](https://github.com/FastTLS/fastls-ffi/blob/4a898769ed5b56ec786d67820af29269a379922e/FINGERPRINTS.md) · 2026-10-30.

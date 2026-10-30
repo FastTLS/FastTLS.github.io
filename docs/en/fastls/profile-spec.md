@@ -1,5 +1,28 @@
 # The profile specification module
 
+## H2 stream configuration
+
+Schema 1 adds optional `http2.first_stream_id` and `http2.stream_window_increment`.
+Zero or omission selects stream 1 and no initial stream update. Other stream IDs
+must be odd and at most 2147483647; every physical connection restarts at that ID,
+then advances by two without dummy requests. Receive credit is announced once
+after initial request HEADERS, including all CONTINUATION frames, never again for
+trailers. The increment plus SETTINGS_INITIAL_WINDOW_SIZE must fit 31 bits.
+More credit increases potential per-stream buffering; budget concurrency accordingly.
+
+Any nonzero field requires `http2.stream.v1` alongside other required features.
+Old strict parsers reject unknown fields and old backends reject unknown required
+capabilities. Spec, Bundle and C ABI stay at version 1. SDKs additionally check
+native `http2_stream_v1` before allocating an owner. Compact JA3/H2 input does not
+encode these fields and preserves base values; Clone, Bundle, Store, pin and
+rollback preserve them too.
+
+This capability belongs to the new source and Python 0.5.0 / Node 0.14.0; old profile/v0.1.0 and SDK releases do not gain it retroactively.
+Candidates still require explicit import and pin; installed selectors do not
+change automatically. Matching one cold request's initial frames is not full
+browser equivalence. See [stream identifiers](https://www.rfc-editor.org/rfc/rfc9113.html#section-5.1.1)
+and [flow-control windows](https://www.rfc-editor.org/rfc/rfc9113.html#section-6.9).
+
 Module: github.com/FastTLS/fastls/profile. This small independent submodule uses only the Go standard library. It contains no product catalog, UA generator, or protocol backend.
 
 Spec, Metadata, Match, Defaults, and errors retain their import path. TLS IDs are fixed-width 0x0000 JSON strings; TLS extensions, H2 settings, and header/pseudo-header order are ordered arrays. Clone deep-copies. Validate checks model semantics; a request backend separately checks executable support.
@@ -29,4 +52,4 @@ Owned code uses [Apache-2.0](https://github.com/FastTLS/fastls/blob/v2/profile/L
 
 ---
 
-Source: [FastTLS/fastls · profile/README.md](https://github.com/FastTLS/fastls/blob/fc600f7cc01df1a9ca1784fc15e95eb388f8425c/profile/README.md). Reviewed 2026-10-27.
+Source: [FastTLS/fastls · profile/README.md](https://github.com/FastTLS/fastls/blob/13c745e861faaad743823d92745005f42a98d9e5/profile/README.md). Reviewed 2026-10-30.

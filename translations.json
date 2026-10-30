@@ -83,9 +83,9 @@
     {
       "chinese": "fastls/profile-spec.md",
       "english": "en/fastls/profile-spec.md",
-      "reviewed": "2026-10-27",
-      "chinese_sha256": "3b55c0f1fd6151918d46e3c19c64622db133224d3e65af445f39c28f7516131b",
-      "english_sha256": "6bf0a93b9bad9449ab18ecc8b27e970cf4ab4e66199d343ae9243c96418b387c"
+      "reviewed": "2026-10-30",
+      "chinese_sha256": "ad7087efc671c282c2718696f0b2413153f7614b24fd228d2ae5fecdf29ea797",
+      "english_sha256": "0578249de9a1e970d8486ff3fa4c8c2dac937706c93a9f9959e77717e95a0398"
     },
     {
       "chinese": "fastls/profiles.md",
@@ -245,8 +245,8 @@
       "chinese": "reference/browser-profiles.md",
       "english": "en/reference/browser-profiles.md",
       "reviewed": "2026-10-30",
-      "chinese_sha256": "b8987b504353e41af32d9d105b3495b52c7bbf2d507c81b4c473534b746154c5",
-      "english_sha256": "a000935060d1079b852cbb866f86c87430b03a1eefcfa8904ea5e736b943d34c"
+      "chinese_sha256": "fb323aff07270c97363c23ea5ae105a64bb1ea7038cb4a7dbd18485613eb6fbf",
+      "english_sha256": "75b4fbff33a631607c92bf172ece0cf2ddc55a279de8b29894bbc485d2ad05c9"
     }
   ]
 }
