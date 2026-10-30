@@ -24,9 +24,10 @@ are not silently replaced.
 ```python
 value = base.to_dict()  # start with a complete, reviewed Spec
 value["http2"].update(first_stream_id=3, stream_window_increment=12451840)
-features = value["capabilities"]["required_features"]
+features = list(value["capabilities"].get("required_features") or [])
 if "http2.stream.v1" not in features:
     features.append("http2.stream.v1")
+value["capabilities"]["required_features"] = features
 spec = ProfileSpec(value)
 ```
 
@@ -159,4 +160,4 @@ ordinary SDK installation does not require Go.
 
 ---
 
-Source: [FastTLS/fastls-ffi · FINGERPRINTS.md](https://github.com/FastTLS/fastls-ffi/blob/4a898769ed5b56ec786d67820af29269a379922e/FINGERPRINTS.md) · 2026-10-30.
+Source: [FastTLS/fastls-ffi · FINGERPRINTS.md](https://github.com/FastTLS/fastls-ffi/blob/37bf835e2c3c2871c4195faa8dbe2df95dfa36b2/FINGERPRINTS.md) · 2026-10-30.
