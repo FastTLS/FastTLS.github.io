@@ -180,7 +180,7 @@
     "repo": "fastls-ffi",
     "file": "FINGERPRINTS.zh-CN.md",
     "baseline": "2d4745443e7c72d068fc3cff6c3d168821b3c265",
-    "documented_commit": "e62ae7fcdd2eea8faf7b5d66cbc501d69a937e95",
+    "documented_commit": "b0589651002339a5192b82b8815bd804fab80b1f",
     "reviewed": "2026-10-30"
   }
 ]

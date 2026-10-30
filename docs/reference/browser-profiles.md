@@ -30,6 +30,15 @@ python -m fastls profile adapt base-spec.json candidate.json --h2 '2:0;4:131072|
 
 工作流只有读取权限，生成来源、语义差异、兼容性限制与 ProfileBundle v1 候选；不会修改活动配置、创建 PR 或自动发布。调用方审核来源与摘要后使用已有 ProfileStore 导入、固定、回滚。导入、会话创建和请求均不隐式联网。已知 H2 初始流编号及流级窗口等差异保留，不能写成完整等价。其它浏览器/平台、ESR、H3 指纹和定时更新继续保留后续。
 
+Go 用户需固定含 `AdaptProfile` 的核心版本；旧稳定版 v0.1.2 没有该接口。Firefox 实测数据也使用固定生成器版本：
+
+```sh
+go get github.com/FastTLS/fastls@v0.1.3-0.20261030065220-4c07fe9e4059
+go get github.com/FastTLS/imitate@v0.1.2-0.20261030065723-c75c3bf7679f
+```
+
+Python/Node 正式包已经包含原生库和固定配置，普通安装无需 Go。
+
 ---
 
-来源：[FastTLS/fastls-ffi · FINGERPRINTS.zh-CN.md](https://github.com/FastTLS/fastls-ffi/blob/e62ae7fcdd2eea8faf7b5d66cbc501d69a937e95/FINGERPRINTS.zh-CN.md) · 2026-10-30.
+来源：[FastTLS/fastls-ffi · FINGERPRINTS.zh-CN.md](https://github.com/FastTLS/fastls-ffi/blob/b0589651002339a5192b82b8815bd804fab80b1f/FINGERPRINTS.zh-CN.md) · 2026-10-30.
