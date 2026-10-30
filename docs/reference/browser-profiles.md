@@ -52,4 +52,4 @@ Python/Node 正式包已经包含原生库和固定配置，普通安装无需 G
 
 ---
 
-来源：[FastTLS/fastls-ffi · FINGERPRINTS.zh-CN.md](https://github.com/FastTLS/fastls-ffi/blob/7a6ea60e9a3c6226cf93b17c21da9ff7aa072227/FINGERPRINTS.zh-CN.md) · 2026-10-30.
+来源：[FastTLS/fastls-ffi · FINGERPRINTS.zh-CN.md](https://github.com/FastTLS/fastls-ffi/blob/37bf835e2c3c2871c4195faa8dbe2df95dfa36b2/FINGERPRINTS.zh-CN.md) · 2026-10-30.
