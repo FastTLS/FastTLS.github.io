@@ -29,3 +29,5 @@ No browser DOM/JavaScript runtime, CAPTCHA handling, anonymity, universal site a
 ## Authentication, retries and offline profiles
 
 Python supports Basic/Bearer auth and request-local Cookie mappings. Both SDKs offer opt-in RetryPolicy and explicit body factories under one deadline. Policy/certificate failures, cancellation, one-shot bodies and response-body read failures are not retried. ProfileBundle/ProfileStore validate caller-pinned Spec bytes and native backend support offline; failed imports preserve the active pin. Checksums do not authenticate producers. See [contract and examples](../reference/reliability.md).
+
+The explicit external [browser candidate workflow and compact JA3/H2 converter](../reference/browser-profiles.md) are available in Python 0.4.0 / Node 0.13.0. Profile import and requests remain offline with respect to updates; candidate activation is manual.

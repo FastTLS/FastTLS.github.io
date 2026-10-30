@@ -1,13 +1,13 @@
 # fastls Python SDK
 
-通过原生 Fastls 动态库发送带浏览器配置的 HTTP 请求，支持同步、asyncio、流式上传下载、HTTP/2 全双工、SSE 和 WebSocket。Python 发行包名与导入名均为 `fastls`，仓库名为 `fastls-ffi`。本文对应 Python **0.3.0**，发行文件与版本状态以 PyPI 为准。
+通过原生 Fastls 动态库发送带浏览器配置的 HTTP 请求，支持同步、asyncio、流式上传下载、HTTP/2 全双工、SSE 和 WebSocket。Python 发行包名与导入名均为 `fastls`，仓库名为 `fastls-ffi`。本文对应 Python **0.4.0**，发行文件与版本状态以 PyPI 为准。
 
 ## 安装与平台
 
 需要 Python 3.10+。推荐在虚拟环境中安装：
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.3.0
+python -m pip install --only-binary=:all: fastls==0.4.0
 ```
 
 平台 wheel 已包含动态库，无需 Go、C 编译器或额外下载 DLL。`--only-binary=:all:` 确保没有匹配平台时明确失败，避免误装不含动态库的源码包。
@@ -292,3 +292,5 @@ Python 0.2.0 / Node 0.11.0 新增可信 Session 地址策略、完整 Spec 快�
 ## 认证、重试与离线配置
 
 Python 0.3.0 / Node 0.12.0 新增默认关闭的业务重试、显式正文工厂与离线配置固定/回滚；Python 另有 BasicAuth/BearerAuth 与 request_cookies。参数优先级、取消、正文重放和回滚见[契约与示例](../reference/reliability.md)。
+
+Python 0.4.0 / Node 0.13.0 新增共享 JA3/H2 离线转换与浏览器手动配置候选流程；格式、示例及限制见[配置更新与参数适配](../reference/browser-profiles.md)。

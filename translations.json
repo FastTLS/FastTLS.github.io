@@ -14,8 +14,8 @@
       "chinese": "concepts/support.md",
       "english": "en/concepts/support.md",
       "reviewed": "2026-10-30",
-      "chinese_sha256": "879b893ab861d439767899805c4f088ba0286f09cfdfab182f8bc24cedeb7181",
-      "english_sha256": "510719ea51d124cd8bff1ef88a52b7483393eaed3a463491113fb3e60894a8f0"
+      "chinese_sha256": "96fbdfcd6e0414f1e58e260de724a1e8ef4cbd2faf1963f8ad8703bec88255d9",
+      "english_sha256": "80d82b0a9dee6fef430621c89c42d4fb6f85f9dfa1f6980b3066108bdd26abc1"
     },
     {
       "chinese": "ecosystem/fastls-fetch.md",
@@ -140,22 +140,22 @@
       "chinese": "node/index.md",
       "english": "en/node/index.md",
       "reviewed": "2026-10-30",
-      "chinese_sha256": "eae8ff560d08efcdd69c0649b0c276b37443252969b964ed5c2bf545ae4db993",
-      "english_sha256": "1a2ffdc623f6323118db6ae5462decd2a2edaccd5185826ac28828293e6a8c3f"
+      "chinese_sha256": "8fd71ccfab2eaa7faeddd580f00326cf95f8b3bf5e80ae693d5f69e598fac607",
+      "english_sha256": "bef9d581156dbe626eeb8659ec39d83e096f3436067303f9b5b02ffcb0ecbb25"
     },
     {
       "chinese": "python/index.md",
       "english": "en/python/index.md",
       "reviewed": "2026-10-30",
-      "chinese_sha256": "3099cf67f60278bdde8fa9e57e2c4e0113c851e525e78a1438ecc53b1859fd52",
-      "english_sha256": "db1c42cd57a1e13217205272d9b609544aa5dfa5bec5fe655fdf89a6ce3f220d"
+      "chinese_sha256": "10948e6949820b1366fe24c0c1b18018d71fe0c3bba958b94f615f08865782e1",
+      "english_sha256": "2825f5ed74e3c5bbc01c13c1c368676c7589a7adfb6677a9e50cb6fc9dc674c6"
     },
     {
       "chinese": "python/install.md",
       "english": "en/python/install.md",
       "reviewed": "2026-10-30",
-      "chinese_sha256": "38f50403f89a6bc1ff7dcea943d0100a6a99f4b07049c4ae0de8371744baf1f9",
-      "english_sha256": "d8cd61f292b37849faf6b6b34017c8e0da4cc68af48c62e05f0f2f21de827344"
+      "chinese_sha256": "3dda8d9fc11950a7052381f6e97dc41881d3b8b72a1c7b2c8d9b7351b61e5e4e",
+      "english_sha256": "fa81f432a44ca159f50163eb3a4b5a88754c6867eb61f4010d08a098fc144394"
     },
     {
       "chinese": "reference/abi.md",
@@ -231,15 +231,22 @@
       "chinese": "releases/index.md",
       "english": "en/releases/index.md",
       "reviewed": "2026-10-30",
-      "chinese_sha256": "ca277184d422aacaad0b2ebfb933517a13d8a8e30d65b1144e8b5c5548050bf4",
-      "english_sha256": "8d720432ef7cfa081c9b26c3c88893ef2d5e0d194fb2afc880980dbe52b85647"
+      "chinese_sha256": "63975f20ec3af4b4704ce49a5d6ab487264dce1984ff7a4e1af927ab5fd57e42",
+      "english_sha256": "b432ddd8e394654454a17fceaf8d54bfa441ae18705d495aa02c94aa022ea217"
     },
     {
       "chinese": "reference/reliability.md",
       "english": "en/reference/reliability.md",
       "reviewed": "2026-10-30",
-      "chinese_sha256": "5e861fa715e45f6d6b30f9ef12f15814dd2bdbf00d6d722e68d31bc424ca48fc",
-      "english_sha256": "15e94e6e5b8cf3e9a8ebf5753724740b93999b2bb853dfaf702e0f9a531bfdfb"
+      "chinese_sha256": "8d0b154b9feece8ecdfada2e4f3346ad4d735994cef860d84201b7c9994ef252",
+      "english_sha256": "5746a7ca859b1fb303112ee64f3d45e0444caf24706d167f1a5fe05eb0807fc0"
+    },
+    {
+      "chinese": "reference/browser-profiles.md",
+      "english": "en/reference/browser-profiles.md",
+      "reviewed": "2026-10-30",
+      "chinese_sha256": "2f69fdf10deb5edc33e4e28964bd97078606d73cd5ae31c60bb63848fb51b966",
+      "english_sha256": "79e2c0e00c894015a5e96f5e799f1e05aafb9b2dcd9248c4664406f831279dcd"
     }
   ]
 }

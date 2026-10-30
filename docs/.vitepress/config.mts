@@ -120,6 +120,10 @@ export default defineConfig({
               {
                 "text": "认证、重试与离线配置",
                 "link": "/reference/reliability"
+                },
+                {
+                  "text": "浏览器配置与 JA3/H2",
+                  "link": "/reference/browser-profiles"
               },
               {
                 "text": "Cookie 与头部",
@@ -316,6 +320,10 @@ export default defineConfig({
               {
                 "text": "Authentication, retry and offline profiles",
                 "link": "/en/reference/reliability"
+                },
+                {
+                  "text": "Browser profiles and JA3/H2",
+                  "link": "/en/reference/browser-profiles"
               },
               {
                 "text": "Cookies and headers",

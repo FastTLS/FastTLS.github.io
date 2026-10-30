@@ -3,9 +3,16 @@
 Checked on 2026-10-30. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
 
 - Go Fastls: `v0.1.2`, module `github.com/FastTLS/fastls`. The imitate generator is `v0.1.1`; ftransport is v0.1.1 and profile remains v0.1.0.
-- Python: published PyPI package `fastls==0.3.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
-- Node: stable `@fastls/fastls@0.12.0` on npm. The main and five platform packages use latest=0.12.0; historical development versions remain available.
+- Python: published PyPI package `fastls==0.4.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
+- Node: stable `@fastls/fastls@0.13.0` on npm. The main and five platform packages use latest=0.13.0; historical development versions remain available.
 - Fetch, RPC, and MITM: independent GitHub Release binaries, separate from language SDK packages.
+
+## Python 0.4.0 / Node 0.13.0
+
+Shared Go-backed compact JA3/H2 conversion, optional ABI v1 capability, verified Firefox 159.0 Windows profile update, manual read-only browser discovery/capture/replay and offline candidates. Existing APIs remain compatible. Known H2 stream details remain explicit; no automatic activation or publishing. [Contract](../reference/browser-profiles.md).
+
+
+[Python 0.4.0](https://pypi.org/project/fastls/0.4.0/) · [Node 0.13.0](https://www.npmjs.com/package/@fastls/fastls/v/0.13.0) · [Python assets](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.4.0) · [Node assets](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.13.0)
 
 ## Python 0.3.0 / Node 0.12.0
 

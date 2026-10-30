@@ -3,9 +3,16 @@
 核对日期：2026-10-30。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
 
 - Go Fastls：v0.1.2；github.com/FastTLS/fastls。生成器 imitate 为 v0.1.1，ftransport 为 v0.1.1，profile 保留 v0.1.0。
-- Python：PyPI 当前正式版 fastls==0.3.0，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
-- Node：npm 正式版 @fastls/fastls@0.12.0；主包与五个平台包的 latest 均指向 0.12.0。历史开发版保留用于追溯。
+- Python：PyPI 当前正式版 fastls==0.4.0，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
+- Node：npm 正式版 @fastls/fastls@0.13.0；主包与五个平台包的 latest 均指向 0.13.0。历史开发版保留用于追溯。
 - Fetch、RPC、MITM：GitHub Releases 的独立服务产物，与 Python/Node 包不是同一个安装入口。
+
+## Python 0.4.0 / Node 0.13.0
+
+新增 Go 共用的 JA3/H2 到完整 Spec 转换、ABI v1 可选能力、Firefox 159.0 Windows 实测配置更新，以及只读手动版本发现、采集、回放和离线候选。既有 API 保持兼容，已知 H2 流级差异保留，不自动启用或发布配置。参见[完整说明](../reference/browser-profiles.md)。
+
+
+[Python 0.4.0](https://pypi.org/project/fastls/0.4.0/) · [Node 0.13.0](https://www.npmjs.com/package/@fastls/fastls/v/0.13.0) · [Python assets](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.4.0) · [Node assets](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.13.0)
 
 ## Python 0.3.0 / Node 0.12.0
 

@@ -1,13 +1,13 @@
 # fastls Python SDK
 
-Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.3.0**.
+Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.4.0**.
 
 ## Installation and platforms
 
 Python 3.10+ is required. Prefer a virtual environment:
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.3.0
+python -m pip install --only-binary=:all: fastls==0.4.0
 ```
 
 Platform wheels contain the native library: no Go, C compiler, or separate DLL download is needed. --only-binary=:all: rejects unsupported platforms rather than installing an SDK-only sdist.
@@ -283,3 +283,5 @@ Python 0.2.0 / Node 0.11.0 add trusted Session address policies, immutable compl
 ## Authentication, retry and offline configuration
 
 Python 0.3.0 / Node 0.12.0 add default-disabled business retries, explicit body factories and offline pinned profile stores. Python also adds BasicAuth/BearerAuth and request_cookies. See the [contract and examples](../reference/reliability.md) for precedence, cancellation, replay and rollback.
+
+Python 0.4.0 / Node 0.13.0 add shared offline JA3/H2 conversion and a manual browser candidate workflow. See [formats, examples and limits](../reference/browser-profiles.md).

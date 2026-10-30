@@ -29,3 +29,5 @@ Python 0.3.0 / Node 0.12.0 支持 H1/H2、完整自定义 Spec 和显式直连 H
 ## 认证、重试与离线配置
 
 Python 支持 Basic/Bearer 认证、逐请求 Cookie 映射和会话合并；两种 SDK 提供默认关闭的 RetryPolicy 与显式正文工厂，总时限覆盖尝试、等待和跳转。策略/证书拒绝、取消、一次性正文及响应正文读取失败不重试。ProfileBundle/ProfileStore 离线校验调用者固定的 Spec 字节和原生能力，失败导入保留当前配置；摘要不认证发布者。详见[契约与示例](../reference/reliability.md)。
+
+Python 0.4.0 / Node 0.13.0 提供单独、显式执行的[浏览器配置候选工具与 JA3/H2 转换](../reference/browser-profiles.md)。配置导入和请求不会隐式检查或下载更新，候选仍需手动审核及启用。
