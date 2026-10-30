@@ -26,4 +26,9 @@ Session 的总时限来自 DoContext 的 context，Options.Timeout 不适用于�
 
 读取 Body 就是流式消费，不必先缓存全部。RequestOptions.DecodeContent 按需开启 gzip/deflate/br/zstd 解码，MaxDecodedBytes 限制解码结果；WireHeaderValues 保留原始头。上传生产者的 Close 必须能解除阻塞的 Read，才能完成取消清理。H2 双工需显式启用 Duplex，且目标也需支持并发收发。
 
-Go 完整接口以 [Session 源码](https://github.com/FastTLS/fastls/blob/v2/session.go)、[Options/Response](https://github.com/FastTLS/fastls/blob/v2/index.go) 为准。源码分支新增行为须核对对应标签，不将 Python/Node 的参数原样用于 Go。
+Go 完整接口以 [Session 源码](https://github.com/FastTLS/fastls/blob/0dc4eea0f32ebc86b538f17cac383e80cd5c03eb/session.go)、[Options/Response](https://github.com/FastTLS/fastls/blob/0dc4eea0f32ebc86b538f17cac383e80cd5c03eb/index.go) 为准。源码分支新增行为须核对对应标签，不将 Python/Node 的参数原样用于 Go。
+
+
+## H3 与可信地址策略
+
+使用 `fastls.Options{HTTPVersion: fastls.HTTPVersion3, AddressPolicy: policy, VerifyTLS: true}` 组合显式 H3 与不可变策略。每个新 QUIC 连接校验全部 DNS 回答，再以 connected UDP socket 固定获准的数字目标，保留原域名的 SNI 和证书名称。本路径不启用 q 选择器、代理、迁移、ECN/GSO 或 0-RTT。见 [契约与 SDK 示例](../reference/h3-policy.md)。

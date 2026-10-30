@@ -1,11 +1,21 @@
 # Versions, installation channels, and upgrades
 
-Checked on 2026-10-30. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
+Checked on 2026-10-31. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
 
 - Go Fastls: `v0.1.2`, module `github.com/FastTLS/fastls`. The imitate generator is `v0.1.1`; ftransport is v0.1.1 and profile remains v0.1.0.
-- Python: published PyPI package `fastls==0.4.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
-- Node: stable `@fastls/fastls@0.13.0` on npm. The main and five platform packages use latest=0.13.0; historical development versions remain available.
+- Python: published PyPI package `fastls==0.6.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
+- Node: stable `@fastls/fastls@0.15.0` on npm. The main and five platform packages use latest=0.15.0; historical development versions remain available.
 - Fetch, RPC, and MITM: independent GitHub Release binaries, separate from language SDK packages.
+
+The H3 policy combination uses Go core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
+
+## Python 0.6.0 / Node 0.15.0
+
+Adds explicit H3 with a trusted Session address policy, numeric-peer UDP binding and the combined `http3_address_policy_v1` capability. No ABI/schema break or dependency upgrade; unrestricted H3 and H1/H2 behavior remain. See [contract](../reference/h3-policy.md) and formal [Python release](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.6.0) / [Node release](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.15.0).
+
+## Python 0.5.0 / Node 0.14.0
+
+Adds complete-Spec H2 first stream ID and initial stream receive-window increments, with native capability negotiation, shared conversion and explicit browser candidates. See [H2 configuration](../reference/browser-profiles.md) and [release](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.5.0).
 
 ## Python 0.4.0 / Node 0.13.0
 

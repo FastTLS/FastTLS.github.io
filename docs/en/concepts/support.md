@@ -1,5 +1,7 @@
 # Support and limitations
 
+Explicit H3 supports a trusted Session address policy with `http3_address_policy_v1`; see [address binding and restrictions](../reference/h3-policy.md).
+
 ## Go core
 
 HTTP/1.1, HTTP/2, JA3/JA4R, complete Spec configurations, connection pooling, streaming, and proxies are supported. For fingerprinted TCP TLS requests, explicitly enable `VerifyTLS: true`: the historical zero value disables verification. Session total deadlines come from the request context.
@@ -12,15 +14,15 @@ Python 3.10+, synchronous and asyncio APIs. The default HTTP total timeout is 30
 
 ## Node.js
 
-Node 22+ on the main thread, with Promise APIs, TypeScript, ESM, and CommonJS. Timeouts use **milliseconds**. Stable 0.12.0 supports five native platforms; exact minimum systems are recorded in `native/manifest.json`. worker_threads, Electron, Bun, browsers, and musl are unsupported. TLS certificates are verified by default.
+Node 22+ on the main thread, with Promise APIs, TypeScript, ESM, and CommonJS. Timeouts use **milliseconds**. Stable 0.15.0 supports five native platforms; exact minimum systems are recorded in `native/manifest.json`. worker_threads, Electron, Bun, browsers, and musl are unsupported. TLS certificates are verified by default.
 
 ## SDK responsibilities
 
-Python 0.3.0 and Node 0.12.0 are published stable releases. These versions keep cookies, defaults, and redirects in their language SDKs. The native library manages connections, fingerprints, certificates, and transport I/O. Python offers requests-style synchronous calls and aiohttp-style ClientSession; Node offers a standard fetch response adapter. These APIs ease common migrations without claiming complete compatibility with the reference libraries.
+Python 0.6.0 and Node 0.15.0 are published stable releases. These versions keep cookies, defaults, and redirects in their language SDKs. The native library manages connections, fingerprints, certificates, and transport I/O. Python offers requests-style synchronous calls and aiohttp-style ClientSession; Node offers a standard fetch response adapter. These APIs ease common migrations without claiming complete compatibility with the reference libraries.
 
 ## Protocol and resource limits
 
-Python 0.3.0 / Node 0.12.0 support H1/H2, complete custom Specs and explicit direct HTTPS/H3. Address policies belong to trusted Session construction; see the capability contract for incompatible H3 options. Buffered Session responses are limited to 32 MiB. Node fetch follows standard Response memory behavior: consume `body` as a stream for large responses. Automatic decoding defaults to a 256 MiB output limit. A streaming response has one reader. SSE and WebSocket do not reconnect automatically. WebSocket compression and H2/H3 Extended CONNECT are unsupported. Check HTTP error statuses explicitly with `raise_for_status()` / `raiseForStatus()` or fetch `response.ok`.
+Python 0.6.0 / Node 0.15.0 support H1/H2, complete custom Specs and explicit direct HTTPS/H3. Address policies belong to trusted Session construction; see the capability contract for incompatible H3 options. Buffered Session responses are limited to 32 MiB. Node fetch follows standard Response memory behavior: consume `body` as a stream for large responses. Automatic decoding defaults to a 256 MiB output limit. A streaming response has one reader. SSE and WebSocket do not reconnect automatically. WebSocket compression and H2/H3 Extended CONNECT are unsupported. Check HTTP error statuses explicitly with `raise_for_status()` / `raiseForStatus()` or fetch `response.ok`.
 
 ## No client guarantees
 

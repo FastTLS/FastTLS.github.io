@@ -126,6 +126,10 @@ export default defineConfig({
                   "link": "/reference/browser-profiles"
               },
               {
+                "text": "H3 地址策略",
+                "link": "/reference/h3-policy"
+              },
+              {
                 "text": "Cookie 与头部",
                 "link": "/reference/cookies"
               },
@@ -324,6 +328,10 @@ export default defineConfig({
                 {
                   "text": "Browser profiles and JA3/H2",
                   "link": "/en/reference/browser-profiles"
+              },
+              {
+                "text": "H3 address policy",
+                "link": "/en/reference/h3-policy"
               },
               {
                 "text": "Cookies and headers",

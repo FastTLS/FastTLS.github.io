@@ -1,11 +1,21 @@
 # 版本、安装渠道与升级
 
-核对日期：2026-10-30。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
+核对日期：2026-10-31。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
 
 - Go Fastls：v0.1.2；github.com/FastTLS/fastls。生成器 imitate 为 v0.1.1，ftransport 为 v0.1.1，profile 保留 v0.1.0。
-- Python：PyPI 当前正式版 fastls==0.4.0，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
-- Node：npm 正式版 @fastls/fastls@0.13.0；主包与五个平台包的 latest 均指向 0.13.0。历史开发版保留用于追溯。
+- Python：PyPI 当前正式版 fastls==0.6.0，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
+- Node：npm 正式版 @fastls/fastls@0.15.0；主包与五个平台包的 latest 均指向 0.15.0。历史开发版保留用于追溯。
 - Fetch、RPC、MITM：GitHub Releases 的独立服务产物，与 Python/Node 包不是同一个安装入口。
+
+H3 与策略组合使用 Go 核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧稳定标签不代表包含此能力，见 [固定来源与限制](../reference/h3-policy.md)。
+
+## Python 0.6.0 / Node 0.15.0
+
+新增显式 H3 与可信 Session 地址策略组合、固定数字目标 UDP 拨号及 `http3_address_policy_v1` 组合能力。ABI/schema 保持兼容，不升级依赖；无策略 H3 和既有 H1/H2 行为保持。见 [契约](../reference/h3-policy.md) 与正式 [Python 发行物](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.6.0) / [Node 发行物](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.15.0)。
+
+## Python 0.5.0 / Node 0.14.0
+
+新增完整 Spec 的 H2 首流编号和初始流接收窗口，贯通原生能力、共享转换及显式浏览器候选。见 [H2 配置](../reference/browser-profiles.md) 与 [发行物](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.5.0)。
 
 ## Python 0.4.0 / Node 0.13.0
 
