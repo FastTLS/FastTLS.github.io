@@ -106,3 +106,5 @@ _, _ = effective, ok
 创建 Session 和一次请求准备时复制输入（含保活指针目标），之后修改原配置或查询结果不会修改已有会话；调用方不得在准备期间并发写入。配置固定属于该 owner 的传输实例，不同 owner/配置/策略不共享 QUIC 传输，逐请求不能替换。修改参数需新建 Session。空闲关闭仍保护活动正文，取消/EOF/Close 回收上传与 socket，不取消兄弟请求或其它 owner。
 
 证书/SNI、可信地址策略和固定数字 UDP 目标保持；请显式开启 `VerifyTLS: true`。代理、H1/H2 Spec、TCP TLS 覆盖、头序及请求 Trailer 的原冲突继续拒绝。保活不能延长总/阶段期限；浏览器 H3 指纹、任意 SETTINGS/QPACK/头序、0-RTT、UDP 代理仍另行开发。完整值域、真实对端证明与一次五分钟资源预算见 [Go H3 配置](https://github.com/FastTLS/fastls/blob/v0.2.0/H3_CONFIG.md)。
+
+响应头超限后，即使后端已将连接移出复用表，也保留关闭所有权；活动兄弟正文完成后通知对端关闭，再销毁 UDP，避免等待对端空闲期限。

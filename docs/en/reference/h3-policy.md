@@ -169,3 +169,5 @@ header-order and request-trailer conflicts still reject. Keepalive cannot extend
 request total/stage deadlines. Browser H3 fingerprints, arbitrary SETTINGS/QPACK/
 order, 0-RTT and UDP proxies remain separate work. See [Go H3 configuration](https://github.com/FastTLS/fastls/blob/v0.2.0/H3_CONFIG.md)
 for the full contract, live peer evidence and the one five-minute resource budget.
+
+A rejected header can evict a connection from the backend cache; independent ownership retains graceful close until active sibling bodies finish, then notifies the peer before destroying UDP instead of leaving it to the peer idle deadline.
