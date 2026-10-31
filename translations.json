@@ -139,23 +139,23 @@
     {
       "chinese": "node/index.md",
       "english": "en/node/index.md",
-      "reviewed": "2026-10-30",
-      "chinese_sha256": "72826462ca8e455603c449167011c9b66531c796dfeee51ea20db2929c8671be",
-      "english_sha256": "c5a48e9aa2862e9d6c5f812f6dfd443d43c85a483a89ecb5168f61f36ccb542f"
+      "reviewed": "2026-11-01",
+      "chinese_sha256": "9a1537c2ea1f34883e79a79d9c2351fb0024e370574693285e4268f2623494ae",
+      "english_sha256": "fe0bc2b6cc87998f7d164c94f62d88eb8127bcc230a6dcbf8194bd46a5d70de2"
     },
     {
       "chinese": "python/index.md",
       "english": "en/python/index.md",
-      "reviewed": "2026-10-30",
-      "chinese_sha256": "5fd5cac61410faa374d1b6a31194b1f6277ae22501ee49b9180276671abb8fa7",
-      "english_sha256": "ce2de91a4d79196403af7a63d3f51675384d7a293c4e8d8c3874b4bb39acc950"
+      "reviewed": "2026-11-01",
+      "chinese_sha256": "a21a85194ee04cae9c0f91de382e3756115bce3d3f431893c3d3fb736d35bde5",
+      "english_sha256": "f3f408783e5668df6e63506b65a2109adeafb3d2287ceaaa7f9480d298d293cd"
     },
     {
       "chinese": "python/install.md",
       "english": "en/python/install.md",
-      "reviewed": "2026-10-30",
-      "chinese_sha256": "b6bcc4a3f125baed470b1dfa29c3f826db483133d5deba25d617baecde9d118d",
-      "english_sha256": "245692ccbafe80895d09d122ee4db9f3db7834f557ca5bc432fc898eea731766"
+      "reviewed": "2026-11-01",
+      "chinese_sha256": "c17226930d929e4f04c0007fc94bbe94f1a9212a5a9f43d08b4ca3afebd65793",
+      "english_sha256": "460effe8e8a48ee97d76ee811142e4476a21318c8c819bf6f05a80a06321afca"
     },
     {
       "chinese": "reference/abi.md",
@@ -230,9 +230,9 @@
     {
       "chinese": "releases/index.md",
       "english": "en/releases/index.md",
-      "reviewed": "2026-10-31",
-      "chinese_sha256": "ea7c3e023cd28896088cf55137907982bef0860a96429c33042f093637fd5534",
-      "english_sha256": "32aa34cf9ef1828285b892d71fd6cf6f972c60ad16fc1aa84b44950c8c2f1456"
+      "reviewed": "2026-11-01",
+      "chinese_sha256": "728abac13bf6ff78db5fa1e19bc481736af964304e8fab8da9df0e21a4984136",
+      "english_sha256": "01d87a48c0ac51faf9f8285bfcb880c2ed069d6614ea192d681d61c2ad64ffe3"
     },
     {
       "chinese": "reference/reliability.md",
@@ -251,9 +251,9 @@
     {
       "chinese": "reference/h3-policy.md",
       "english": "en/reference/h3-policy.md",
-      "chinese_sha256": "1446c32053d118a3f34d2fc85172dcf21e8140d3ae94c1d66c022aed6b17b5d8",
-      "english_sha256": "0ee7f05f54db5d257dd8c61682fa79f4080fa0c5b2f6f75953e14063d8621beb",
-      "reviewed": "2026-10-31"
+      "chinese_sha256": "4141c10d20ff8c775e32d36147a5be2b665317f94867888ae918f64a7a481e5c",
+      "english_sha256": "6038d0c7dc28b4c5c4385c4e25b5fd1420f5bea05f52eb63c8f665fcb08ce696",
+      "reviewed": "2026-11-01"
     }
   ]
 }

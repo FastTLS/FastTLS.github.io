@@ -1,15 +1,17 @@
 # fastls Python SDK
 
-Explicit H3 can use a trusted Session address policy in Python 0.6.0 / Node 0.15.0. Both SDKs require native `http3_address_policy_v1`; older libraries reject the combination before allocation. See [H3 policy](../reference/h3-policy.md).
+Python 0.7.0 / Node 0.16.0 add seven typed H3 options, capability discovery and effective snapshots, pinning Go v0.2.0. Select explicit H3 and configure only at Session creation; requests cannot replace it. Libraries without `http3_config_v1` reject before allocation. See [H3 configuration](../reference/h3-policy.md).
 
-Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.6.0**.
+Explicit H3 can use a trusted Session address policy in Python 0.7.0 / Node 0.16.0. Both SDKs require native `http3_address_policy_v1`; older libraries reject the combination before allocation. See [H3 policy](../reference/h3-policy.md).
+
+Send browser-profiled HTTP requests through the native Fastls library, with synchronous/asyncio APIs, streaming transfers, H2 duplex, SSE, and WebSocket. The distribution and import name are both fastls; the repository is fastls-ffi. This guide covers published **0.7.0**.
 
 ## Installation and platforms
 
 Python 3.10+ is required. Prefer a virtual environment:
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.6.0
+python -m pip install --only-binary=:all: fastls==0.7.0
 ```
 
 Platform wheels contain the native library: no Go, C compiler, or separate DLL download is needed. --only-binary=:all: rejects unsupported platforms rather than installing an SDK-only sdist.

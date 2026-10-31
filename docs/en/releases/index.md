@@ -1,16 +1,28 @@
 # Versions, installation channels, and upgrades
 
-Checked on 2026-10-31. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
+Checked on 2026-11-01. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
 
 - Go Fastls: `v0.2.0`, module `github.com/FastTLS/fastls`. Dependencies remain fixed as recorded in that tag's go.mod; independent generators, SDKs and services are not automatically upgraded.
-- Python: published PyPI package `fastls==0.6.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
-- Node: stable `@fastls/fastls@0.15.0` on npm. The main and five platform packages use latest=0.15.0; historical development versions remain available.
+- Python: published PyPI package `fastls==0.7.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
+- Node: stable `@fastls/fastls@0.16.0` on npm. The main and five platform packages use latest=0.16.0; historical development versions remain available.
 - Fetch, RPC, and MITM: independent GitHub Release binaries, separate from language SDK packages.
 
-The H3 policy combination uses Go core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
+New SDKs use Go v0.2.0; the historical SDK H3 policy combination uses core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
 
 
 
+
+## Python 0.7.0 / Node 0.16.0: H3 configuration
+
+Pins Go v0.2.0 and adds seven typed H3 parameters, field discovery and owner
+effective snapshots through additive `http3_config_v1`. Explicit H3 and
+creation-time configuration are required; older libraries reject before
+allocation. ABI/JSON v1 remain compatible. Five platforms, Linux race, one
+five-minute resource observation and installation are accepted together;
+formal publication reuses exact candidate native bytes. npm uses GitHub
+Actions OIDC only. See [H3 configuration](../reference/h3-policy.md) and the
+[SDK release](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.7.0).
+Fetch/RPC/MITM versions and core pins remain unchanged.
 
 ## Go v0.2.0: controlled H3 configuration
 

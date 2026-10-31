@@ -41,7 +41,7 @@ connected UDP socket 在内核固定远端，PacketConn 同时拒绝其它写入
 使用本批 SDK 固定的 Go 模块版本获得此组合能力：
 
 ```sh
-go get github.com/FastTLS/fastls@v0.1.3-0.20261030152832-0dc4eea0f32e
+go get github.com/FastTLS/fastls@v0.2.0
 ```
 
 
@@ -71,7 +71,7 @@ RPC v0.3.1 保留请求上下文直到响应发送/统计结束，避免 unary �
 
 ## Go v0.2.0：H3 七项受控参数
 
-仅 Go 新增 `Options.HTTP3 *HTTP3Config`，必须同时选择 `HTTPVersion3`。ABI、Python/Node 与 Fetch/RPC/MITM 不新增这些字段，不自动改固定依赖。
+Go v0.2.0 新增 `Options.HTTP3 *HTTP3Config`，必须同时选择 `HTTPVersion3`。Python 0.7.0 / Node 0.16.0 通过下文增量 ABI 接入；Fetch/RPC/MITM 仍保留各自字段与固定依赖。
 
 ```go
 keepAlive := time.Duration(0)
@@ -108,3 +108,37 @@ _, _ = effective, ok
 证书/SNI、可信地址策略和固定数字 UDP 目标保持；请显式开启 `VerifyTLS: true`。代理、H1/H2 Spec、TCP TLS 覆盖、头序及请求 Trailer 的原冲突继续拒绝。保活不能延长总/阶段期限；浏览器 H3 指纹、任意 SETTINGS/QPACK/头序、0-RTT、UDP 代理仍另行开发。完整值域、真实对端证明与一次五分钟资源预算见 [Go H3 配置](https://github.com/FastTLS/fastls/blob/v0.2.0/H3_CONFIG.md)。
 
 响应头超限后，即使后端已将连接移出复用表，也保留关闭所有权；活动兄弟正文完成后通知对端关闭，再销毁 UDP，避免等待对端空闲期限。
+
+## Python 0.7.0 / Node 0.16.0：受控配置
+
+SDK 原生库固定 Go v0.2.0，新增可选能力 `http3_config_v1`。C ABI 与 transport JSON 仍为 v1；旧库缺能力或新符号时，在分配 owner / 请求前返回 `unsupported_capability`。原有不带配置的用法仍可用。
+
+```python
+from fastls import HTTP3Config, Session, http3_capabilities
+
+config = HTTP3Config(initial_stream_receive_window=64 << 10,
+                     max_stream_receive_window=1 << 20,
+                     keep_alive_period_ms=0, max_response_header_bytes=64 << 10)
+with Session(http_version="h3", http3_config=config) as session:
+    effective = session.effective_http3_config()
+    response = session.get("https://api.example.com/")
+    response.raise_for_status()
+```
+
+```js
+import { HTTP3Config, Session, http3Capabilities } from '@fastls/fastls';
+const config = new HTTP3Config({initialStreamReceiveWindow: 64 << 10,
+  maxStreamReceiveWindow: 1 << 20, keepAlivePeriodMs: 0,
+  maxResponseHeaderBytes: 64 << 10});
+const session = new Session({httpVersion: 'h3', http3Config: config});
+try {
+  const effective = session.effectiveHTTP3Config();
+  (await session.get('https://api.example.com/')).raiseForStatus();
+} finally { await session.closeAsync(); }
+```
+
+主机必须替换为获准的 H3 服务；自定义 CA 在 Session 创建时配置。Python 使用蛇形字段，Node 使用驼峰字段；四个窗口与头部上限单位为字节，idle / keepalive 单位为毫秒。范围与上文 Go 契约相同：idle 100..86400000，显式保活为 0（关闭）或 10..idle/2；缺省保活为 min(10000, idle/2)，奇数 idle 可能返回半毫秒有效值，例如 101 → 50.5。输入只接受整毫秒，查询保留此规范化精度。
+
+配置强类型、创建时复制并固定。`http3_capabilities()` / `http3Capabilities()` 在不创建 owner 或拨号的情况下查询字段；有效快照为只读本地值，不是协商结果。Python 同步/异步 Session、一次请求与 Node 独立 fetch 支持配置；已有 Session 的请求及 `Session.fetch` 不能替换。响应头与 Trailer 上限、总/阶段期限、取消和地址策略约束同上。窗口不是进程内存上限。
+
+正式原生库的五个平台、Linux race 与一次五分钟资源检查集中验收；真实对端观测初始流/连接窗口及 idle，头部与 Trailer 拒绝、兄弟请求取消、配置隔离和旧库前置拒绝分别验证。固定 Go 发行的窗口/保活机制证据与 SDK 对端映射证据分开引用。见完整 [SDK H3 配置](https://github.com/FastTLS/fastls-ffi/blob/v0.7.0/H3_CONFIG.zh-CN.md)。Fetch 0.3.0、RPC 0.3.1、MITM 0.1.2 不随 SDK 自动升级核心。

@@ -69,7 +69,7 @@ The address safety fix applies to this core source and the new native libraries.
 For this combination, use the exact Go module pinned by this SDK release:
 
 ```sh
-go get github.com/FastTLS/fastls@v0.1.3-0.20261030152832-0dc4eea0f32e
+go get github.com/FastTLS/fastls@v0.2.0
 ```
 
 
@@ -99,8 +99,9 @@ RPC v0.3.1 retains request ownership until response sending and statistics finis
 
 ## Go v0.2.0: seven controlled H3 parameters
 
-Go adds `Options.HTTP3 *HTTP3Config`, requiring explicit `HTTPVersion3`. ABI,
-Python/Node and Fetch/RPC/MITM keep their existing fields and fixed core pins.
+Go v0.2.0 adds `Options.HTTP3 *HTTP3Config`, requiring explicit `HTTPVersion3`.
+Python 0.7.0 / Node 0.16.0 adopt it through the additive ABI below.
+Fetch/RPC/MITM keep their existing fields and fixed core pins.
 
 ```go
 keepAlive := time.Duration(0)
@@ -171,3 +172,57 @@ order, 0-RTT and UDP proxies remain separate work. See [Go H3 configuration](htt
 for the full contract, live peer evidence and the one five-minute resource budget.
 
 A rejected header can evict a connection from the backend cache; independent ownership retains graceful close until active sibling bodies finish, then notifies the peer before destroying UDP instead of leaving it to the peer idle deadline.
+
+## Python 0.7.0 / Node 0.16.0: controlled configuration
+
+SDK native libraries pin Go v0.2.0 and add optional `http3_config_v1`. C ABI
+and transport JSON remain v1. Missing capability or new symbols produces
+`unsupported_capability` before allocating an owner/request. Existing calls
+without this configuration remain usable with old libraries.
+
+```python
+from fastls import HTTP3Config, Session, http3_capabilities
+
+config = HTTP3Config(initial_stream_receive_window=64 << 10,
+                     max_stream_receive_window=1 << 20,
+                     keep_alive_period_ms=0, max_response_header_bytes=64 << 10)
+with Session(http_version="h3", http3_config=config) as session:
+    effective = session.effective_http3_config()
+    response = session.get("https://api.example.com/")
+    response.raise_for_status()
+```
+
+```js
+import { HTTP3Config, Session, http3Capabilities } from '@fastls/fastls';
+const config = new HTTP3Config({initialStreamReceiveWindow: 64 << 10,
+  maxStreamReceiveWindow: 1 << 20, keepAlivePeriodMs: 0,
+  maxResponseHeaderBytes: 64 << 10});
+const session = new Session({httpVersion: 'h3', http3Config: config});
+try {
+  const effective = session.effectiveHTTP3Config();
+  (await session.get('https://api.example.com/')).raiseForStatus();
+} finally { await session.closeAsync(); }
+```
+
+Replace the host with an approved H3 endpoint; configure custom CA trust at
+Session creation. Python uses snake_case and Node camelCase. Four windows and
+the header cap use bytes; idle/keepalive use milliseconds. Ranges match Go
+above: idle 100..86400000; explicit keepalive 0 (off) or 10..idle/2. Omitted
+keepalive is min(10000, idle/2); odd idle values can yield half milliseconds,
+e.g. 101 → 50.5. Input requires integer milliseconds; inspection preserves
+normalized precision.
+
+Typed configuration is copied and fixed at owner creation.
+`http3_capabilities()` / `http3Capabilities()` discover fields without an owner
+or dialing. Effective snapshots are read-only local values, not negotiation
+results. Python sync/async Sessions, one-shot calls and standalone Node fetch
+accept configuration. Existing Session requests and `Session.fetch` cannot
+replace it. Header/trailer limits, total/stage deadlines, cancellation and
+address-policy restrictions still apply. Windows do not cap process memory.
+
+Five native platforms, Linux race and one five-minute resource observation are
+accepted together. Live peers observe initial stream/connection windows and
+idle; header/trailer rejection, sibling cancellation, owner isolation and real
+old-library rejection have separate checks. Fixed Go window/keepalive evidence
+is distinguished from SDK peer-mapping evidence. See the full [SDK H3 contract](https://github.com/FastTLS/fastls-ffi/blob/v0.7.0/H3_CONFIG.md).
+Fetch 0.3.0, RPC 0.3.1 and MITM 0.1.2 do not automatically adopt this core.

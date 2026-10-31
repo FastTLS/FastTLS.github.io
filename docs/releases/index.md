@@ -1,16 +1,20 @@
 # 版本、安装渠道与升级
 
-核对日期：2026-10-31。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
+核对日期：2026-11-01。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
 
 - Go Fastls：v0.2.0；github.com/FastTLS/fastls。依赖保持固定版本，详见该标签 go.mod；不自动更新独立生成器、SDK 或服务。
-- Python：PyPI 当前正式版 fastls==0.6.0，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
-- Node：npm 正式版 @fastls/fastls@0.15.0；主包与五个平台包的 latest 均指向 0.15.0。历史开发版保留用于追溯。
+- Python：PyPI 当前正式版 fastls==0.7.0，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
+- Node：npm 正式版 @fastls/fastls@0.16.0；主包与五个平台包的 latest 均指向 0.16.0。历史开发版保留用于追溯。
 - Fetch、RPC、MITM：GitHub Releases 的独立服务产物，与 Python/Node 包不是同一个安装入口。
 
-H3 与策略组合使用 Go 核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧稳定标签不代表包含此能力，见 [固定来源与限制](../reference/h3-policy.md)。
+新 SDK 使用 Go v0.2.0；历史 SDK H3 与策略组合使用核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧稳定标签不代表包含此能力，见 [固定来源与限制](../reference/h3-policy.md)。
 
 
 
+
+## Python 0.7.0 / Node 0.16.0：H3 配置
+
+固定 Go v0.2.0，通过增量 `http3_config_v1` 能力接入七项强类型 H3 参数、字段发现和 owner 有效快照；只接受显式 H3 与创建时配置，旧库在分配前明确拒绝。ABI/JSON v1 保持兼容。五平台、Linux race、一次五分钟资源与安装集中验收，正式发布复用同一候选原生字节，npm 仅用 GitHub Actions OIDC。范围与边界见 [H3 配置](../reference/h3-policy.md) 与 [SDK 发行](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.7.0)。Fetch/RPC/MITM 版本、核心固定依赖不变。
 
 ## Go v0.2.0：受控 H3 配置
 

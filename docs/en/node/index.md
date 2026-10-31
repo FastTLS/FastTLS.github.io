@@ -1,8 +1,10 @@
 # Fastls Node.js SDK
 
-Explicit H3 can use a trusted Session address policy in Python 0.6.0 / Node 0.15.0. Both SDKs require native `http3_address_policy_v1`; older libraries reject the combination before allocation. See [H3 policy](../reference/h3-policy.md).
+Python 0.7.0 / Node 0.16.0 add seven typed H3 options, capability discovery and effective snapshots, pinning Go v0.2.0. Select explicit H3 and configure only at Session creation; requests cannot replace it. Libraries without `http3_config_v1` reject before allocation. See [H3 configuration](../reference/h3-policy.md).
 
-Node.js 22+ bindings for Fastls C ABI v1, with Promise APIs, TypeScript declarations, ESM, and CommonJS. This guide covers **0.15.0**.
+Explicit H3 can use a trusted Session address policy in Python 0.7.0 / Node 0.16.0. Both SDKs require native `http3_address_policy_v1`; older libraries reject the combination before allocation. See [H3 policy](../reference/h3-policy.md).
+
+Node.js 22+ bindings for Fastls C ABI v1, with Promise APIs, TypeScript declarations, ESM, and CommonJS. This guide covers **0.16.0**.
 
 H1/H2, streaming uploads/downloads, duplex, SSE, WebSocket, session cookies, and HTTP/HTTPS/SOCKS proxies are supported. Go performs network I/O through Koffi in the current process; Python and RPC services are unnecessary.
 
@@ -15,7 +17,7 @@ Only the Node main thread is supported, not worker_threads, Electron, Bun, or br
 Install the stable release:
 
 ```sh
-npm install @fastls/fastls@0.15.0
+npm install @fastls/fastls@0.16.0
 ```
 
 The main package installs the matching native optional dependency. Keep optional dependencies enabled. Platforms are Windows x64, Linux glibc x64/arm64, and macOS x64/arm64; musl and other architectures have no bundled package. Minimum OS/runtime requirements are recorded in native/manifest.json.
