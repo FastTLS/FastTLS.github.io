@@ -43,3 +43,8 @@ connected UDP socket 在内核固定远端，PacketConn 同时拒绝其它写入
 ```sh
 go get github.com/FastTLS/fastls@v0.1.3-0.20261030152832-0dc4eea0f32e
 ```
+
+
+## 服务入口
+
+Fetch/RPC v0.2.0 已独立接入显式 H3；上文 Python/Node 发行范围按原版本保留。服务字段、可信 CA 与限制见[服务升级](../releases/index.md)。MITM 不增加入站 H3。

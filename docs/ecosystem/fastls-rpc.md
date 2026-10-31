@@ -7,7 +7,7 @@
 
 启用策略时，每个新连接先校验全部解析结果，再只拨获准的数字 IP，保留原域名的 TLS 身份。`0.0.0.0`、`::` 和 IPv4 映射零地址按 `invalid_ip` 拒绝，包括广泛允许与回环拒绝组合；空允许列表不代表自动封禁私网。配置见[地址策略说明](https://github.com/FastTLS/fastls-rpc/blob/main/ADDRESS_POLICY.md)。
 
-Fetch、JSON-RPC 与 gRPC 保持 `address_denied` 结果封装；MITM 在 CONNECT 成功前拒绝禁止目标，SNI/解密请求绑定原 origin，每次出站仍由核心校验。预检不能授权后续未受控拨号。原证书设置仍适用，MITM 应启用 `-verify-cert`，私有 CA 应配置信任根。服务 H3 选择、UDP 代理与 Alt-Svc 不在本版本范围。
+Fetch、JSON-RPC 与 gRPC 保持 `address_denied` 结果封装；MITM 在 CONNECT 成功前拒绝禁止目标，SNI/解密请求绑定原 origin，每次出站仍由核心校验。预检不能授权后续未受控拨号。原证书设置仍适用，MITM 应启用 `-verify-cert`，私有 CA 应配置信任根。v0.2.0 新增显式出站 H3；UDP 代理与 Alt-Svc 仍不支持。
 
 发行平台为 Linux/Windows/macOS 的 amd64/arm64。main 运行常规 CI，开发归档改为手动；正式构建要求同一提交 CI 成功，RPC 还要求服务联调成功，再一次构建各平台发行物。对实际下载字节验证摘要、签名来源、内嵌模块、版本/帮助与六平台真实策略行为。
 
@@ -15,7 +15,7 @@ Fetch、JSON-RPC 与 gRPC 保持 `address_denied` 结果封装；MITM 在 CONNEC
 
 FastTLS 的 RPC 服务集合，同一仓库提供 JSON-RPC 2.0 和 gRPC 两种接入方式。两种服务共享相同的浏览器/JA3/JA4R 指纹解析，并通过 `fastls` + `ftransport` 发起请求。
 
-> 当前状态：`v0.1.2` 正式版。正式产物只在 GitHub Releases 发布；其他软件包、镜像和应用商店不在发布范围内。
+> 当前状态：`v0.2.0` 正式版。正式产物只在 GitHub Releases 发布；其他软件包、镜像和应用商店不在发布范围内。
 
 [使用文档](https://fasttls.github.io/ecosystem/) · [下载发布包](https://github.com/FastTLS/fastls-rpc/releases)
 
@@ -160,3 +160,19 @@ FastTLS 自有代码采用 [Apache-2.0](https://github.com/FastTLS/fastls-rpc/bl
 服务 v0.1.2 已包含接入资源名额、响应契约与默认关闭的有限审计；旧开发阶段说明不代表这些功能仍未发布。工具/文档维护复用经重新核验的源码证明，归档仍绑定实际生产提交。参见[验收与恢复](../releases/index.md)。
 
 维护说明来源：[fastls-rpc documentation](https://github.com/FastTLS/fastls-rpc/blob/106107cc21b18dfe135c97e440b998164759a6d7/DEVELOPMENT.md)；核对日期 2026-10-31。
+
+
+## Fetch / RPC 0.2.0：显式出站 H3
+
+Fetch、JSON-RPC、gRPC 新增 `http_version: "h3"`；省略/空值保留原 H1/H2。gRPC 使用新字段 16，旧字段和方法兼容。H3 要求 HTTPS，始终校验服务器证书；私有 CA 通过可信启动参数 `-h3-ca-file` 固定，普通请求不能改变信任或地址策略。
+
+```json
+{"url":"https://api.example.test/","http_version":"h3","method":"GET","timeout":5}
+```
+
+域名须替换为实际获准且支持 H3 的目标；JSON-RPC 将对象放入 params。H3 拒绝 browser、fingerprint（含 q）、H2 settings、proxy/parent_proxy、Fetch X-Mitm-* 控制头及请求 Trailer，不套用默认 Firefox 配置。没有 TCP/代理/Alt-Svc 回退；每次新连接仅向获准数字 UDP 地址拨号。响应协议为真实 HTTP/3.0，响应头/Trailer、正文、错误、超时和限额继续沿用。证书/上游失败保留 ok=false；配置错误分别为 Fetch 400、JSON-RPC -32602、gRPC InvalidArgument。
+
+仅 Fetch/RPC 升版；MITM 保持 v0.1.2，不扩展入站 H3/QUIC 解密、浏览器 H3 指纹、UDP 代理或新平台。核心固定版本、Python 0.6.0 / Node 0.15.0 不变。详情见 [Fetch H3](https://github.com/FastTLS/fastls-fetch/blob/v0.2.0/H3.md) 与 [RPC H3](https://github.com/FastTLS/fastls-rpc/blob/v0.2.0/H3.md)。
+
+
+H3 来源：[fastls-rpc H3 contract](https://github.com/FastTLS/fastls-rpc/blob/d14fade742732d2f9f511e8bfe0d1244f15c5b70/H3.md)

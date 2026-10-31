@@ -10,6 +10,19 @@
 H3 与策略组合使用 Go 核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧稳定标签不代表包含此能力，见 [固定来源与限制](../reference/h3-policy.md)。
 
 
+
+## Fetch / RPC 0.2.0：显式出站 H3
+
+Fetch、JSON-RPC、gRPC 新增 `http_version: "h3"`；省略/空值保留原 H1/H2。gRPC 使用新字段 16，旧字段和方法兼容。H3 要求 HTTPS，始终校验服务器证书；私有 CA 通过可信启动参数 `-h3-ca-file` 固定，普通请求不能改变信任或地址策略。
+
+```json
+{"url":"https://api.example.test/","http_version":"h3","method":"GET","timeout":5}
+```
+
+域名须替换为实际获准且支持 H3 的目标；JSON-RPC 将对象放入 params。H3 拒绝 browser、fingerprint（含 q）、H2 settings、proxy/parent_proxy、Fetch X-Mitm-* 控制头及请求 Trailer，不套用默认 Firefox 配置。没有 TCP/代理/Alt-Svc 回退；每次新连接仅向获准数字 UDP 地址拨号。响应协议为真实 HTTP/3.0，响应头/Trailer、正文、错误、超时和限额继续沿用。证书/上游失败保留 ok=false；配置错误分别为 Fetch 400、JSON-RPC -32602、gRPC InvalidArgument。
+
+仅 Fetch/RPC 升版；MITM 保持 v0.1.2，不扩展入站 H3/QUIC 解密、浏览器 H3 指纹、UDP 代理或新平台。核心固定版本、Python 0.6.0 / Node 0.15.0 不变。详情见 [Fetch H3](https://github.com/FastTLS/fastls-fetch/blob/v0.2.0/H3.md) 与 [RPC H3](https://github.com/FastTLS/fastls-rpc/blob/v0.2.0/H3.md)。
+
 ## 验收与发布恢复维护（不新增版本）
 
 服务与 SDK 的运行版本保持上述正式版本。仅受控工具/文档变化时，发行门禁重新核对可信 main 祖先、原生输入、执行配置、平台/工具链和完整成功任务；RPC 的跨仓契约另行核对。未知或生产输入变化恢复相应测试。旧证明保留原生产者身份，不表示新字节已经实测。

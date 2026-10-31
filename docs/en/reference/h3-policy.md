@@ -71,3 +71,8 @@ For this combination, use the exact Go module pinned by this SDK release:
 ```sh
 go get github.com/FastTLS/fastls@v0.1.3-0.20261030152832-0dc4eea0f32e
 ```
+
+
+## Service entry points
+
+Fetch/RPC v0.2.0 separately expose explicit H3. The Python/Node release scope above retains its original version. See [service upgrade](../releases/index.md) for fields, trusted roots and restrictions. MITM adds no inbound H3.

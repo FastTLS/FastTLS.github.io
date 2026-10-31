@@ -10,6 +10,19 @@ Checked on 2026-10-31. Pin versions for reproducible installation and review rel
 The H3 policy combination uses Go core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
 
 
+
+## Fetch / RPC 0.2.0: explicit outbound H3
+
+Fetch, JSON-RPC and gRPC add `http_version: "h3"`; omission/empty preserves H1/H2. gRPC uses additive field 16 without changing old fields or methods. H3 requires HTTPS and always verifies the server certificate. Operator-owned `-h3-ca-file` fixes private roots at startup; requests cannot replace trust or address policy.
+
+```json
+{"url":"https://api.example.test/","http_version":"h3","method":"GET","timeout":5}
+```
+
+Replace the example with an approved H3 target; JSON-RPC puts the object in params. H3 rejects browser/fingerprint (including q), H2 settings, proxy/parent_proxy, Fetch X-Mitm-* controls and request trailers. It applies no default Firefox identity and never falls back to TCP, proxies or Alt-Svc. New connections dial approved numeric UDP peers only. Actual responses report HTTP/3.0 while existing response headers/trailers, bodies, errors, deadlines and quotas remain. Certificate/upstream failures keep ok=false; configuration failures use Fetch 400, JSON-RPC -32602 or gRPC InvalidArgument.
+
+Only Fetch/RPC advance. MITM stays v0.1.2 with no inbound H3/QUIC interception, browser H3 fingerprint, UDP proxy or added platform. The pinned core and Python 0.6.0 / Node 0.15.0 are unchanged. See [Fetch H3](https://github.com/FastTLS/fastls-fetch/blob/v0.2.0/H3.md) and [RPC H3](https://github.com/FastTLS/fastls-rpc/blob/v0.2.0/H3.md).
+
 ## Validation and publication recovery maintenance (no new version)
 
 Runtime versions remain the releases listed above. For controlled tool/documentation changes, release gates independently verify a trusted main ancestor, native inputs, recipes, platforms/toolchains and every required successful job. RPC contracts have separate input checks. Unknown or production changes restore the relevant tests. Evidence retains its original producer; it does not certify new bytes.

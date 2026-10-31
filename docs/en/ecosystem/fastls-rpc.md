@@ -7,11 +7,11 @@ The standalone binaries pin core `v0.1.3-0.20261030152832-0dc4eea0f32e`. Start w
 
 With policy enabled, every new connection checks all resolved addresses and dials only approved numeric IPs, preserving the original TLS identity. Unspecified destinations `0.0.0.0`, `::`, and IPv4-mapped zero are rejected as `invalid_ip`, including broad allow rules combined with loopback denies. Empty allow lists do not automatically block private networks. See [policy and configuration](https://github.com/FastTLS/fastls-rpc/blob/main/ADDRESS_POLICY.md).
 
-Fetch, JSON-RPC and gRPC preserve their `address_denied` result envelopes. MITM rejects denied CONNECT targets before success, binds SNI and decrypted requests to that origin, and sends every upstream request through core policy checks. Preflight alone never authorizes an unchecked dial. Keep certificate verification configured: enable MITM `-verify-cert` and configure trusted roots for private CAs. Service H3 selection, UDP proxying and Alt-Svc remain outside this release.
+Fetch, JSON-RPC and gRPC preserve their `address_denied` result envelopes. MITM rejects denied CONNECT targets before success, binds SNI and decrypted requests to that origin, and sends every upstream request through core policy checks. Preflight alone never authorizes an unchecked dial. Keep certificate verification configured: enable MITM `-verify-cert` and configure trusted roots for private CAs. Explicit outbound H3 is available in v0.2.0; UDP proxying and Alt-Svc remain unsupported.
 
 Archives cover Linux/Windows/macOS amd64 and arm64. Main runs service CI; development archives are manual. Releases require successful CI at the exact source commit, plus service integration for RPC, and build each official archive once. Downloaded bytes are checked for hash, signed source, embedded modules, version/help and real policy behavior on all six targets.
 
-JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.1.2** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
+JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.2.0** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
 
 ## Choose an endpoint
 
@@ -117,3 +117,19 @@ Roll back a verified complete service binary/configuration set. A deployment tha
 Service v0.1.2 includes ingress quotas, response contracts and opt-in bounded audit events; older development notes do not imply these remain unpublished. Tool/documentation maintenance rechecks source evidence while archives keep their actual producer. See [validation and recovery](../releases/index.md).
 
 Maintenance source: [fastls-rpc documentation](https://github.com/FastTLS/fastls-rpc/blob/106107cc21b18dfe135c97e440b998164759a6d7/DEVELOPMENT.md); reviewed 2026-10-31.
+
+
+## Fetch / RPC 0.2.0: explicit outbound H3
+
+Fetch, JSON-RPC and gRPC add `http_version: "h3"`; omission/empty preserves H1/H2. gRPC uses additive field 16 without changing old fields or methods. H3 requires HTTPS and always verifies the server certificate. Operator-owned `-h3-ca-file` fixes private roots at startup; requests cannot replace trust or address policy.
+
+```json
+{"url":"https://api.example.test/","http_version":"h3","method":"GET","timeout":5}
+```
+
+Replace the example with an approved H3 target; JSON-RPC puts the object in params. H3 rejects browser/fingerprint (including q), H2 settings, proxy/parent_proxy, Fetch X-Mitm-* controls and request trailers. It applies no default Firefox identity and never falls back to TCP, proxies or Alt-Svc. New connections dial approved numeric UDP peers only. Actual responses report HTTP/3.0 while existing response headers/trailers, bodies, errors, deadlines and quotas remain. Certificate/upstream failures keep ok=false; configuration failures use Fetch 400, JSON-RPC -32602 or gRPC InvalidArgument.
+
+Only Fetch/RPC advance. MITM stays v0.1.2 with no inbound H3/QUIC interception, browser H3 fingerprint, UDP proxy or added platform. The pinned core and Python 0.6.0 / Node 0.15.0 are unchanged. See [Fetch H3](https://github.com/FastTLS/fastls-fetch/blob/v0.2.0/H3.md) and [RPC H3](https://github.com/FastTLS/fastls-rpc/blob/v0.2.0/H3.md).
+
+
+H3 source: [fastls-rpc H3 contract](https://github.com/FastTLS/fastls-rpc/blob/d14fade742732d2f9f511e8bfe0d1244f15c5b70/H3.md)
