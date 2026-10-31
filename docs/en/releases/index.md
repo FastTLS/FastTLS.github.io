@@ -12,7 +12,7 @@ The H3 policy combination uses Go core `v0.1.3-0.20261030152832-0dc4eea0f32e`; e
 
 
 
-## Fetch / RPC 0.3.0: optional cooperative shutdown
+## Fetch 0.3.0 / RPC 0.3.1: optional cooperative shutdown
 
 Fetch, JSON-RPC and gRPC add operator-owned `-shutdown-cancel-after 1s`. The default `0` disables it and preserves the five-second drain followed by a failing forced fallback. An enabled interval must be greater than zero and less than 5s; invalid values fail before listening. Request JSON, Protobuf and headers cannot override this setting.
 
@@ -116,3 +116,5 @@ Read the notes, install a pinned version in isolation, and create a Session agai
 Go `v2` identifies a source branch/implementation generation, not a `/v2` import suffix. Default branches, development snapshots, Actions artifacts, GitHub prereleases, and registry releases are distinct states. Use actual published assets, hashes, and provenance to determine availability.
 
 [Fastls releases](https://github.com/FastTLS/fastls/releases) · [SDK releases](https://github.com/FastTLS/fastls-ffi/releases) · [PyPI](https://pypi.org/project/fastls/) · [npm](https://www.npmjs.com/package/@fastls/fastls)
+
+RPC v0.3.1 retains request ownership until response sending and statistics finish, avoiding premature cancellation at unary return. Normal auditing, large responses and context lifetime during sending are checked separately. Fetch reuses its original published v0.3.0 archives.

@@ -12,7 +12,7 @@ H3 与策略组合使用 Go 核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧�
 
 
 
-## Fetch / RPC 0.3.0：可选协作停机
+## Fetch 0.3.0 / RPC 0.3.1：可选协作停机
 
 Fetch、JSON-RPC、gRPC 新增可信启动参数 `-shutdown-cancel-after 1s`。默认 `0` 关闭，保留五秒正常排空、超时强制失败；启用值必须大于 0 且小于 5s，非法值在监听前拒绝。该配置不接受请求 JSON、Protobuf 或请求头覆盖。
 
@@ -118,3 +118,5 @@ Go v2 是源码分支/实现代际名称，不是要求在模块路径添加 /v2
 ## 来源
 
 [Fastls Releases](https://github.com/FastTLS/fastls/releases) · [SDK Releases](https://github.com/FastTLS/fastls-ffi/releases) · [Python 已发布版本](https://pypi.org/project/fastls/) · [npm](https://www.npmjs.com/package/@fastls/fastls)
+
+RPC v0.3.1 保留请求上下文直到响应发送/统计结束，避免 unary 返回时提前取消；正常审计、较大响应及发送阶段上下文分别验证。Fetch 沿用已发布的 v0.3.0 原始归档。

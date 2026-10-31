@@ -11,7 +11,7 @@ Fetch, JSON-RPC and gRPC preserve their `address_denied` result envelopes. MITM 
 
 Archives cover Linux/Windows/macOS amd64 and arm64. Main runs service CI; development archives are manual. Releases require successful CI at the exact source commit, plus service integration for RPC, and build each official archive once. Downloaded bytes are checked for hash, signed source, embedded modules, version/help and real policy behavior on all six targets.
 
-JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.3.0** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
+JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.3.1** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
 
 ## Choose an endpoint
 
@@ -135,7 +135,7 @@ Only Fetch/RPC advance. MITM stays v0.1.2 with no inbound H3/QUIC interception, 
 H3 source: [fastls-rpc H3 contract](https://github.com/FastTLS/fastls-rpc/blob/d14fade742732d2f9f511e8bfe0d1244f15c5b70/H3.md)
 
 
-## Fetch / RPC 0.3.0: optional cooperative shutdown
+## Fetch 0.3.0 / RPC 0.3.1: optional cooperative shutdown
 
 Fetch, JSON-RPC and gRPC add operator-owned `-shutdown-cancel-after 1s`. The default `0` disables it and preserves the five-second drain followed by a failing forced fallback. An enabled interval must be greater than zero and less than 5s; invalid values fail before listening. Request JSON, Protobuf and headers cannot override this setting.
 
@@ -150,3 +150,5 @@ fastls-grpc -addr 127.0.0.1:8802 -shutdown-cancel-after 1s
 Original deadlines and caller cancellation remain; other instances are isolated. Requests still decoding cannot start new upstream work after stop. HTTP body reads are interrupted with a read deadline; non-interruptible decoders retain permits until actual completion. Existing error channels remain: Fetch and JSON-RPC use `ok=false/error_code=cancelled`; an active gRPC call may return `Canceled`. A closed transport may instead surface a connection error, so delivery of a complete response is not guaranteed. Auditing retains cancellation classification without request bodies or sensitive fields.
 
 Unix supports SIGINT/SIGTERM. Windows consoles support Ctrl+C/Ctrl+Break; acceptance uses real Ctrl+Break in a private hidden console. This adds no Windows service-manager integration or remote stop API and gives no graceful guarantee after a process kill. Three entries, H1/H2/H3 and normal/cooperative/forced paths are checked separately. One five-minute mixed-protocol Linux resource observation is followed by shutdown; timings are recorded separately. MITM v0.1.2, the pinned core and Python 0.6.0 / Node 0.15.0 remain unchanged, with no new protocol or platform.
+
+RPC v0.3.1 retains request ownership until response sending and statistics finish, avoiding premature cancellation at unary return. Normal auditing, large responses and context lifetime during sending are checked separately. Fetch reuses its original published v0.3.0 archives.
