@@ -5,7 +5,7 @@
     "file": "python/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-11-01",
-    "documented_commit": "765d3df1e88335079fea5510db6c8d7ace2fc941"
+    "documented_commit": "9651bb39ce8e612ec2c1d6029b0a5d9478ca9c47"
   },
   {
     "page": "python/install.md",
@@ -13,7 +13,7 @@
     "file": "INSTALL.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-11-01",
-    "documented_commit": "765d3df1e88335079fea5510db6c8d7ace2fc941"
+    "documented_commit": "9651bb39ce8e612ec2c1d6029b0a5d9478ca9c47"
   },
   {
     "page": "node/index.md",
@@ -21,7 +21,7 @@
     "file": "node/README.md",
     "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
     "reviewed": "2026-11-01",
-    "documented_commit": "765d3df1e88335079fea5510db6c8d7ace2fc941"
+    "documented_commit": "9651bb39ce8e612ec2c1d6029b0a5d9478ca9c47"
   },
   {
     "page": "fastls/profiles.md",
