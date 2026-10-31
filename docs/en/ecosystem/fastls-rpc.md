@@ -112,3 +112,8 @@ Source: [FastTLS/fastls-rpc · README.md](https://github.com/FastTLS/fastls-rpc/
 Uses core v0.1.2 and ftransport/imitate v0.1.1; profile stays at v0.1.0. The services integrate admission and parsing resource boundaries, consistent response contracts, and opt-in redacted auditing. Auditing is disabled by default. Configure its file and shutdown budget explicitly; the bounded queue may drop events, so it is not a complete traffic log. See the [audit configuration](https://github.com/FastTLS/fastls-rpc/blob/v0.1.1/AUDIT.md).
 
 Roll back a verified complete service binary/configuration set. A deployment that requires address policy must not recover by disabling that policy.
+
+
+Service v0.1.2 includes ingress quotas, response contracts and opt-in bounded audit events; older development notes do not imply these remain unpublished. Tool/documentation maintenance rechecks source evidence while archives keep their actual producer. See [validation and recovery](../releases/index.md).
+
+Maintenance source: [fastls-rpc documentation](https://github.com/FastTLS/fastls-rpc/blob/106107cc21b18dfe135c97e440b998164759a6d7/DEVELOPMENT.md); reviewed 2026-10-31.

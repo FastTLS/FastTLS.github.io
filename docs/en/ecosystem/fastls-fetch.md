@@ -99,3 +99,8 @@ Source: [FastTLS/fastls-fetch · README.md](https://github.com/FastTLS/fastls-fe
 Uses core v0.1.2 and ftransport/imitate v0.1.1; profile stays at v0.1.0. The services integrate admission and parsing resource boundaries, consistent response contracts, and opt-in redacted auditing. Auditing is disabled by default. Configure its file and shutdown budget explicitly; the bounded queue may drop events, so it is not a complete traffic log. See the [audit configuration](https://github.com/FastTLS/fastls-fetch/blob/v0.1.1/AUDIT.md).
 
 Roll back a verified complete service binary/configuration set. A deployment that requires address policy must not recover by disabling that policy.
+
+
+Service v0.1.2 includes ingress quotas, response contracts and opt-in bounded audit events; older development notes do not imply these remain unpublished. Tool/documentation maintenance rechecks source evidence while archives keep their actual producer. See [validation and recovery](../releases/index.md).
+
+Maintenance source: [fastls-fetch documentation](https://github.com/FastTLS/fastls-fetch/blob/08bab98d01a7344129e547545fdc2e6b927bf060/DEVELOPMENT.md); reviewed 2026-10-31.

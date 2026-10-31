@@ -9,6 +9,16 @@ Checked on 2026-10-31. Pin versions for reproducible installation and review rel
 
 The H3 policy combination uses Go core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
 
+
+## Validation and publication recovery maintenance (no new version)
+
+Runtime versions remain the releases listed above. For controlled tool/documentation changes, release gates independently verify a trusted main ancestor, native inputs, recipes, platforms/toolchains and every required successful job. RPC contracts have separate input checks. Unknown or production changes restore the relevant tests. Evidence retains its original producer; it does not certify new bytes.
+
+Partial npm recovery first authenticates every exact package version, digest, Sigstore signature and trusted source; the main package stays last. Network/registry propagation retries are bounded. Authentication, content and identity conflicts stop immediately. Recognized transient transparency-log reads can retry failed jobs only, at most three attempts per run, without moving tags or changing versions. Uploads remain GitHub Actions OIDC only. See [publication maintenance and recovery](https://github.com/FastTLS/fastls-ffi/blob/main/node/NPM_RELEASE.md).
+
+Service evidence contains only verification JSON, hashes, identities and logs, separated by run/attempt; official archives remain in Releases. Tool maintenance may consume unchanged bytes on Linux/Windows, while actual new releases still cover their platforms. Unchanged resource mechanisms do not trigger another five-minute, 150-round or hour-long campaign. Failures and historical reports remain available.
+
+
 ## Fetch / RPC / MITM 0.1.2
 
 The three service releases pin core `v0.1.3-0.20261030152832-0dc4eea0f32e` and reject unspecified destinations before dialing when address policy is enabled. Operator-owned startup policy, default behavior and protocol limits are preserved. Old service binaries do not inherit the fix. Six native platform checks include both RPC executables, source attestations and real policy requests. Development archives are manual; exact successful main validation is reused before one official build. See [Fetch](../ecosystem/fastls-fetch.md), [RPC](../ecosystem/fastls-rpc.md) and [MITM](../ecosystem/fastls-mitm.md) for configuration and upgrades.
