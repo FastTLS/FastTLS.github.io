@@ -1,10 +1,21 @@
 # fastls-rpc
 
+
+## 服务 0.1.2：地址策略与升级
+
+独立二进制固定核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`。通过 `-address-policy /trusted/path/policy.json` 在接受请求前加载严格的可信运维策略；默认关闭，请求 JSON 或请求头不能替换它，修改规则需重启。后端缺少能力时拒绝启动，旧二进制必须显式升级。
+
+每个新连接先校验全部解析结果，再只拨获准的数字 IP，保留原域名的 TLS 身份。`0.0.0.0`、`::` 和 IPv4 映射零地址按 `invalid_ip` 拒绝，包括广泛允许与回环拒绝组合；空允许列表不代表自动封禁私网。配置见[地址策略说明](https://github.com/FastTLS/fastls-rpc/blob/main/ADDRESS_POLICY.md)。
+
+Fetch、JSON-RPC 与 gRPC 保持 `address_denied` 结果封装；MITM 在 CONNECT 成功前拒绝禁止目标，SNI/解密请求绑定原 origin，每次出站仍由核心校验。预检不能授权后续未受控拨号。原证书设置仍适用，MITM 应启用 `-verify-cert`，私有 CA 应配置信任根。服务 H3 选择、UDP 代理与 Alt-Svc 不在本版本范围。
+
+发行平台为 Linux/Windows/macOS 的 amd64/arm64。main 运行常规 CI，开发归档改为手动；正式构建要求同一提交 CI 成功，RPC 还要求服务联调成功，再一次构建各平台发行物。对实际下载字节验证摘要、签名来源、内嵌模块、版本/帮助与六平台真实策略行为。
+
 [English documentation](https://fasttls.github.io/en/ecosystem/fastls-rpc)
 
 FastTLS 的 RPC 服务集合，同一仓库提供 JSON-RPC 2.0 和 gRPC 两种接入方式。两种服务共享相同的浏览器/JA3/JA4R 指纹解析，并通过 `fastls` + `ftransport` 发起请求。
 
-> 当前状态：`v0.1.1` 正式版。正式产物只在 GitHub Releases 发布；其他软件包、镜像和应用商店不在发布范围内。
+> 当前状态：`v0.1.2` 正式版。正式产物只在 GitHub Releases 发布；其他软件包、镜像和应用商店不在发布范围内。
 
 [使用文档](https://fasttls.github.io/ecosystem/) · [下载发布包](https://github.com/FastTLS/fastls-rpc/releases)
 
@@ -97,7 +108,7 @@ go vet ./...
 go build ./...
 ```
 
-GitHub Actions 覆盖 Windows、Linux、macOS 与两个 Go 版本，并执行依赖策略、单元/集成测试、竞态检测、覆盖率、静态检查、两种服务构建和 CLI 冒烟测试。`main` 分支生成临时开发包；`v*` 标签会生成同时包含两个二进制的六个平台正式包、SHA-256 校验和与 Sigstore/GitHub 来源证明，并只发布到 GitHub Releases。
+GitHub Actions 覆盖 Windows、Linux、macOS 与两个 Go 版本，并执行依赖策略、单元/集成测试、竞态检测、覆盖率、静态检查、两种服务构建和 CLI 冒烟测试。手动工作流生成临时开发包；`v*` 标签会生成同时包含两个二进制的六个平台正式包、SHA-256 校验和与 Sigstore/GitHub 来源证明，并只发布到 GitHub Releases。
 
 本地集成测试共用环回目标与 CONNECT 代理夹具，覆盖请求体/请求头/Cookie、请求与响应 Trailer、最终协议/URL、压缩响应、禁用重定向、代理优先级、取消传播、JSON-RPC 的 CORS/请求大小边界，以及两个 RPC 适配层的字段映射；不访问公网。
 
@@ -139,7 +150,7 @@ FastTLS 自有代码采用 [Apache-2.0](https://github.com/FastTLS/fastls-rpc/bl
 
 来源：[FastTLS/fastls-rpc · README.md](https://github.com/FastTLS/fastls-rpc/blob/7feeade92f2033ed8bb6cbb45c82e117b49ffdb7/README.md)。核对日期：2026-10-27；文档来源提交 `7feeade92f20`。高级能力以实际安装版本为准。
 
-## v0.1.1 升级说明
+## v0.1.1 升级说明（历史）
 
 绑定 core v0.1.2、ftransport/imitate v0.1.1，profile 保留 v0.1.0。服务整合接入与解析资源边界、统一响应契约，以及默认关闭的脱敏审计。启用审计时需配置文件与停机预算，队列可能丢弃事件，不能把审计当成完整流量记录。配置及字段见 [审计说明](https://github.com/FastTLS/fastls-rpc/blob/v0.1.1/AUDIT.md)。
 

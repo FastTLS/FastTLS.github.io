@@ -1,6 +1,17 @@
 # fastls-rpc
 
-JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.1.1** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
+
+## Service 0.1.2: destination policy and upgrade
+
+The standalone binaries pin core `v0.1.3-0.20261030152832-0dc4eea0f32e`. Start with `-address-policy /trusted/path/policy.json` to load a strict operator-owned policy before accepting traffic. The policy is disabled by default and cannot be replaced through request JSON or headers; restart to change rules. Unsupported backends fail startup. Old binaries must be upgraded explicitly.
+
+Every new connection checks all resolved addresses and dials only approved numeric IPs, preserving the original TLS identity. Unspecified destinations `0.0.0.0`, `::`, and IPv4-mapped zero are rejected as `invalid_ip`, including broad allow rules combined with loopback denies. Empty allow lists do not automatically block private networks. See [policy and configuration](https://github.com/FastTLS/fastls-rpc/blob/main/ADDRESS_POLICY.md).
+
+Fetch, JSON-RPC and gRPC preserve their `address_denied` result envelopes. MITM rejects denied CONNECT targets before success, binds SNI and decrypted requests to that origin, and sends every upstream request through core policy checks. Preflight alone never authorizes an unchecked dial. Keep certificate verification configured: enable MITM `-verify-cert` and configure trusted roots for private CAs. Service H3 selection, UDP proxying and Alt-Svc remain outside this release.
+
+Archives cover Linux/Windows/macOS amd64 and arm64. Main runs service CI; development archives are manual. Releases require successful CI at the exact source commit, plus service integration for RPC, and build each official archive once. Downloaded bytes are checked for hash, signed source, embedded modules, version/help and real policy behavior on all six targets.
+
+JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.1.2** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
 
 ## Choose an endpoint
 
@@ -77,7 +88,7 @@ go vet ./...
 go build ./...
 ```
 
-CI covers Windows/Linux/macOS, both Go versions, dependency rules, tests/race/coverage/static checks, both binaries, and CLI smoke. Main artifacts are temporary. Formal v* tags produce six platform archives containing both services, SHA256, and signed provenance, only on GitHub Releases.
+CI covers Windows/Linux/macOS, both Go versions, dependency rules, tests/race/coverage/static checks, both binaries, and CLI smoke. Manual development artifacts are temporary. Formal v* tags produce six platform archives containing both services, SHA256, and signed provenance, only on GitHub Releases.
 
 Loopback targets/CONNECT fixtures cover bodies, headers/cookies, request/response trailers, protocol/final URL, compression, redirects, proxy precedence, cancellation, JSON-RPC CORS/body limits, and adapter field mapping, without internet dependencies. Default tests build/start both CLIs over real TCP. Optional workspace_e2e integration builds Fetch/JSON-RPC/gRPC/MITM from neighboring checkouts and records exact revisions; see [workspace integration](https://github.com/FastTLS/fastls-rpc/blob/main/integration/workspace/README.md).
 
@@ -96,7 +107,7 @@ These services are not full browsers, VPNs, arbitrary protocol forwarders, or gu
 
 Source: [FastTLS/fastls-rpc · README.md](https://github.com/FastTLS/fastls-rpc/blob/7feeade92f2033ed8bb6cbb45c82e117b49ffdb7/README.md). Reviewed 2026-10-27.
 
-## Upgrading to v0.1.1
+## Upgrading to v0.1.1 (historical)
 
 Uses core v0.1.2 and ftransport/imitate v0.1.1; profile stays at v0.1.0. The services integrate admission and parsing resource boundaries, consistent response contracts, and opt-in redacted auditing. Auditing is disabled by default. Configure its file and shutdown budget explicitly; the bounded queue may drop events, so it is not a complete traffic log. See the [audit configuration](https://github.com/FastTLS/fastls-rpc/blob/v0.1.1/AUDIT.md).
 

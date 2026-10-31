@@ -9,6 +9,10 @@
 
 H3 与策略组合使用 Go 核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧稳定标签不代表包含此能力，见 [固定来源与限制](../reference/h3-policy.md)。
 
+## Fetch / RPC / MITM 0.1.2
+
+三个服务固定核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`，在拨号前拒绝未指定目标，保持可信启动策略、默认行为及协议限制。旧服务二进制不会自动获得修正。六平台正式归档检查覆盖 RPC 双入口、签名来源与实际策略请求；开发归档改为手动，复用同一 main 提交成功验收后只构建一次正式包。配置与升级见 [Fetch](../ecosystem/fastls-fetch.md)、[RPC](../ecosystem/fastls-rpc.md)和 [MITM](../ecosystem/fastls-mitm.md)。
+
 ## Python 0.6.0 / Node 0.15.0
 
 新增显式 H3 与可信 Session 地址策略组合、固定数字目标 UDP 拨号及 `http3_address_policy_v1` 组合能力。ABI/schema 保持兼容，不升级依赖；无策略 H3 和既有 H1/H2 行为保持。见 [契约](../reference/h3-policy.md) 与正式 [Python 发行物](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.6.0) / [Node 发行物](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.15.0)。

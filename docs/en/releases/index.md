@@ -9,6 +9,10 @@ Checked on 2026-10-31. Pin versions for reproducible installation and review rel
 
 The H3 policy combination uses Go core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
 
+## Fetch / RPC / MITM 0.1.2
+
+The three service releases pin core `v0.1.3-0.20261030152832-0dc4eea0f32e` and reject unspecified destinations before dialing. Operator-owned startup policy, default behavior and protocol limits are preserved. Old service binaries do not inherit the fix. Six native platform checks include both RPC executables, source attestations and real policy requests. Development archives are manual; exact successful main validation is reused before one official build. See [Fetch](../ecosystem/fastls-fetch.md), [RPC](../ecosystem/fastls-rpc.md) and [MITM](../ecosystem/fastls-mitm.md) for configuration and upgrades.
+
 ## Python 0.6.0 / Node 0.15.0
 
 Adds explicit H3 with a trusted Session address policy, numeric-peer UDP binding and the combined `http3_address_policy_v1` capability. No ABI/schema break or dependency upgrade; unrestricted H3 and H1/H2 behavior remain. See [contract](../reference/h3-policy.md) and formal [Python release](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.6.0) / [Node release](https://github.com/FastTLS/fastls-ffi/releases/tag/node-v0.15.0).

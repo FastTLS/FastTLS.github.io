@@ -1,5 +1,16 @@
 # Fastls MITM proxy
 
+
+## Service 0.1.2: destination policy and upgrade
+
+The standalone binaries pin core `v0.1.3-0.20261030152832-0dc4eea0f32e`. Start with `-address-policy /trusted/path/policy.json` to load a strict operator-owned policy before accepting traffic. The policy is disabled by default and cannot be replaced through request JSON or headers; restart to change rules. Unsupported backends fail startup. Old binaries must be upgraded explicitly.
+
+Every new connection checks all resolved addresses and dials only approved numeric IPs, preserving the original TLS identity. Unspecified destinations `0.0.0.0`, `::`, and IPv4-mapped zero are rejected as `invalid_ip`, including broad allow rules combined with loopback denies. Empty allow lists do not automatically block private networks. See [policy and configuration](https://github.com/FastTLS/fastls-mitm/blob/main/ADDRESS_POLICY.md).
+
+Fetch, JSON-RPC and gRPC preserve their `address_denied` result envelopes. MITM rejects denied CONNECT targets before success, binds SNI and decrypted requests to that origin, and sends every upstream request through core policy checks. Preflight alone never authorizes an unchecked dial. Keep certificate verification configured: enable MITM `-verify-cert` and configure trusted roots for private CAs. Service H3 selection, UDP proxying and Alt-Svc remain outside this release.
+
+Archives cover Linux/Windows/macOS amd64 and arm64. Main runs service CI; development archives are manual. Releases require successful CI at the exact source commit, plus service integration for RPC, and build each official archive once. Downloaded bytes are checked for hash, signed source, embedded modules, version/help and real policy behavior on all six targets.
+
 An HTTP proxy for authorized HTTPS debugging and compatibility testing. It decrypts client traffic and uses selected TLS/HTTP profiles upstream. It can read relayed plaintext and must be managed as sensitive infrastructure.
 
 [Complete guide](https://github.com/FastTLS/fastls-mitm/blob/main/MITM_PROXY.md) · [Delegation](https://github.com/FastTLS/fastls-mitm/blob/main/DELEGATE_EXAMPLE.md) · [Releases](https://github.com/FastTLS/fastls-mitm/releases)
@@ -55,7 +66,7 @@ Report redacted reproductions via [issues](https://github.com/FastTLS/fastls-mit
 
 Source: [FastTLS/fastls-mitm · README.md](https://github.com/FastTLS/fastls-mitm/blob/4074759048bd4375cf5d047538d892ff9d3154b9/README.md). Reviewed 2026-10-27.
 
-## Upgrading to v0.1.1
+## Upgrading to v0.1.1 (historical)
 
 Uses core v0.1.2 and ftransport/imitate v0.1.1; profile stays at v0.1.0. MITM integrates default proxy response contracts, cancellation and connection reuse handling, and opt-in redacted auditing. Auditing is disabled by default. Configure its file and shutdown budget explicitly; the bounded queue may drop events, so it is not a complete traffic log. See the [audit configuration](https://github.com/FastTLS/fastls-mitm/blob/v0.1.1/AUDIT.md).
 
