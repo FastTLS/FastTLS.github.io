@@ -67,3 +67,42 @@ fastls-grpc -addr 127.0.0.1:8802 -shutdown-cancel-after 1s
 Unix 支持 SIGINT/SIGTERM；Windows 控制台支持 Ctrl+C/Ctrl+Break，实际验收使用独立隐藏控制台的 Ctrl+Break。没有增加 Windows 服务管理器集成、远程停止 API 或强杀后的优雅保证。三入口、H1/H2/H3、正常/协作/强制路径分别验证；Linux 一次五分钟混合协议观察之后追加停机，分别记录时长。MITM v0.1.2、核心固定版本、Python 0.6.0 / Node 0.15.0 保持，未增加新协议或平台。
 
 RPC v0.3.1 保留请求上下文直到响应发送/统计结束，避免 unary 返回时提前取消；正常审计、较大响应及发送阶段上下文分别验证。Fetch 沿用已发布的 v0.3.0 原始归档。
+
+
+## Go v0.2.0：H3 七项受控参数
+
+仅 Go 新增 `Options.HTTP3 *HTTP3Config`，必须同时选择 `HTTPVersion3`。ABI、Python/Node 与 Fetch/RPC/MITM 不新增这些字段，不自动改固定依赖。
+
+```go
+keepAlive := time.Duration(0)
+session, err := fastls.NewSession(fastls.Options{
+    HTTPVersion: fastls.HTTPVersion3,
+    VerifyTLS: true,
+    HTTP3: &fastls.HTTP3Config{
+        InitialStreamReceiveWindow: 64 << 10,
+        MaxStreamReceiveWindow: 1 << 20,
+        InitialConnectionReceiveWindow: 128 << 10,
+        MaxConnectionReceiveWindow: 2 << 20,
+        MaxIdleTimeout: 30 * time.Second,
+        KeepAlivePeriod: &keepAlive,
+        MaxResponseHeaderBytes: 64 << 10,
+    },
+})
+if err != nil { return err }
+defer session.Close()
+effective, ok := session.EffectiveHTTP3Config()
+_, _ = effective, ok
+```
+
+以上为返回 error 的函数体片段，需要导入 `time` 和 `github.com/FastTLS/fastls`。`Options.EffectiveHTTP3Config()` 可在联网前校验并查询；`HTTP3Capabilities()` 返回七项名称、单位、默认与允许范围。
+
+- 流初始/最大窗口默认 512 KiB / 6 MiB；连接初始/最大窗口默认 512 KiB / 15 MiB。四项均以字节计，零选默认，显式接受 4 KiB..64 MiB，规范化后初始值不得大于对应最大值。接收窗口限制未消费的流控额度，累计传输量与 MAX_DATA/MAX_STREAM_DATA 偏移可继续增长；不是进程总内存上限。
+- `MaxIdleTimeout` 默认 30s，显式接受 100ms..24h 的整毫秒值，作用于本地握手后空闲。对端限制及 QUIC PTO 会影响实际时间；固定后端把收到的对端空闲参数至少按 5s 解析，所以服务器解析后的 qlog 可能显示 5s，而本地 400ms 配置仍会更早关闭。该快照不等于协商结果。
+- `KeepAlivePeriod` 未填写为 min(10s, 本地空闲/2)，保留 H3 默认；指向零值关闭周期保活，显式非零接受 10ms..本地空闲/2。对端较短空闲可进一步缩短实际周期。关闭周期保活仍可能出现 QUIC 恢复/PTO PING。
+- `MaxResponseHeaderBytes` 零为 10 MiB，显式 1 KiB..16 MiB。后端限制各个编码 HEADERS 帧和首部字段解码后的大小（含字段开销）；响应 Trailer 只有编码帧检查，不提供相同的解码总量上限。它不是首部与 Trailer 合计、正文、解压或总内存限额；正文读取、`MaxDecodedBytes` 与请求期限仍需独立设置。
+
+非法范围、溢出、精度丢失、初始/最大冲突及不支持组合在 DNS/拨号前拒绝。nil 与空配置保留现有显式 H3 默认；非 nil 配置不能把 auto 或旧 q 选择器隐式切换为 H3。旧选择器不带新配置的行为保留。
+
+创建 Session 和一次请求准备时复制输入（含保活指针目标），之后修改原配置或查询结果不会修改已有会话；调用方不得在准备期间并发写入。配置固定属于该 owner 的传输实例，不同 owner/配置/策略不共享 QUIC 传输，逐请求不能替换。修改参数需新建 Session。空闲关闭仍保护活动正文，取消/EOF/Close 回收上传与 socket，不取消兄弟请求或其它 owner。
+
+证书/SNI、可信地址策略和固定数字 UDP 目标保持；请显式开启 `VerifyTLS: true`。代理、H1/H2 Spec、TCP TLS 覆盖、头序及请求 Trailer 的原冲突继续拒绝。保活不能延长总/阶段期限；浏览器 H3 指纹、任意 SETTINGS/QPACK/头序、0-RTT、UDP 代理仍另行开发。完整值域、真实对端证明与一次五分钟资源预算见 [Go H3 配置](https://github.com/FastTLS/fastls/blob/v0.2.0/H3_CONFIG.md)。

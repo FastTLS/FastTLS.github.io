@@ -76,9 +76,9 @@
     {
       "chinese": "fastls/index.md",
       "english": "en/fastls/index.md",
-      "reviewed": "2026-10-28",
-      "chinese_sha256": "c7585d96915fa06ebaffba6796b8a9e653ea08920c00d4187e840df296b055b7",
-      "english_sha256": "31c124c3a83c17f25086132dec866ae07d5a8610947de36a2d6c0b7e9ef56bdf"
+      "reviewed": "2026-10-31",
+      "chinese_sha256": "2315409fdb7e8fd20803d5df1f67ecc8a20e8924746a584b9bf606a780fd9b7d",
+      "english_sha256": "08e2133747c3014501d175c1186bd370cd41add50e7ec38ab08d2f47bd1fbdf7"
     },
     {
       "chinese": "fastls/profile-spec.md",
@@ -97,9 +97,9 @@
     {
       "chinese": "fastls/session.md",
       "english": "en/fastls/session.md",
-      "reviewed": "2026-10-27",
-      "chinese_sha256": "14947c51e1558c3adb14ced9b39e97bdd8e4e90155d598ac26236604a2f72c66",
-      "english_sha256": "5b78cdd4beed4b286f584a3e6f1837f6c3ec66748ee8c39ae43c337fd3f3ddbe"
+      "reviewed": "2026-10-31",
+      "chinese_sha256": "d07e123f9b4f9fc9e92a06760601a01b7beb16d91e322dba8391455fb45e6e7d",
+      "english_sha256": "0e400aebb0607013c4d7c75c80213175f432fccf7f57abd033332865373a92fc"
     },
     {
       "chinese": "guide/index.md",
@@ -231,8 +231,8 @@
       "chinese": "releases/index.md",
       "english": "en/releases/index.md",
       "reviewed": "2026-10-31",
-      "chinese_sha256": "991063d03ec5ae96e47cdc1d7d2f491caacc6edbc0c8d378acf22e1f97b69225",
-      "english_sha256": "74180735d50c0a7e002e5ac88a553e28c8d99d9570c8382242f8494f5143bff3"
+      "chinese_sha256": "ea7c3e023cd28896088cf55137907982bef0860a96429c33042f093637fd5534",
+      "english_sha256": "32aa34cf9ef1828285b892d71fd6cf6f972c60ad16fc1aa84b44950c8c2f1456"
     },
     {
       "chinese": "reference/reliability.md",
@@ -251,8 +251,8 @@
     {
       "chinese": "reference/h3-policy.md",
       "english": "en/reference/h3-policy.md",
-      "chinese_sha256": "c14d29228f3efb0a8b37623f946c924dcc0d0299f5994c347c5233908d1036d9",
-      "english_sha256": "52c15fde8b91d731beec50c33cd1dd3da10b95a8c277522e38d67bddf5db202f",
+      "chinese_sha256": "be786b54037a19d9315068d969c3252d30386e7d4d70a822ca5156c777a40dd0",
+      "english_sha256": "c0ab2548e8a3d33da602ee8413a16347e64acf4ba00241df326ac01ee7b87773",
       "reviewed": "2026-10-31"
     }
   ]

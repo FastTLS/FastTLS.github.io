@@ -9,11 +9,11 @@ For other languages, start with [Python](../python/index.md) or [Node](../node/i
 Go 1.26+ is required. Run in your own Go project:
 
 ```sh
-go get github.com/FastTLS/fastls@v0.1.2
+go get github.com/FastTLS/fastls@v0.2.0
 go get github.com/FastTLS/imitate@v0.1.1
 ```
 
-The stable core is v0.1.2. v2 is a source branch/implementation generation; the module path has no /v2 suffix. Pin a release rather than treating default-branch additions as released features.
+The stable core is v0.2.0. v2 is a source branch/implementation generation; the module path has no /v2 suffix. Pin a release rather than treating default-branch additions as released features.
 
 ## First request
 
@@ -93,3 +93,6 @@ For issues, provide version, OS/architecture, redacted minimal code, and errors 
 Owned code uses [Apache-2.0](https://github.com/FastTLS/fastls/blob/v2/LICENSE); retain [NOTICE](https://github.com/FastTLS/fastls/blob/v2/NOTICE) and [third-party notices](https://github.com/FastTLS/fastls/blob/v2/THIRD_PARTY_NOTICES.md).
 
 Use authorized systems and data under applicable laws/terms. The software is as-is without guarantees of availability, suitability, anonymity, browser equivalence, or third-party acceptance. Browser names imply no endorsement. Deployers manage access, secrets, personal data, limits, and backups. License terms and applicable law govern warranty/liability; this notice adds no license restriction. See [the full disclaimer](../legal.md).
+
+
+Go v0.2.0 adds [seven controlled H3 parameters and effective configuration](../reference/h3-policy.md#go-v0-2-0-seven-controlled-h3-parameters), only in Go. SDK/service pins remain unchanged.

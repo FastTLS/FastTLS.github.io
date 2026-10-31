@@ -95,3 +95,77 @@ Original deadlines and caller cancellation remain; other instances are isolated.
 Unix supports SIGINT/SIGTERM. Windows consoles support Ctrl+C/Ctrl+Break; acceptance uses real Ctrl+Break in a private hidden console. This adds no Windows service-manager integration or remote stop API and gives no graceful guarantee after a process kill. Three entries, H1/H2/H3 and normal/cooperative/forced paths are checked separately. One five-minute mixed-protocol Linux resource observation is followed by shutdown; timings are recorded separately. MITM v0.1.2, the pinned core and Python 0.6.0 / Node 0.15.0 remain unchanged, with no new protocol or platform.
 
 RPC v0.3.1 retains request ownership until response sending and statistics finish, avoiding premature cancellation at unary return. Normal auditing, large responses and context lifetime during sending are checked separately. Fetch reuses its original published v0.3.0 archives.
+
+
+## Go v0.2.0: seven controlled H3 parameters
+
+Go adds `Options.HTTP3 *HTTP3Config`, requiring explicit `HTTPVersion3`. ABI,
+Python/Node and Fetch/RPC/MITM keep their existing fields and fixed core pins.
+
+```go
+keepAlive := time.Duration(0)
+session, err := fastls.NewSession(fastls.Options{
+    HTTPVersion: fastls.HTTPVersion3,
+    VerifyTLS: true,
+    HTTP3: &fastls.HTTP3Config{
+        InitialStreamReceiveWindow: 64 << 10,
+        MaxStreamReceiveWindow: 1 << 20,
+        InitialConnectionReceiveWindow: 128 << 10,
+        MaxConnectionReceiveWindow: 2 << 20,
+        MaxIdleTimeout: 30 * time.Second,
+        KeepAlivePeriod: &keepAlive,
+        MaxResponseHeaderBytes: 64 << 10,
+    },
+})
+if err != nil { return err }
+defer session.Close()
+effective, ok := session.EffectiveHTTP3Config()
+_, _ = effective, ok
+```
+
+This error-returning function-body fragment imports `time` and
+`github.com/FastTLS/fastls`. `Options.EffectiveHTTP3Config()` validates and
+inspects local values without network I/O. `HTTP3Capabilities()` returns names,
+units, defaults and ranges for all seven supported fields.
+
+- Initial/maximum stream windows default to 512 KiB / 6 MiB; connection windows
+  default to 512 KiB / 15 MiB. All four use bytes, zero selects a default, and
+  explicit values accept 4 KiB..64 MiB. Each normalized initial value must not
+  exceed its maximum. These limit unconsumed receive credit, not cumulative
+  transfer size or process memory. MAX_DATA/MAX_STREAM_DATA offsets grow as
+  applications consume bytes.
+- `MaxIdleTimeout` defaults to 30s, accepting whole milliseconds in 100ms..24h.
+  This is a local post-handshake inactivity limit; peer limits and QUIC PTO
+  affect actual timing. The fixed backend parses received peer idle parameters
+  with a 5s minimum, so its server-side parsed qlog can show 5s while a local
+  400ms setting still closes earlier. Inspection is not a negotiation result.
+- `KeepAlivePeriod` nil means min(10s, local idle/2), retaining H3's default;
+  a pointer to zero disables periodic keepalive. Explicit nonzero intervals
+  accept 10ms..local idle/2. A shorter peer idle limit can shorten the actual
+  interval. Disabled periodic keepalive does not prohibit recovery/PTO PINGs.
+- `MaxResponseHeaderBytes` zero means 10 MiB, with explicit 1 KiB..16 MiB.
+  The backend checks each encoded HEADERS frame and the decoded initial field
+  section including field overhead. Trailers get the encoded-frame check,
+  without an equivalent aggregate decoded trailer cap. This is not a combined
+  header/trailer, body, decompression or total-memory cap; bound body reads,
+  `MaxDecodedBytes` and request deadlines independently.
+
+Out-of-range/overflow, fractional-millisecond idle values, initial/max conflicts
+and unsupported combinations fail before DNS/dial. Nil and empty configuration
+preserve explicit-H3 defaults. A non-nil configuration cannot implicitly switch
+auto or the legacy q selector to H3. Legacy selection without new fields remains.
+
+Session creation and one-shot preparation copy input, including the keepalive
+pointer target. Later caller mutation or editing an inspection result cannot
+change that session; do not race writes with preparation. Configuration belongs
+to its owner's transport; different owners/configurations/policies never share
+QUIC transports. RequestOptions cannot replace it. Create a new session to
+change limits. Idle close protects active bodies; cancellation/EOF/Close
+releases uploads and sockets without canceling sibling requests or other owners.
+
+CA trust/SNI, trusted AddressPolicy and fixed numeric UDP peers remain. Set
+`VerifyTLS: true` explicitly. Existing proxy, H1/H2 Spec, TCP TLS override,
+header-order and request-trailer conflicts still reject. Keepalive cannot extend
+request total/stage deadlines. Browser H3 fingerprints, arbitrary SETTINGS/QPACK/
+order, 0-RTT and UDP proxies remain separate work. See [Go H3 configuration](https://github.com/FastTLS/fastls/blob/v0.2.0/H3_CONFIG.md)
+for the full contract, live peer evidence and the one five-minute resource budget.

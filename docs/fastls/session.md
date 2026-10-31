@@ -32,3 +32,6 @@ Go 完整接口以 [Session 源码](https://github.com/FastTLS/fastls/blob/0dc4e
 ## H3 与可信地址策略
 
 使用 `fastls.Options{HTTPVersion: fastls.HTTPVersion3, AddressPolicy: policy, VerifyTLS: true}` 组合显式 H3 与不可变策略。每个新 QUIC 连接校验全部 DNS 回答，再以 connected UDP socket 固定获准的数字目标，保留原域名的 SNI 和证书名称。本路径不启用 q 选择器、代理、迁移、ECN/GSO 或 0-RTT。见 [契约与 SDK 示例](../reference/h3-policy.md)。
+
+
+Go v0.2.0 的 `Options.HTTP3` 在创建时固定，包含保活指针的深拷贝；`Session.EffectiveHTTP3Config()` 返回独立值副本，逐请求不能替换。变更参数需新建会话，见 [H3 配置](../reference/h3-policy.md)。

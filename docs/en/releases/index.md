@@ -2,7 +2,7 @@
 
 Checked on 2026-10-31. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
 
-- Go Fastls: `v0.1.2`, module `github.com/FastTLS/fastls`. The imitate generator is `v0.1.1`; ftransport is v0.1.1 and profile remains v0.1.0.
+- Go Fastls: `v0.2.0`, module `github.com/FastTLS/fastls`. Dependencies remain fixed as recorded in that tag's go.mod; independent generators, SDKs and services are not automatically upgraded.
 - Python: published PyPI package `fastls==0.6.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
 - Node: stable `@fastls/fastls@0.15.0` on npm. The main and five platform packages use latest=0.15.0; historical development versions remain available.
 - Fetch, RPC, and MITM: independent GitHub Release binaries, separate from language SDK packages.
@@ -10,6 +10,11 @@ Checked on 2026-10-31. Pin versions for reproducible installation and review rel
 The H3 policy combination uses Go core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
 
 
+
+
+## Go v0.2.0: controlled H3 configuration
+
+Seven parameters, capability discovery, effective snapshots and owner isolation are added only in Go. Install `go get github.com/FastTLS/fastls@v0.2.0`; see the [H3 contract](../reference/h3-policy.md). Acceptance combines three systems/two toolchains, Linux race, an independent consumer and one five-minute resource observation; tags reuse exact-commit main evidence. Python 0.6.0, Node 0.15.0, Fetch 0.3.0, RPC 0.3.1 and MITM 0.1.2 retain their original bytes and core pins.
 
 
 ## Fetch 0.3.0 / RPC 0.3.1: optional cooperative shutdown

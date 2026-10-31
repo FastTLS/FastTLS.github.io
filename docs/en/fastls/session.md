@@ -32,3 +32,6 @@ The [Session source](https://github.com/FastTLS/fastls/blob/0dc4eea0f32ebc86b538
 ## H3 and a trusted address policy
 
 Set `fastls.Options{HTTPVersion: fastls.HTTPVersion3, AddressPolicy: policy, VerifyTLS: true}` for explicit H3 with the immutable policy. Every new QUIC connection validates all DNS answers and pins a connected UDP socket to an approved numeric peer, retaining the original SNI and certificate name. No q selector, proxy, migration, ECN/GSO or 0-RTT is enabled on this path. See [contract and SDK examples](../reference/h3-policy.md).
+
+
+Go v0.2.0 fixes `Options.HTTP3` at creation, including a copy of the keepalive pointer target. `Session.EffectiveHTTP3Config()` returns an independent value snapshot; requests cannot replace it. Create another session to change parameters. See [H3 configuration](../reference/h3-policy.md).
