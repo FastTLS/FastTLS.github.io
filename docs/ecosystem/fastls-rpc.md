@@ -5,7 +5,7 @@
 
 独立二进制固定核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`。通过 `-address-policy /trusted/path/policy.json` 在接受请求前加载严格的可信运维策略；默认关闭，请求 JSON 或请求头不能替换它，修改规则需重启。后端缺少能力时拒绝启动，旧二进制必须显式升级。
 
-每个新连接先校验全部解析结果，再只拨获准的数字 IP，保留原域名的 TLS 身份。`0.0.0.0`、`::` 和 IPv4 映射零地址按 `invalid_ip` 拒绝，包括广泛允许与回环拒绝组合；空允许列表不代表自动封禁私网。配置见[地址策略说明](https://github.com/FastTLS/fastls-rpc/blob/main/ADDRESS_POLICY.md)。
+启用策略时，每个新连接先校验全部解析结果，再只拨获准的数字 IP，保留原域名的 TLS 身份。`0.0.0.0`、`::` 和 IPv4 映射零地址按 `invalid_ip` 拒绝，包括广泛允许与回环拒绝组合；空允许列表不代表自动封禁私网。配置见[地址策略说明](https://github.com/FastTLS/fastls-rpc/blob/main/ADDRESS_POLICY.md)。
 
 Fetch、JSON-RPC 与 gRPC 保持 `address_denied` 结果封装；MITM 在 CONNECT 成功前拒绝禁止目标，SNI/解密请求绑定原 origin，每次出站仍由核心校验。预检不能授权后续未受控拨号。原证书设置仍适用，MITM 应启用 `-verify-cert`，私有 CA 应配置信任根。服务 H3 选择、UDP 代理与 Alt-Svc 不在本版本范围。
 

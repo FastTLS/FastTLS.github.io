@@ -11,7 +11,7 @@ The H3 policy combination uses Go core `v0.1.3-0.20261030152832-0dc4eea0f32e`; e
 
 ## Fetch / RPC / MITM 0.1.2
 
-The three service releases pin core `v0.1.3-0.20261030152832-0dc4eea0f32e` and reject unspecified destinations before dialing. Operator-owned startup policy, default behavior and protocol limits are preserved. Old service binaries do not inherit the fix. Six native platform checks include both RPC executables, source attestations and real policy requests. Development archives are manual; exact successful main validation is reused before one official build. See [Fetch](../ecosystem/fastls-fetch.md), [RPC](../ecosystem/fastls-rpc.md) and [MITM](../ecosystem/fastls-mitm.md) for configuration and upgrades.
+The three service releases pin core `v0.1.3-0.20261030152832-0dc4eea0f32e` and reject unspecified destinations before dialing when address policy is enabled. Operator-owned startup policy, default behavior and protocol limits are preserved. Old service binaries do not inherit the fix. Six native platform checks include both RPC executables, source attestations and real policy requests. Development archives are manual; exact successful main validation is reused before one official build. See [Fetch](../ecosystem/fastls-fetch.md), [RPC](../ecosystem/fastls-rpc.md) and [MITM](../ecosystem/fastls-mitm.md) for configuration and upgrades.
 
 ## Python 0.6.0 / Node 0.15.0
 

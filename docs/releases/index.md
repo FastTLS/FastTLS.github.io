@@ -11,7 +11,7 @@ H3 与策略组合使用 Go 核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧�
 
 ## Fetch / RPC / MITM 0.1.2
 
-三个服务固定核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`，在拨号前拒绝未指定目标，保持可信启动策略、默认行为及协议限制。旧服务二进制不会自动获得修正。六平台正式归档检查覆盖 RPC 双入口、签名来源与实际策略请求；开发归档改为手动，复用同一 main 提交成功验收后只构建一次正式包。配置与升级见 [Fetch](../ecosystem/fastls-fetch.md)、[RPC](../ecosystem/fastls-rpc.md)和 [MITM](../ecosystem/fastls-mitm.md)。
+三个服务固定核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`，在启用地址策略时于拨号前拒绝未指定目标，保持可信启动策略、默认行为及协议限制。旧服务二进制不会自动获得修正。六平台正式归档检查覆盖 RPC 双入口、签名来源与实际策略请求；开发归档改为手动，复用同一 main 提交成功验收后只构建一次正式包。配置与升级见 [Fetch](../ecosystem/fastls-fetch.md)、[RPC](../ecosystem/fastls-rpc.md)和 [MITM](../ecosystem/fastls-mitm.md)。
 
 ## Python 0.6.0 / Node 0.15.0
 
