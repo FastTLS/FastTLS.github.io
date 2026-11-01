@@ -5,7 +5,7 @@ This guide covers published fastls 0.7.0 and its [GitHub Release](https://github
 The package and import name are fastls. Prefer [PyPI](https://pypi.org/project/fastls/0.7.0/):
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.7.0
+python -m pip install --only-binary=:all: fastls==0.7.1
 ```
 
 --only-binary=:all: rejects unsupported platforms instead of installing an SDK-only sdist without native code. Historical v0.1.2 used distribution fastls-ffi; its assets keep their names. Uninstall fastls-ffi before installing fastls, and vice versa, because they own the same import directory.

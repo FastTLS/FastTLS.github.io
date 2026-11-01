@@ -2,19 +2,29 @@
 
 核对日期：2026-11-01。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
 
-- Go Fastls：v0.2.0；github.com/FastTLS/fastls。依赖保持固定版本，详见该标签 go.mod；不自动更新独立生成器、SDK 或服务。
-- Python：PyPI 当前正式版 fastls==0.7.0，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
-- Node：npm 正式版 @fastls/fastls@0.16.0；主包与五个平台包的 latest 均指向 0.16.0。历史开发版保留用于追溯。
+- Go Fastls：v0.2.1；github.com/FastTLS/fastls。依赖保持固定版本，详见该标签 go.mod；不自动更新独立生成器、SDK 或服务。
+- Python：PyPI 当前正式版 fastls==0.7.1，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
+- Node：npm 正式版 @fastls/fastls@0.16.1；主包与五个平台包的 latest 均指向 0.16.1。历史开发版保留用于追溯。
 - Fetch、RPC、MITM：GitHub Releases 的独立服务产物，与 Python/Node 包不是同一个安装入口。
 
-新 SDK 使用 Go v0.2.0；历史 SDK H3 与策略组合使用核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧稳定标签不代表包含此能力，见 [固定来源与限制](../reference/h3-policy.md)。
+新 SDK 使用 Go v0.2.1；历史 SDK H3 与策略组合使用核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧稳定标签不代表包含此能力，见 [固定来源与限制](../reference/h3-policy.md)。
 
 
 
+
+## 2026-11-01：连接回收与交付收口
+
+Go **v0.2.1**、Python **0.7.1**、Node **0.16.1**、Fetch **v0.3.1**、RPC **v0.3.2**、MITM **v0.1.3** 使用同一最终核心，配套 profile **v0.1.1** 与 ftransport/imitate **v0.1.2**。核心默认入口为 main，v1/v2 分支与历史标签保留。
+
+H3 错误或内部重拨后停止向旧连接所属传输代分配新请求；原正文只保留自己的代，后续请求不能拖延回收。保持长正文并连续拒绝 20 次过大响应头时，真实对端在长正文结束前关闭另外 19 条连接；直连/地址策略均覆盖。服务保留可信启动配置、审计和停机契约，不额外开放七项 SDK 请求字段。
+
+Python 正式包装可提升同提交、同依赖/工具链/配置的认证原生字节；保留原 build-info/Go buildinfo，用独立 package-info 绑定外层与生产者身份，缺少或不等价证据仍构建并检查。上传与待确认分别记录，恢复不重置首次八分钟读取期限和最多三次发布尝试；支持只读确认。进度仅留 Actions，Release 草稿通过明确文件清单及摘要检查后再公开。
+
+本批集中开发后按最高风险统一验收；正式包装、标签和上传只补缺失的身份、安装、签名与线上证明。原 0.7.0 交付中 Node 保留原归档，Python 复用源码/资源证明但仍重编了原生库；该历史结果不当作新字节实测。详情见[交付契约](https://github.com/FastTLS/fastls-ffi/blob/v0.7.1/DELIVERY_LIFECYCLE.zh-CN.md)。
 
 ## Python 0.7.0 / Node 0.16.0：H3 配置
 
-固定 Go v0.2.0，通过增量 `http3_config_v1` 能力接入七项强类型 H3 参数、字段发现和 owner 有效快照；只接受显式 H3 与创建时配置，旧库在分配前明确拒绝。ABI/JSON v1 保持兼容。五平台、Linux race、一次五分钟资源与安装集中验收，正式发布复用同一候选原生字节，npm 仅用 GitHub Actions OIDC。范围与边界见 [H3 配置](../reference/h3-policy.md) 与 [SDK 发行](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.7.0)。Fetch/RPC/MITM 版本、核心固定依赖不变。
+固定 Go v0.2.0，通过增量 `http3_config_v1` 能力接入七项强类型 H3 参数、字段发现和 owner 有效快照；只接受显式 H3 与创建时配置，旧库在分配前明确拒绝。ABI/JSON v1 保持兼容。五平台、Linux race、一次五分钟资源与安装集中验收，正式发布复用可追溯候选证明；Python 原生重编与 Node 原字节复用边界见上方修正，npm 仅用 GitHub Actions OIDC。范围与边界见 [H3 配置](../reference/h3-policy.md) 与 [SDK 发行](https://github.com/FastTLS/fastls-ffi/releases/tag/v0.7.0)。Fetch/RPC/MITM 版本、核心固定依赖不变。
 
 ## Go v0.2.0：受控 H3 配置
 

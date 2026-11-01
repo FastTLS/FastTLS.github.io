@@ -11,7 +11,7 @@ Python 0.7.0 / Node 0.16.0 支持显式 H3 与可信 Session 地址策略组合�
 需要 Python 3.10+。推荐在虚拟环境中安装：
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.7.0
+python -m pip install --only-binary=:all: fastls==0.7.1
 ```
 
 平台 wheel 已包含动态库，无需 Go、C 编译器或额外下载 DLL。`--only-binary=:all:` 确保没有匹配平台时明确失败，避免误装不含动态库的源码包。

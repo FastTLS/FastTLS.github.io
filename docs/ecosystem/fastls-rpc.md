@@ -1,5 +1,7 @@
 # fastls-rpc
 
+当前版本 **v0.3.2** 固定 Go **v0.2.1**、profile **v0.1.1**、ftransport/imitate **v0.1.2**，继承 H3 回收修正，保持地址策略、审计和停机契约。下方旧版本说明保留各自历史范围。
+
 
 ## 服务 0.1.2：地址策略与升级
 
@@ -15,7 +17,7 @@ Fetch、JSON-RPC 与 gRPC 保持 `address_denied` 结果封装；MITM 在 CONNEC
 
 FastTLS 的 RPC 服务集合，同一仓库提供 JSON-RPC 2.0 和 gRPC 两种接入方式。两种服务共享相同的浏览器/JA3/JA4R 指纹解析，并通过 `fastls` + `ftransport` 发起请求。
 
-> 当前状态：`v0.3.1` 正式版。正式产物只在 GitHub Releases 发布；其他软件包、镜像和应用商店不在发布范围内。
+> 当前状态：`v0.3.2` 正式版。正式产物只在 GitHub Releases 发布；其他软件包、镜像和应用商店不在发布范围内。
 
 [使用文档](https://fasttls.github.io/ecosystem/) · [下载发布包](https://github.com/FastTLS/fastls-rpc/releases)
 

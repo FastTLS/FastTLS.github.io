@@ -2,15 +2,25 @@
 
 Checked on 2026-11-01. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
 
-- Go Fastls: `v0.2.0`, module `github.com/FastTLS/fastls`. Dependencies remain fixed as recorded in that tag's go.mod; independent generators, SDKs and services are not automatically upgraded.
-- Python: published PyPI package `fastls==0.7.0`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
-- Node: stable `@fastls/fastls@0.16.0` on npm. The main and five platform packages use latest=0.16.0; historical development versions remain available.
+- Go Fastls: `v0.2.1`, module `github.com/FastTLS/fastls`. Dependencies remain fixed as recorded in that tag's go.mod; independent generators, SDKs and services are not automatically upgraded.
+- Python: published PyPI package `fastls==0.7.1`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
+- Node: stable `@fastls/fastls@0.16.1` on npm. The main and five platform packages use latest=0.16.1; historical development versions remain available.
 - Fetch, RPC, and MITM: independent GitHub Release binaries, separate from language SDK packages.
 
-New SDKs use Go v0.2.0; the historical SDK H3 policy combination uses core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
+New SDKs use Go v0.2.1; the historical SDK H3 policy combination uses core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
 
 
 
+
+## 2026-11-01: connection retirement and delivery
+
+Go **v0.2.1**, Python **0.7.1**, Node **0.16.1**, Fetch **v0.3.1**, RPC **v0.3.2** and MITM **v0.1.3** share the final core, with profile **v0.1.1** and ftransport/imitate **v0.1.2**. Core now defaults to main; historical v1/v2 branches and tags remain.
+
+An H3 error or internal redial stops new requests entering the old connection generation. Existing bodies retain their own generation; later requests cannot prolong it. With one held body and 20 oversized-header rejections, the peer closes the other 19 connections before that body completes, on both direct and address-policy paths. Services preserve trusted startup settings, audit and shutdown contracts without exposing the seven SDK request fields.
+
+Formal Python packaging can promote certified native bytes at the same commit/dependencies/toolchain/configuration. Original native build-info/Go buildinfo remain; separate package-info binds the outer package and producer. Missing or unequal evidence retains fresh builds and checks. Upload and confirmation-pending states are distinct; resumes preserve the first eight-minute read deadline and at most three publication attempts, including read-only confirmation. Progress stays in Actions; Release drafts pass an explicit asset-name/digest inventory before becoming public.
+
+Development is consolidated and frozen for the highest required risk tier. Packaging, tags and uploads add only missing identity, installation, signature and registry proof. In the historical 0.7.0 delivery, Node kept original archives while Python reused source/resource evidence but rebuilt native libraries; that evidence must not be described as measurements of different bytes. See [the delivery contract](https://github.com/FastTLS/fastls-ffi/blob/v0.7.1/DELIVERY_LIFECYCLE.md).
 
 ## Python 0.7.0 / Node 0.16.0: H3 configuration
 

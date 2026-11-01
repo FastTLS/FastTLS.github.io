@@ -9,7 +9,7 @@ For other languages, start with [Python](../python/index.md) or [Node](../node/i
 Go 1.26+ is required. Run in your own Go project:
 
 ```sh
-go get github.com/FastTLS/fastls@v0.2.0
+go get github.com/FastTLS/fastls@v0.2.1
 go get github.com/FastTLS/imitate@v0.1.1
 ```
 

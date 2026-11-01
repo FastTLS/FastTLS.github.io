@@ -11,7 +11,7 @@ Send browser-profiled HTTP requests through the native Fastls library, with sync
 Python 3.10+ is required. Prefer a virtual environment:
 
 ```shell
-python -m pip install --only-binary=:all: fastls==0.7.0
+python -m pip install --only-binary=:all: fastls==0.7.1
 ```
 
 Platform wheels contain the native library: no Go, C compiler, or separate DLL download is needed. --only-binary=:all: rejects unsupported platforms rather than installing an SDK-only sdist.

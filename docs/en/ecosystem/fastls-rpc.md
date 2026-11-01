@@ -1,5 +1,7 @@
 # fastls-rpc
 
+Current **v0.3.2** pins Go **v0.2.1**, profile **v0.1.1**, and ftransport/imitate **v0.1.2**, inheriting H3 retirement fixes while preserving policy, audit, and shutdown contracts. Older sections retain their historical scope.
+
 
 ## Service 0.1.2: destination policy and upgrade
 
@@ -11,7 +13,7 @@ Fetch, JSON-RPC and gRPC preserve their `address_denied` result envelopes. MITM 
 
 Archives cover Linux/Windows/macOS amd64 and arm64. Main runs service CI; development archives are manual. Releases require successful CI at the exact source commit, plus service integration for RPC, and build each official archive once. Downloaded bytes are checked for hash, signed source, embedded modules, version/help and real policy behavior on all six targets.
 
-JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.3.1** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
+JSON-RPC 2.0 and gRPC request services sharing browser/JA3/JA4R resolution and the fastls/ftransport request path. Stable **v0.3.2** binaries are on [GitHub Releases](https://github.com/FastTLS/fastls-rpc/releases), not other package or image registries. Download the matching archive and verify checksums/provenance; Go is unnecessary for binary users.
 
 ## Choose an endpoint
 

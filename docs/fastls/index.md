@@ -9,7 +9,7 @@
 需要 Go 1.26+。在自己的 Go 项目中执行：
 
 ```sh
-go get github.com/FastTLS/fastls@v0.2.0
+go get github.com/FastTLS/fastls@v0.2.1
 go get github.com/FastTLS/imitate@v0.1.1
 ```
 

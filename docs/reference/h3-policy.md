@@ -41,7 +41,7 @@ connected UDP socket 在内核固定远端，PacketConn 同时拒绝其它写入
 使用本批 SDK 固定的 Go 模块版本获得此组合能力：
 
 ```sh
-go get github.com/FastTLS/fastls@v0.2.0
+go get github.com/FastTLS/fastls@v0.2.1
 ```
 
 
@@ -142,3 +142,14 @@ try {
 配置强类型、创建时复制并固定。`http3_capabilities()` / `http3Capabilities()` 在不创建 owner 或拨号的情况下查询字段；有效快照为只读本地值，不是协商结果。Python 同步/异步 Session、一次请求与 Node 独立 fetch 支持配置；已有 Session 的请求及 `Session.fetch` 不能替换。响应头与 Trailer 上限、总/阶段期限、取消和地址策略约束同上。窗口不是进程内存上限。
 
 正式原生库的五个平台、Linux race 与一次五分钟资源检查集中验收；真实对端观测初始流/连接窗口及 idle，头部与 Trailer 拒绝、兄弟请求取消、配置隔离和旧库前置拒绝分别验证。固定 Go 发行的窗口/保活机制证据与 SDK 对端映射证据分开引用。见完整 [SDK H3 配置](https://github.com/FastTLS/fastls-ffi/blob/v0.7.0/H3_CONFIG.zh-CN.md)。Fetch 0.3.0、RPC 0.3.1、MITM 0.1.2 不随 SDK 自动升级核心。
+
+
+## 2026-11-01：连接回收与交付收口
+
+Go **v0.2.1**、Python **0.7.1**、Node **0.16.1**、Fetch **v0.3.1**、RPC **v0.3.2**、MITM **v0.1.3** 使用同一最终核心，配套 profile **v0.1.1** 与 ftransport/imitate **v0.1.2**。核心默认入口为 main，v1/v2 分支与历史标签保留。
+
+H3 错误或内部重拨后停止向旧连接所属传输代分配新请求；原正文只保留自己的代，后续请求不能拖延回收。保持长正文并连续拒绝 20 次过大响应头时，真实对端在长正文结束前关闭另外 19 条连接；直连/地址策略均覆盖。服务保留可信启动配置、审计和停机契约，不额外开放七项 SDK 请求字段。
+
+Python 正式包装可提升同提交、同依赖/工具链/配置的认证原生字节；保留原 build-info/Go buildinfo，用独立 package-info 绑定外层与生产者身份，缺少或不等价证据仍构建并检查。上传与待确认分别记录，恢复不重置首次八分钟读取期限和最多三次发布尝试；支持只读确认。进度仅留 Actions，Release 草稿通过明确文件清单及摘要检查后再公开。
+
+本批集中开发后按最高风险统一验收；正式包装、标签和上传只补缺失的身份、安装、签名与线上证明。原 0.7.0 交付中 Node 保留原归档，Python 复用源码/资源证明但仍重编了原生库；该历史结果不当作新字节实测。详情见[交付契约](https://github.com/FastTLS/fastls-ffi/blob/v0.7.1/DELIVERY_LIFECYCLE.zh-CN.md)。

@@ -1,5 +1,7 @@
 # fastls-fetch
 
+当前版本 **v0.3.1** 固定 Go **v0.2.1**、profile **v0.1.1**、ftransport/imitate **v0.1.2**，继承 H3 回收修正，保持地址策略、审计和停机契约。下方旧版本说明保留各自历史范围。
+
 
 ## 服务 0.1.2：地址策略与升级
 
@@ -15,7 +17,7 @@ Fetch、JSON-RPC 与 gRPC 保持 `address_denied` 结果封装；MITM 在 CONNEC
 
 基于 HTTP 的 FastTLS Fetch 服务。它把 URL、请求头、Cookie、代理和 TLS 指纹配置转换为一次服务端 HTTP 请求，并以统一 JSON 结构返回结果。
 
-> 当前状态：`v0.3.0` 正式版。正式产物只在 GitHub Releases 发布；PyPI、npm、容器仓库等渠道不在发布范围内。
+> 当前状态：`v0.3.1` 正式版。正式产物只在 GitHub Releases 发布；PyPI、npm、容器仓库等渠道不在发布范围内。
 
 [使用文档](https://fasttls.github.io/ecosystem/) · [下载发布包](https://github.com/FastTLS/fastls-fetch/releases)
 

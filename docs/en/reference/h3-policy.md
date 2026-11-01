@@ -69,7 +69,7 @@ The address safety fix applies to this core source and the new native libraries.
 For this combination, use the exact Go module pinned by this SDK release:
 
 ```sh
-go get github.com/FastTLS/fastls@v0.2.0
+go get github.com/FastTLS/fastls@v0.2.1
 ```
 
 
@@ -226,3 +226,14 @@ idle; header/trailer rejection, sibling cancellation, owner isolation and real
 old-library rejection have separate checks. Fixed Go window/keepalive evidence
 is distinguished from SDK peer-mapping evidence. See the full [SDK H3 contract](https://github.com/FastTLS/fastls-ffi/blob/v0.7.0/H3_CONFIG.md).
 Fetch 0.3.0, RPC 0.3.1 and MITM 0.1.2 do not automatically adopt this core.
+
+
+## 2026-11-01: connection retirement and delivery
+
+Go **v0.2.1**, Python **0.7.1**, Node **0.16.1**, Fetch **v0.3.1**, RPC **v0.3.2** and MITM **v0.1.3** share the final core, with profile **v0.1.1** and ftransport/imitate **v0.1.2**. Core now defaults to main; historical v1/v2 branches and tags remain.
+
+An H3 error or internal redial stops new requests entering the old connection generation. Existing bodies retain their own generation; later requests cannot prolong it. With one held body and 20 oversized-header rejections, the peer closes the other 19 connections before that body completes, on both direct and address-policy paths. Services preserve trusted startup settings, audit and shutdown contracts without exposing the seven SDK request fields.
+
+Formal Python packaging can promote certified native bytes at the same commit/dependencies/toolchain/configuration. Original native build-info/Go buildinfo remain; separate package-info binds the outer package and producer. Missing or unequal evidence retains fresh builds and checks. Upload and confirmation-pending states are distinct; resumes preserve the first eight-minute read deadline and at most three publication attempts, including read-only confirmation. Progress stays in Actions; Release drafts pass an explicit asset-name/digest inventory before becoming public.
+
+Development is consolidated and frozen for the highest required risk tier. Packaging, tags and uploads add only missing identity, installation, signature and registry proof. In the historical 0.7.0 delivery, Node kept original archives while Python reused source/resource evidence but rebuilt native libraries; that evidence must not be described as measurements of different bytes. See [the delivery contract](https://github.com/FastTLS/fastls-ffi/blob/v0.7.1/DELIVERY_LIFECYCLE.md).

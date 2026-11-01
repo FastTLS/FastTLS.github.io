@@ -17,7 +17,7 @@ Only the Node main thread is supported, not worker_threads, Electron, Bun, or br
 Install the stable release:
 
 ```sh
-npm install @fastls/fastls@0.16.0
+npm install @fastls/fastls@0.16.1
 ```
 
 The main package installs the matching native optional dependency. Keep optional dependencies enabled. Platforms are Windows x64, Linux glibc x64/arm64, and macOS x64/arm64; musl and other architectures have no bundled package. Minimum OS/runtime requirements are recorded in native/manifest.json.

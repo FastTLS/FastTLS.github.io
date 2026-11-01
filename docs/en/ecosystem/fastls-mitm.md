@@ -1,5 +1,7 @@
 # Fastls MITM proxy
 
+Current **v0.1.3** pins Go **v0.2.1**, profile **v0.1.1**, and ftransport/imitate **v0.1.2**, inheriting H3 retirement fixes while preserving policy, audit, and shutdown contracts. Older sections retain their historical scope.
+
 
 ## Service 0.1.2: destination policy and upgrade
 

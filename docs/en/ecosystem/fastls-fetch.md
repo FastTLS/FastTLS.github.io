@@ -1,5 +1,7 @@
 # fastls-fetch
 
+Current **v0.3.1** pins Go **v0.2.1**, profile **v0.1.1**, and ftransport/imitate **v0.1.2**, inheriting H3 retirement fixes while preserving policy, audit, and shutdown contracts. Older sections retain their historical scope.
+
 
 ## Service 0.1.2: destination policy and upgrade
 
@@ -13,7 +15,7 @@ Archives cover Linux/Windows/macOS amd64 and arm64. Main runs service CI; develo
 
 An HTTP JSON service that turns a URL, headers, cookies, proxy, and TLS fingerprint options into a server-side request and returns a structured result.
 
-Stable **v0.3.0** binaries are distributed through [GitHub Releases](https://github.com/FastTLS/fastls-fetch/releases), not PyPI/npm/container registries. Download the matching OS/architecture, verify hashes/provenance, and unpack it. Binary users do not need Go.
+Stable **v0.3.1** binaries are distributed through [GitHub Releases](https://github.com/FastTLS/fastls-fetch/releases), not PyPI/npm/container registries. Download the matching OS/architecture, verify hashes/provenance, and unpack it. Binary users do not need Go.
 
 ## Capabilities
 
