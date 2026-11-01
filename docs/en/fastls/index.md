@@ -13,7 +13,7 @@ go get github.com/FastTLS/fastls@v0.2.1
 go get github.com/FastTLS/imitate@v0.1.1
 ```
 
-The stable core is v0.2.0. v2 is a source branch/implementation generation; the module path has no /v2 suffix. Pin a release rather than treating default-branch additions as released features.
+The stable core is v0.2.1 and the default branch is main. v2 remains a historical source branch/implementation generation; the module path has no /v2 suffix. Pin a release for a fixed installation source.
 
 ## First request
 

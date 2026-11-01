@@ -1,5 +1,7 @@
 # Fastls Node.js SDK
 
+当前安装示例使用完整正式版 0.16.0；0.16.1 已验收但六包尚未发布完成，状态见[发行说明](../releases/index.md)。
+
 Python 0.7.0 / Node 0.16.0 新增七项强类型 H3 配置、能力查询和有效快照，固定 Go v0.2.0；需显式 H3，配置只在 Session 创建时设置，不能逐请求改写。旧库缺 `http3_config_v1` 时在分配前拒绝。示例和值域见 [H3 配置](../reference/h3-policy.md)。
 
 Python 0.7.0 / Node 0.16.0 支持显式 H3 与可信 Session 地址策略组合，需原生 `http3_address_policy_v1`；旧库在分配资源前拒绝。见 [H3 地址策略](../reference/h3-policy.md)。
@@ -20,7 +22,7 @@ Node.js 22+ 的 Fastls C ABI v1 绑定，提供 Promise API、TypeScript 声明�
 安装指定版本：
 
 ```sh
-npm install @fastls/fastls@0.16.1
+npm install @fastls/fastls@0.16.0
 ```
 
 主包通过同版本的可选依赖自动安装当前平台的 Fastls 原生库。保留 optional dependencies；支持 Windows x64、Linux glibc x64/arm64、macOS x64/arm64。Linux musl 和其它架构没有内置包。具体系统最低版本见原生包的 `native/manifest.json`。

@@ -77,8 +77,8 @@
       "chinese": "fastls/index.md",
       "english": "en/fastls/index.md",
       "reviewed": "2026-11-01",
-      "chinese_sha256": "1508d4200ddd52b4c860719189930eba66802c2ea8fbfee5bd784ea3c6520463",
-      "english_sha256": "d9f02943d99afec341930a01f72201d5efe85bea3130dc9f7e5ca0465127d14f"
+      "chinese_sha256": "6459e1b2be449bb33fe70fd6c76021f55163ce0e3fa48ceb5e3debd12bfce40b",
+      "english_sha256": "9aefc0a462b7474161b9345cee76bc1fe03f571efd5d7f68fc73430d996c793e"
     },
     {
       "chinese": "fastls/profile-spec.md",
@@ -140,8 +140,8 @@
       "chinese": "node/index.md",
       "english": "en/node/index.md",
       "reviewed": "2026-11-01",
-      "chinese_sha256": "80abc7846b2c493222c7d5a9d3c4115579b2cf68af9b618e43f1ab840e283c0f",
-      "english_sha256": "d7f9f9b113a8634b61d372d6b70da5997cf6c05ddffb5a5d733002fa629aa892"
+      "chinese_sha256": "2ca995b01b7d74c1a2e36ba6b788bd20286a088a559ded8da5a12e577dc25be3",
+      "english_sha256": "e346e7288684b693a0c908c88eb3c87ff80531563feb01612abd780652a73cc7"
     },
     {
       "chinese": "python/index.md",
@@ -231,8 +231,8 @@
       "chinese": "releases/index.md",
       "english": "en/releases/index.md",
       "reviewed": "2026-11-01",
-      "chinese_sha256": "b854437242cda4d189b14d927955fc9f473b56e50580fe46877c5197431f2784",
-      "english_sha256": "2744f3d00676b3d231419facc0269bb0e54cda9a04a5ac81e5b66dd3ca6a4159"
+      "chinese_sha256": "26c5d63ddfa9b3736feb45359e3ad0793730f607199e4a5772cb1aa3682af541",
+      "english_sha256": "bd85c5860e6b376927b83f8be59ac8e833af93b530226bbf78295b248cf7a0a6"
     },
     {
       "chinese": "reference/reliability.md",
@@ -251,8 +251,8 @@
     {
       "chinese": "reference/h3-policy.md",
       "english": "en/reference/h3-policy.md",
-      "chinese_sha256": "d67b466c71668fa5e52e82874715a7461502f1f82ea7bdba4f0a9fd190da9217",
-      "english_sha256": "da39986dac72eb5d1c6b2072d05b5eb8734aa3ee93a54ceb591ff9a167ea50b3",
+      "chinese_sha256": "11fd087ece83ec0d4e81c58cea7aa5e7da0d43767e5c964fb4c5f5b2f9741342",
+      "english_sha256": "884027bf69b5ccb2abfbf343ed869fb52b8b6b200289e6f7f2ce46f26587d359",
       "reviewed": "2026-11-01"
     }
   ]
