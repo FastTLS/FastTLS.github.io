@@ -104,3 +104,5 @@ spec_json、sha256、source。SHA-256 固定精确 Spec UTF-8 字节，摘要只
 工具不联网、不自动下载浏览器，不包含在线发现、采集、自动 PR 或定时更新。
 
 Python 0.4.0 / Node 0.13.0 提供单独、显式执行的[浏览器配置候选工具与 JA3/H2 转换](../reference/browser-profiles.md)。配置导入和请求不会隐式检查或下载更新，候选仍需手动审核及启用。
+
+当前源库已每日维护；SDK 升级与 Bundle 显式采用仍分别执行，详见[当前维护及发布范围](../reference/browser-profiles.md)。

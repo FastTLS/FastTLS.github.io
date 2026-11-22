@@ -1,6 +1,6 @@
 # Fastls MITM 代理
 
-当前版本 **v0.1.3** 固定 Go **v0.2.1**、profile **v0.1.1**、ftransport/imitate **v0.1.2**，继承 H3 回收修正，保持地址策略、审计和停机契约。下方旧版本说明保留各自历史范围。
+当前版本 **v0.1.4** 固定 Go **v0.2.1**、profile **v0.1.1**、ftransport **v0.1.2** 和 imitate **v0.1.3**。显式 chrome158、edge158、firefox160 可选择新 Windows 配置，地址策略、审计和停机契约保持。
 
 
 ## 服务 0.1.2：地址策略与升级

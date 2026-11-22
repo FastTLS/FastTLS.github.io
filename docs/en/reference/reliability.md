@@ -87,3 +87,5 @@ or Node `new ProfileStore("profiles").load()`, then passed as `profile_spec` /
 `profileSpec` using its `spec` property.
 
 The explicit external [browser candidate workflow and compact JA3/H2 converter](../reference/browser-profiles.md) are available in Python 0.4.0 / Node 0.13.0. Profile import and requests remain offline with respect to updates; candidate activation is manual.
+
+Current source maintenance runs daily; SDK upgrades and explicit Bundle activation remain separate. See [current maintenance and release scope](../reference/browser-profiles.md).

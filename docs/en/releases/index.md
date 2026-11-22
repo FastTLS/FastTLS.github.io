@@ -1,16 +1,21 @@
 # Versions, installation channels, and upgrades
 
-Checked on 2026-11-01. Pin versions for reproducible installation and review release notes before upgrading; package manager tags may change.
+Checked on 2026-11-22. Pin exact versions; default registry tags can change.
 
-- Go Fastls: `v0.2.1`, module `github.com/FastTLS/fastls`. Dependencies remain fixed as recorded in that tag's go.mod; independent generators, SDKs and services are not automatically upgraded.
-- Python: published PyPI package `fastls==0.7.1`, imported as `fastls`. Uninstall the historical `fastls-ffi` distribution before migrating.
-- Node: the last complete stable set remains `@fastls/fastls@0.16.0`. The 0.16.1 candidate passed validation and was partly uploaded; two platform packages and the main package remain unpublished. Do not assume matching latest tags across all six packages.
-- Fetch, RPC, and MITM: independent GitHub Release binaries, separate from language SDK packages.
+- Go Fastls: **v0.2.1**, profile **v0.1.1**, ftransport **v0.1.2**. No transport implementation update is required for this delivery.
+- Independent generator imitate: **v0.1.3**, data revision `browser-8ee4c22c6b779cbb`.
+- Python: **fastls==0.7.3**; Node: **@fastls/fastls@0.16.3**, with matching versions across all six npm packages.
+- Fetch **v0.3.2**, RPC **v0.3.3**, MITM **v0.1.4**, fcurl **v0.2.3**: independent GitHub Release artifacts.
 
-Python 0.7.1 and the Node 0.16.1 candidate use Go v0.2.1; Node 0.16.0 uses Go v0.2.0; the historical SDK H3 policy combination uses core `v0.1.3-0.20261030152832-0dc4eea0f32e`; earlier stable tags do not imply this capability. See [exact source and restrictions](../reference/h3-policy.md).
+## 2026-11-22: browser fingerprint delivery
 
+These SDK, service and CLI releases pin imitate v0.1.3, including Windows x64 cold-navigation profiles based on Chrome 158.0.8127.37, Edge 158.0.4370.33 and Firefox 160.0.1. Daily source maintenance does not upgrade existing installations. Upgrade explicitly or import and pin a Bundle through ProfileStore. Services now accept firefox159/firefox160; existing default selectors remain compatible.
 
+Dependency/native packaging risk requires platform, race, short resource and real installation checks, with source/digest verification of released bytes. npm publication uses the existing GitHub Actions OIDC Trusted Publisher. See [browser maintenance](../reference/browser-profiles.md) for evidence scope and automation boundaries.
 
+The generic Node resource soak uses fixed test-process VM parameters. Default Node 24.22.3 RSS observations that missed the same limit remain recorded; the controlled result is not a default-VM memory guarantee. See [Node validation scope](https://github.com/FastTLS/fastls-ffi/blob/node-v0.16.3/node/PARITY.md).
+
+Python 0.7.2 / Node 0.16.2 were published on November 7 with HTTP defaults for schemeless proxy addresses. The incomplete November 1 publication status below is retained as history.
 
 ## 2026-11-01: connection retirement and delivery
 

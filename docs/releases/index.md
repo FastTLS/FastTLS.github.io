@@ -1,16 +1,21 @@
 # 版本、安装渠道与升级
 
-核对日期：2026-11-01。以下版本用于文档中的安装示例。建议固定版本安装；包管理器的默认标签可能变化，升级前先阅读对应发布说明。
+核对日期：2026-11-22。建议固定版本安装；默认标签可能变化。
 
-- Go Fastls：v0.2.1；github.com/FastTLS/fastls。依赖保持固定版本，详见该标签 go.mod；不自动更新独立生成器、SDK 或服务。
-- Python：PyPI 当前正式版 fastls==0.7.1，导入名 fastls；历史 fastls-ffi 发行包先卸载再迁移。
-- Node：当前完整正式版仍为 @fastls/fastls@0.16.0。0.16.1 已验收并部分上传，两个平台包和主包待发布；本批尚未完成，不能依赖六包 latest 一致。
-- Fetch、RPC、MITM：GitHub Releases 的独立服务产物，与 Python/Node 包不是同一个安装入口。
+- Go Fastls：**v0.2.1**；profile **v0.1.1**、ftransport **v0.1.2**，本批无需修改底层协议。
+- 独立指纹库 imitate：**v0.1.3**，数据修订 `browser-8ee4c22c6b779cbb`。
+- Python：**fastls==0.7.3**；Node：**@fastls/fastls@0.16.3**，六个 npm 包使用同一版本。
+- Fetch **v0.3.2**、RPC **v0.3.3**、MITM **v0.1.4**、fcurl **v0.2.3**：各自 GitHub Releases 的独立产物。
 
-Python 0.7.1 与 Node 0.16.1 候选使用 Go v0.2.1，Node 0.16.0 使用 Go v0.2.0；历史 SDK H3 与策略组合使用核心 `v0.1.3-0.20261030152832-0dc4eea0f32e`；旧稳定标签不代表包含此能力，见 [固定来源与限制](../reference/h3-policy.md)。
+## 2026-11-22：浏览器指纹交付
 
+上述 SDK、服务和 CLI 固定 imitate v0.1.3，包含 Chrome 158.0.8127.37、Edge 158.0.4370.33、Firefox 160.0.1 的 Windows x64 冷导航配置。每日源库维护不自动升级既有安装；请显式升级或通过 ProfileStore 导入和固定 Bundle。三个服务补齐 firefox159／firefox160 选择，既有默认 selector 保持兼容。
 
+本批按依赖和原生打包风险进行跨平台、竞态、短时资源与实际安装检查；每份发行物核对来源和摘要。npm 通过既有 GitHub Actions OIDC Trusted Publisher 发布。验证范围和自动更新边界见[浏览器配置维护](../reference/browser-profiles.md)。
 
+Node 的通用资源长测使用固定测试进程参数；默认 Node 24.22.3 的 RSS 观察仍保留未达同一门槛的记录，不作默认 VM 的相同内存保证。条件与原始失败范围见 [Node 验收说明](https://github.com/FastTLS/fastls-ffi/blob/node-v0.16.3/node/PARITY.md)。
+
+2026-11-07 已发布 Python 0.7.2／Node 0.16.2，为省略协议的代理地址补齐 HTTP 默认协议；下方 11 月 1 日的未完成状态保留为历史记录。
 
 ## 2026-11-01：连接回收与交付收口
 

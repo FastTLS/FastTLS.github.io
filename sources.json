@@ -3,33 +3,33 @@
     "page": "python/index.md",
     "repo": "fastls-ffi",
     "file": "python/README.md",
-    "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-11-01",
-    "documented_commit": "9651bb39ce8e612ec2c1d6029b0a5d9478ca9c47"
+    "baseline": "4d8b66b48fda97163edc51208f29948fb8add000",
+    "reviewed": "2026-11-22",
+    "documented_commit": "4d8b66b48fda97163edc51208f29948fb8add000"
   },
   {
     "page": "python/install.md",
     "repo": "fastls-ffi",
     "file": "INSTALL.md",
-    "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-11-01",
-    "documented_commit": "9651bb39ce8e612ec2c1d6029b0a5d9478ca9c47"
+    "baseline": "4d8b66b48fda97163edc51208f29948fb8add000",
+    "reviewed": "2026-11-22",
+    "documented_commit": "4d8b66b48fda97163edc51208f29948fb8add000"
   },
   {
     "page": "node/index.md",
     "repo": "fastls-ffi",
     "file": "node/README.md",
-    "baseline": "8d51a663ba9bd07d8fba5eb05a10ffe779902c1f",
-    "reviewed": "2026-11-01",
-    "documented_commit": "9651bb39ce8e612ec2c1d6029b0a5d9478ca9c47"
+    "baseline": "4d8b66b48fda97163edc51208f29948fb8add000",
+    "reviewed": "2026-11-22",
+    "documented_commit": "4d8b66b48fda97163edc51208f29948fb8add000"
   },
   {
     "page": "fastls/profiles.md",
     "repo": "fastls",
     "file": "imitate/README.md",
-    "baseline": "a57a7c51852b80976a07d7ce50ab758c22d44434",
-    "reviewed": "2026-10-27",
-    "documented_commit": "fc600f7cc01df1a9ca1784fc15e95eb388f8425c"
+    "baseline": "edc5754412360c505189048e31bca10d53ee28dd",
+    "reviewed": "2026-11-22",
+    "documented_commit": "edc5754412360c505189048e31bca10d53ee28dd"
   },
   {
     "page": "fastls/profile-spec.md",
@@ -123,25 +123,25 @@
     "page": "ecosystem/fastls-fetch.md",
     "repo": "fastls-fetch",
     "file": "README.md",
-    "baseline": "4a3fd18eb0b4cd019beff4d63f03fcc33c3754fd",
-    "reviewed": "2026-10-31",
-    "documented_commit": "486973c7601dac79a511b1157a0cbf0274be1213"
+    "baseline": "4f75c49aa507ad453413ad26658d55ed1e2b2c98",
+    "reviewed": "2026-11-22",
+    "documented_commit": "4f75c49aa507ad453413ad26658d55ed1e2b2c98"
   },
   {
     "page": "ecosystem/fastls-rpc.md",
     "repo": "fastls-rpc",
     "file": "README.md",
-    "baseline": "be67ee6b61961d589e5aa0e7bd00c16e24accdd8",
-    "reviewed": "2026-10-31",
-    "documented_commit": "d14fade742732d2f9f511e8bfe0d1244f15c5b70"
+    "baseline": "c3b38f51290c1464d9f77ded740bfc9e7899d2d5",
+    "reviewed": "2026-11-22",
+    "documented_commit": "c3b38f51290c1464d9f77ded740bfc9e7899d2d5"
   },
   {
     "page": "ecosystem/fastls-mitm.md",
     "repo": "fastls-mitm",
     "file": "README.md",
-    "baseline": "594a0962c826df9cc247f803c2ddcfa6de744ab5",
-    "reviewed": "2026-10-31",
-    "documented_commit": "827c15768a9f9237abe3602b1ec53903d4ac4e72"
+    "baseline": "813484f98c0519e51ae179239a48fbfa54e75db3",
+    "reviewed": "2026-11-22",
+    "documented_commit": "813484f98c0519e51ae179239a48fbfa54e75db3"
   },
   {
     "page": "ecosystem/ftransport.md",
@@ -155,9 +155,9 @@
     "page": "ecosystem/imitate.md",
     "repo": "imitate",
     "file": "README.md",
-    "baseline": "780f88aaef8474f09035855f906ecc90dd0f4102",
-    "reviewed": "2026-10-27",
-    "documented_commit": "fd10ea4393408e904ae2866ecbfe3efaaaa6ad8e"
+    "baseline": "7d105953ef6a49dee5eb18c7cba50e2ddb67712f",
+    "reviewed": "2026-11-22",
+    "documented_commit": "7d105953ef6a49dee5eb18c7cba50e2ddb67712f"
   },
   {
     "page": "ecosystem/fastls-lab.md",
@@ -179,8 +179,8 @@
     "page": "reference/browser-profiles.md",
     "repo": "fastls-ffi",
     "file": "FINGERPRINTS.zh-CN.md",
-    "baseline": "2d4745443e7c72d068fc3cff6c3d168821b3c265",
-    "documented_commit": "b0589651002339a5192b82b8815bd804fab80b1f",
-    "reviewed": "2026-10-30"
+    "baseline": "4d8b66b48fda97163edc51208f29948fb8add000",
+    "documented_commit": "4d8b66b48fda97163edc51208f29948fb8add000",
+    "reviewed": "2026-11-22"
   }
 ]

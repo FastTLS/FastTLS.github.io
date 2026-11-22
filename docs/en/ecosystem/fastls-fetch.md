@@ -1,6 +1,6 @@
 # fastls-fetch
 
-Current **v0.3.1** pins Go **v0.2.1**, profile **v0.1.1**, and ftransport/imitate **v0.1.2**, inheriting H3 retirement fixes while preserving policy, audit, and shutdown contracts. Older sections retain their historical scope.
+Current **v0.3.2** pins Go **v0.2.1**, profile **v0.1.1**, ftransport **v0.1.2** and imitate **v0.1.3**. Explicit chrome158, edge158 and firefox160 select the updated Windows profiles. Policy, audit and shutdown contracts remain unchanged.
 
 
 ## Service 0.1.2: destination policy and upgrade
